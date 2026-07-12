@@ -1,6 +1,8 @@
-export type ExerciseCategory = 'Biceps' | 'Triceps' | 'Hombros' | 'Antebrazos';
-export type Equipment = 'Una mancuerna de 5 kg' | 'Dos mancuernas de 5 kg';
+export type ExerciseCategory = 'Biceps' | 'Triceps' | 'Hombros' | 'Antebrazos' | 'Piernas' | 'Gluteos';
+export type Equipment = 'Peso corporal' | 'Una mancuerna de 5 kg' | 'Dos mancuernas de 5 kg';
 export type Difficulty = 'Principiante';
+export type SessionId = 'A' | 'B' | 'C';
+export type WorkoutGroup = 'Brazos' | 'Piernas';
 export type AnimationType =
   | 'biceps-curl'
   | 'hammer-curl'
@@ -11,7 +13,12 @@ export type AnimationType =
   | 'reverse-curl'
   | 'lateral-raise'
   | 'triceps-kickback'
-  | 'isometric-hold';
+  | 'isometric-hold'
+  | 'goblet-squat'
+  | 'romanian-deadlift'
+  | 'reverse-lunge'
+  | 'calf-raise'
+  | 'glute-bridge';
 
 export interface Exercise {
   id: string;
@@ -42,10 +49,11 @@ export interface WarmupStep {
 }
 
 export interface WorkoutSession {
-  id: 'A' | 'B';
+  id: SessionId;
   name: string;
   dayLabel: string;
   estimatedMinutes: string;
+  group: WorkoutGroup;
   exerciseIds: string[];
 }
 
@@ -59,7 +67,7 @@ export interface CompletedSet {
 export interface WorkoutLog {
   id: string;
   date: string;
-  sessionId: 'A' | 'B';
+  sessionId: SessionId;
   completedExercises: string[];
   completedSets: CompletedSet[];
   durationSeconds: number;
@@ -79,7 +87,7 @@ export interface UserSettings {
 }
 
 export interface ActiveWorkoutState {
-  sessionId: 'A' | 'B';
+  sessionId: SessionId;
   startedAt: number;
   currentExerciseIndex: number;
   currentSet: number;
