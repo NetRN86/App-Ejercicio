@@ -1,12 +1,13 @@
 import { Gamepad2 } from 'lucide-react';
 import { useState } from 'react';
-import type { Exercise, PracticeAttempt } from '../types';
+import type { Exercise, PracticeAttempt, UserSettings } from '../types';
 import { savePracticeAttempt } from '../services/practiceStorage';
 import { scoreRhythmAttempt } from '../utils/rhythm';
 import { PracticeMetronome } from './PracticeMetronome';
 
 interface Props {
   exercise: Exercise;
+  settings: UserSettings;
   onContinue: () => void;
 }
 
@@ -15,7 +16,7 @@ const INTERVAL_MS = 2000;
 
 type Stage = 'offer' | 'running' | 'result';
 
-export function PreSetPractice({ exercise, onContinue }: Props) {
+export function PreSetPractice({ exercise, settings, onContinue }: Props) {
   const [stage, setStage] = useState<Stage>('offer');
   const [startTimeMs, setStartTimeMs] = useState(0);
   const [taps, setTaps] = useState<number[]>([]);
@@ -64,7 +65,15 @@ export function PreSetPractice({ exercise, onContinue }: Props) {
     return (
       <div className="pre-set-practice">
         <p>Marca cada repetición simulada al ritmo del pulso, sin peso en las manos.</p>
-        <PracticeMetronome intervalMs={INTERVAL_MS} targetReps={TARGET_REPS} running onTap={registerTap} repsDone={taps.length} />
+        <PracticeMetronome
+          intervalMs={INTERVAL_MS}
+          targetReps={TARGET_REPS}
+          running
+          onTap={registerTap}
+          repsDone={taps.length}
+          soundEnabled={settings.soundEnabled}
+          vibrationEnabled={settings.vibrationEnabled}
+        />
       </div>
     );
   }

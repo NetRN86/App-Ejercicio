@@ -67,7 +67,7 @@ export function App() {
         {page === 'rutina' && <RoutinePage onStart={startWorkout} />}
         {page === 'entrenamiento' && <WorkoutPage sessionId={activeSession} settings={settings} onFinish={finishWorkout} onExit={() => setPage('inicio')} />}
         {page === 'biblioteca' && <LibraryPage />}
-        {page === 'practica' && <PracticePage />}
+        {page === 'practica' && <PracticePage settings={settings} />}
         {page === 'productos' && <ProductsPage />}
         {page === 'progreso' && <ProgressPage logs={logs} />}
         {page === 'configuracion' && <SettingsPage settings={settings} onChange={setSettings} onReset={resetProgress} />}

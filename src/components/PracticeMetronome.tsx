@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { playBeep, triggerVibration } from '../utils/feedback';
 
 interface Props {
   intervalMs: number;
@@ -6,16 +7,22 @@ interface Props {
   running: boolean;
   onTap: (timestampMs: number) => void;
   repsDone: number;
+  soundEnabled?: boolean;
+  vibrationEnabled?: boolean;
 }
 
-export function PracticeMetronome({ intervalMs, targetReps, running, onTap, repsDone }: Props) {
+export function PracticeMetronome({ intervalMs, targetReps, running, onTap, repsDone, soundEnabled = false, vibrationEnabled = false }: Props) {
   const [beat, setBeat] = useState(0);
 
   useEffect(() => {
     if (!running) return;
-    const id = window.setInterval(() => setBeat((value) => value + 1), intervalMs);
+    const id = window.setInterval(() => {
+      setBeat((value) => value + 1);
+      if (soundEnabled) playBeep();
+      if (vibrationEnabled) triggerVibration(40);
+    }, intervalMs);
     return () => window.clearInterval(id);
-  }, [running, intervalMs]);
+  }, [running, intervalMs, soundEnabled, vibrationEnabled]);
 
   return (
     <div className="practice-metronome">

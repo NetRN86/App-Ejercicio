@@ -359,6 +359,12 @@ p {
   fill: var(--accent);
 }
 
+.ground-line {
+  stroke: var(--line);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
 .arrow,
 .arrow-head {
   fill: none;
@@ -383,8 +389,19 @@ p {
 }
 
 .is-playing .forearm,
+.is-playing .left-forearm,
+.is-playing .right-forearm,
+.is-playing .left-arm,
+.is-playing .right-arm,
 .is-playing .dumbbell,
-.is-playing .arrow-main {
+.is-playing .front-leg,
+.is-playing .back-leg,
+.is-playing .squat-body,
+.is-playing .hinge-body,
+.is-playing .bridge-hip,
+.is-playing .calf-body,
+.is-playing .kickback-torso,
+.is-playing .kickback-head {
   animation-duration: 1.8s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -392,8 +409,19 @@ p {
 }
 
 .is-slow .forearm,
+.is-slow .left-forearm,
+.is-slow .right-forearm,
+.is-slow .left-arm,
+.is-slow .right-arm,
 .is-slow .dumbbell,
-.is-slow .arrow-main {
+.is-slow .front-leg,
+.is-slow .back-leg,
+.is-slow .squat-body,
+.is-slow .hinge-body,
+.is-slow .bridge-hip,
+.is-slow .calf-body,
+.is-slow .kickback-torso,
+.is-slow .kickback-head {
   animation-duration: 3.8s;
 }
 
@@ -401,6 +429,7 @@ p {
   animation-play-state: paused;
 }
 
+/* Curl: brazos que suben doblando el codo, mancuernas a los lados. */
 .motion-biceps-curl .left-forearm,
 .motion-hammer-curl .left-forearm,
 .motion-reverse-curl .left-forearm,
@@ -415,48 +444,63 @@ p {
 .motion-biceps-curl .right-weight,
 .motion-hammer-curl .right-weight,
 .motion-reverse-curl .right-weight { animation-name: lift-right; }
-.motion-shoulder-press .left-forearm,
-.motion-overhead-triceps .left-forearm { animation-name: press-left; transform-origin: 108px 92px; }
-.motion-shoulder-press .right-forearm,
-.motion-overhead-triceps .right-forearm { animation-name: press-right; transform-origin: 152px 92px; }
-.motion-shoulder-press .left-weight,
-.motion-overhead-triceps .left-weight { animation-name: press-weight-left; }
-.motion-shoulder-press .right-weight,
-.motion-overhead-triceps .right-weight { animation-name: press-weight-right; }
-.motion-lateral-raise .upper-arm { animation-name: lateral-arms; animation-duration: 1.8s; animation-iteration-count: infinite; animation-direction: alternate; transform-origin: 130px 80px; }
-.motion-triceps-kickback .right-forearm { animation-name: kickback; transform-origin: 152px 92px; }
-.motion-triceps-kickback .right-weight { animation-name: kickback-weight; }
-.motion-farmers-walk .body,
+
+/* Press de hombros: manos ya a la altura de la oreja, extienden hacia arriba. */
+.motion-shoulder-press .left-forearm { animation-name: press-left; transform-origin: 110px 86px; }
+.motion-shoulder-press .right-forearm { animation-name: press-right; transform-origin: 150px 86px; }
+.motion-shoulder-press .left-weight { animation-name: press-weight-left; }
+.motion-shoulder-press .right-weight { animation-name: press-weight-right; }
+
+/* Extension de triceps: una mancuerna sostenida con ambas manos detras de la cabeza, sube. */
+.motion-overhead-triceps .left-forearm { animation-name: triceps-extend; transform-origin: 120px 78px; }
+.motion-overhead-triceps .right-forearm { animation-name: triceps-extend; transform-origin: 140px 78px; }
+.motion-overhead-triceps .single-weight { animation-name: triceps-extend; }
+
+/* Elevaciones laterales: brazos cuelgan a los lados y suben hasta la horizontal. */
+.motion-lateral-raise .left-arm,
+.motion-lateral-raise .left-weight { animation-name: raise-left; transform-origin: 130px 80px; }
+.motion-lateral-raise .right-arm,
+.motion-lateral-raise .right-weight { animation-name: raise-right; transform-origin: 130px 80px; }
+
+/* Patada de triceps: torso inclinado hacia adelante, codo fijo, antebrazo extiende hacia atras. */
+.motion-triceps-kickback .right-forearm { animation-name: kickback; transform-origin: 148px 100px; }
+.motion-triceps-kickback .single-weight { animation-name: kickback-weight; }
+
+/* Farmer's walk: postura de pie con mancuernas a los lados, piernas alternan como al caminar. */
+.motion-farmers-walk .front-leg { animation-name: step-forward; transform-origin: 130px 126px; }
+.motion-farmers-walk .back-leg { animation-name: step-back; transform-origin: 130px 126px; }
 .motion-farmers-walk .body-line,
-.motion-farmers-walk .arm,
-.motion-farmers-walk .leg,
-.motion-farmers-walk .dumbbell { animation: walk-bob 1s ease-in-out infinite alternate; }
-.motion-isometric-hold .dumbbell { animation-name: hold-pulse; }
-.motion-goblet-squat .body,
-.motion-goblet-squat .body-line,
-.motion-goblet-squat .upper-arm,
-.motion-goblet-squat .forearm,
-.motion-goblet-squat .dumbbell { animation-name: squat-drop; }
+.motion-farmers-walk .left-arm,
+.motion-farmers-walk .right-arm,
+.motion-farmers-walk .left-weight,
+.motion-farmers-walk .right-weight { animation-name: walk-bob; }
+
+/* Sosten isometrico: misma postura de pie, quieta, solo el agarre "pulsa". */
+.motion-isometric-hold .left-weight,
+.motion-isometric-hold .right-weight { animation-name: hold-pulse; }
+
+/* Sentadilla goblet: rodillas ya dobladas en reposo; el cuerpo baja mas y las rodillas se abren. */
+.motion-goblet-squat .squat-body { animation-name: squat-drop; }
 .motion-goblet-squat .leg { animation: squat-knees 1.8s ease-in-out infinite alternate; transform-origin: 130px 126px; }
-.motion-romanian-deadlift .body-line,
-.motion-romanian-deadlift .body,
-.motion-romanian-deadlift .arm,
-.motion-romanian-deadlift .dumbbell { animation-name: hinge-forward; transform-origin: 130px 126px; }
-.motion-reverse-lunge .leg { animation: lunge-step 1.8s ease-in-out infinite alternate; transform-origin: 130px 126px; }
-.motion-reverse-lunge .body,
+
+/* Peso muerto rumano: torso ya inclinado hacia adelante en reposo (cadera hacia atras); profundiza la inclinacion. */
+.motion-romanian-deadlift .hinge-body { animation-name: hinge-deepen; transform-origin: 130px 126px; }
+
+/* Zancada reversa: postura de tijera ya dibujada; las piernas acentuan el paso. */
+.motion-reverse-lunge .front-leg { animation-name: lunge-front; transform-origin: 130px 126px; }
+.motion-reverse-lunge .back-leg { animation-name: lunge-back; transform-origin: 130px 126px; }
 .motion-reverse-lunge .body-line,
-.motion-reverse-lunge .arm,
-.motion-reverse-lunge .dumbbell { animation-name: lunge-drop; }
-.motion-calf-raise .body,
-.motion-calf-raise .body-line,
-.motion-calf-raise .arm,
-.motion-calf-raise .leg,
-.motion-calf-raise .dumbbell { animation-name: calf-rise; }
-.motion-glute-bridge .body,
-.motion-glute-bridge .body-line,
-.motion-glute-bridge .arm,
-.motion-glute-bridge .leg,
-.motion-glute-bridge .dumbbell { animation-name: bridge-lift; }
+.motion-reverse-lunge .left-arm,
+.motion-reverse-lunge .right-arm,
+.motion-reverse-lunge .left-weight,
+.motion-reverse-lunge .right-weight { animation-name: lunge-drop; }
+
+/* Elevacion de talones: de pie, todo el cuerpo sube un poco al pararse de puntas. */
+.motion-calf-raise .calf-body { animation-name: calf-rise; }
+
+/* Puente de gluteos: figura acostada de lado; la cadera (con la mancuerna) se eleva. */
+.motion-glute-bridge .bridge-hip { animation-name: bridge-lift; transform-origin: 76px 150px; }
+
 .motion-one-arm-row .right-forearm { animation-name: kickback; transform-origin: 152px 92px; }
 .motion-one-arm-row .right-weight { animation-name: kickback-weight; }
 .motion-bent-over-row .body,
@@ -485,22 +529,27 @@ p {
 @keyframes curl-right { to { transform: rotate(58deg); } }
 @keyframes lift-left { to { transform: translate(22px, -42px); } }
 @keyframes lift-right { to { transform: translate(-22px, -42px); } }
-@keyframes press-left { to { transform: rotate(-115deg); } }
-@keyframes press-right { to { transform: rotate(115deg); } }
-@keyframes press-weight-left { to { transform: translate(10px, -76px); } }
-@keyframes press-weight-right { to { transform: translate(-10px, -76px); } }
-@keyframes lateral-arms { to { transform: scaleX(1.55) translateY(-10px); } }
-@keyframes kickback { to { transform: rotate(82deg); } }
-@keyframes kickback-weight { to { transform: translate(34px, -26px); } }
-@keyframes walk-bob { to { transform: translateY(-5px); } }
+@keyframes press-left { to { transform: rotate(-16deg) translateY(-14px); } }
+@keyframes press-right { to { transform: rotate(16deg) translateY(-14px); } }
+@keyframes press-weight-left { to { transform: translate(6px, -18px); } }
+@keyframes press-weight-right { to { transform: translate(-6px, -18px); } }
+@keyframes triceps-extend { to { transform: translateY(-16px); } }
+@keyframes raise-left { to { transform: rotate(50deg); } }
+@keyframes raise-right { to { transform: rotate(-50deg); } }
+@keyframes kickback { to { transform: rotate(78deg); } }
+@keyframes kickback-weight { to { transform: translate(30px, 10px); } }
+@keyframes step-forward { to { transform: rotate(14deg); } }
+@keyframes step-back { to { transform: rotate(-14deg); } }
+@keyframes walk-bob { to { transform: translateY(-4px); } }
 @keyframes hold-pulse { to { opacity: 0.72; } }
-@keyframes squat-drop { to { transform: translateY(24px); } }
-@keyframes squat-knees { to { transform: scaleX(1.18) translateY(12px); } }
-@keyframes hinge-forward { to { transform: rotate(18deg) translateY(12px); } }
-@keyframes lunge-step { to { transform: translateX(12px) rotate(-10deg); } }
-@keyframes lunge-drop { to { transform: translateY(18px); } }
-@keyframes calf-rise { to { transform: translateY(-13px); } }
-@keyframes bridge-lift { to { transform: translateY(-18px) rotate(-4deg); } }
+@keyframes squat-drop { to { transform: translateY(20px); } }
+@keyframes squat-knees { to { transform: scaleX(1.18) translateY(10px); } }
+@keyframes hinge-deepen { to { transform: rotate(10deg); } }
+@keyframes lunge-front { to { transform: rotate(8deg); } }
+@keyframes lunge-back { to { transform: rotate(-8deg); } }
+@keyframes lunge-drop { to { transform: translateY(10px); } }
+@keyframes calf-rise { to { transform: translateY(-10px); } }
+@keyframes bridge-lift { to { transform: rotate(-10deg); } }
 
 .routine-choice-grid {
   display: grid;
@@ -927,4 +976,21 @@ label {
   border-left: 6px solid var(--brand);
   border-radius: 8px;
   background: var(--surface-strong);
+}
+
+.product-suggestions {
+  margin-top: 6px;
+}
+
+.product-suggestions ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.product-suggestions li {
+  margin-bottom: 4px;
+}
+
+.product-suggestions li span {
+  color: var(--muted);
 }

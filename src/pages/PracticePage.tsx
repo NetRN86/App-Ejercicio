@@ -4,7 +4,7 @@ import { exercises } from '../data/exercises';
 import { PracticeMetronome } from '../components/PracticeMetronome';
 import { getBestAccuracyForExercise, getPracticeAttempts, savePracticeAttempt } from '../services/practiceStorage';
 import { scoreRhythmAttempt } from '../utils/rhythm';
-import type { PracticeAttempt } from '../types';
+import type { PracticeAttempt, UserSettings } from '../types';
 
 const TARGET_REPS = 6;
 const TEMPOS = [
@@ -13,7 +13,11 @@ const TEMPOS = [
   { id: 'rapido', label: 'Rápido', intervalMs: 1500 },
 ];
 
-export function PracticePage() {
+interface Props {
+  settings: UserSettings;
+}
+
+export function PracticePage({ settings }: Props) {
   const [exerciseId, setExerciseId] = useState(exercises[0]?.id ?? '');
   const [tempoId, setTempoId] = useState(TEMPOS[1].id);
   const [running, setRunning] = useState(false);
@@ -97,6 +101,8 @@ export function PracticePage() {
             running={running}
             onTap={registerTap}
             repsDone={taps.length}
+            soundEnabled={settings.soundEnabled}
+            vibrationEnabled={settings.vibrationEnabled}
           />
         )}
 

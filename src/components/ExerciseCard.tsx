@@ -1,5 +1,6 @@
 import type { Exercise } from '../types';
 import { ExerciseAnimation } from './ExerciseAnimation';
+import { ProductSuggestions } from './ProductSuggestions';
 
 interface Props {
   exercise: Exercise;
@@ -37,6 +38,7 @@ export function ExerciseCard({ exercise, compact = false }: Props) {
               <p><strong>Más difícil:</strong> {exercise.harderVariation}</p>
               <p><strong>Seguridad:</strong> {exercise.safetyNotes.join(' ')}</p>
             </details>
+            <ProductSuggestions exerciseId={exercise.id} />
           </>
         )}
       </div>
