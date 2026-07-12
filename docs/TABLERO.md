@@ -37,7 +37,6 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
-| C3 | Productos ligados a ejercicios | "Te falta X para el ejercicio Y": cruzar `Product.usedFor` con los ejercicios reales por id (no por nombre en texto), y mostrar productos sugeridos en la tarjeta del ejercicio si aplica. |
 | C4 | PWA instalable | Manifest + service worker (offline básico de assets). Probar en teléfono real. |
 
 ## Tareas cruzadas (Épica 10 — cualquiera puede tomarlas)
@@ -49,6 +48,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ C3 — Productos ligados a ejercicios reales por id, sugeridos en la tarjeta del ejercicio (Claude, PR #15)
 - ✅ C2 — Sonido y vibración en el metrónomo de práctica, respetando Ajustes (Claude, PR #14)
 - ✅ X2 — Rediseño de figuras de animación por ejercicio (Claude, PR #12)
 - ✅ C1 — Práctica de ritmo ofrecida antes del primer set de un ejercicio nuevo (Claude, PR #11)

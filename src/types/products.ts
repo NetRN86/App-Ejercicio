@@ -8,6 +8,8 @@ export interface Product {
   currency: 'MXN';
   vendorName: string;
   vendorSearchUrl: string;
-  usedFor: string[];
+  /** ids reales de src/data/exercises.ts, no nombres en texto libre. */
+  exerciseIds: string[];
+  generalPurpose?: string;
   note?: string;
 }

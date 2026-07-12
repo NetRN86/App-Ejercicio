@@ -953,3 +953,20 @@ label {
   border-radius: 8px;
   background: var(--surface-strong);
 }
+
+.product-suggestions {
+  margin-top: 6px;
+}
+
+.product-suggestions ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.product-suggestions li {
+  margin-bottom: 4px;
+}
+
+.product-suggestions li span {
+  color: var(--muted);
+}
