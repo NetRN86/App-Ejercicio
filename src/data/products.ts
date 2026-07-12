@@ -17,7 +17,7 @@ export const products: Product[] = [
     currency: 'MXN',
     vendorName: 'Mercado Libre',
     vendorSearchUrl: 'https://listado.mercadolibre.com.mx/mancuernas-5-kg-par',
-    exerciseIds: ['biceps-curl', 'hammer-curl', 'shoulder-press', 'alternating-curl', 'reverse-curl', 'lateral-raise', 'romanian-deadlift', 'reverse-lunge', 'calf-raise', 'isometric-hold', 'farmers-walk'],
+    exerciseIds: ['biceps-curl', 'hammer-curl', 'shoulder-press', 'alternating-curl', 'reverse-curl', 'lateral-raise', 'romanian-deadlift', 'reverse-lunge', 'calf-raise', 'isometric-hold', 'farmers-walk', 'one-arm-row', 'bent-over-row', 'pullover', 'reverse-fly'],
     note: 'Ya lo usas en la rutina actual; este es solo un ejemplo de dónde conseguirlo si te faltan.',
   },
   {
@@ -51,7 +51,7 @@ export const products: Product[] = [
     currency: 'MXN',
     vendorName: 'Amazon México',
     vendorSearchUrl: 'https://www.amazon.com.mx/s?k=guantes+de+entrenamiento+gimnasio',
-    exerciseIds: ['farmers-walk', 'isometric-hold'],
+    exerciseIds: ['farmers-walk', 'isometric-hold', 'one-arm-row', 'bent-over-row'],
     note: 'Opcional: ayuda si las manos sudan o si el agarre se siente incómodo.',
   },
   {
@@ -73,7 +73,7 @@ export const products: Product[] = [
     currency: 'MXN',
     vendorName: 'Amazon México',
     vendorSearchUrl: 'https://www.amazon.com.mx/s?k=tapete+de+ejercicio+antideslizante',
-    exerciseIds: ['glute-bridge', 'goblet-squat'],
+    exerciseIds: ['glute-bridge', 'goblet-squat', 'superman-hold'],
     generalPurpose: 'Base estable y cómoda para cualquier rutina en casa, sobre todo ejercicios en el piso.',
   },
 ];
