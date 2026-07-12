@@ -18,7 +18,15 @@ Historias agrupadas por épica, en orden de prioridad. Estado:
 
 ## Épica 2 — Modo de práctica interactivo (tipo juego)
 
-**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** (primera versión) · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+Decisión de alcance tomada: solo ritmo visual (sin cámara). El usuario elige
+ejercicio y cadencia (lento/moderado/rápido), sigue un pulso visual y marca
+cada repetición simulada; se calcula un puntaje de precisión de ritmo
+(0-100) comparando el momento del tap contra el tempo objetivo, con
+retroalimentación textual y guardado del mejor puntaje por ejercicio.
+Pendiente para una siguiente iteración: detección de movimiento real
+(cámara), que quedaría como épica separada si se decide abordarla.
 
 - Como usuario, quiero simular el movimiento de un ejercicio dentro de la
   app (siguiendo un patrón/ritmo en pantalla) para practicar la secuencia
@@ -28,11 +36,6 @@ Historias agrupadas por épica, en orden de prioridad. Estado:
   entendiendo el movimiento.
 - Como usuario, quiero que mis intentos de práctica se guarden para ver si
   voy mejorando.
-
-*Nota de alcance a definir con el Product Owner*: si la simulación se basa
-solo en seguir un ritmo/patrón visual (sin cámara), o si se integra cámara
-para detectar el movimiento real (mayor complejidad y requiere permisos del
-dispositivo).
 
 ## Épica 3 — Expandir a otros grupos musculares
 

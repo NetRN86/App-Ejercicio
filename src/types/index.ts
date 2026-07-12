@@ -89,3 +89,4 @@ export interface ActiveWorkoutState {
 }
 
 export * from './products';
+export * from './practice';
