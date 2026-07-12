@@ -21,7 +21,7 @@ necesite.
 
 | Tarea | Agente | Rama |
 |---|---|---|
-| _(nada en progreso)_ | | |
+| X2 — Rediseño de figuras de animación (bug reportado por usuario) | Claude | `fix/figuras-animacion-por-ejercicio` |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
@@ -46,6 +46,7 @@ necesite.
 | # | Tarea | Detalle |
 |---|---|---|
 | X1 | Revisión de contenido: brazos y piernas | El agente que NO escribió el contenido revisa instrucciones/errores/calentamientos contra fuentes reconocidas y abre PR con correcciones. Claude revisa brazos+piernas (escritos por GonzalezJD86); GonzalezJD86 revisará productos/práctica (escritos por Claude). |
+| X2 | Rediseño de figuras de animación | `ExerciseAnimation.tsx` usaba UNA sola silueta fija (postura de curl) para los 15 ejercicios, solo la animación CSS cambiaba — por eso sentadilla/peso muerto/etc. no se veían como el ejercicio real. Reportado por el usuario. Tomado por Claude fuera de su área asignada, con aviso en el chat, porque afectaba contenido de ambos agentes. |
 
 ## Hechas (más reciente primero)
 
