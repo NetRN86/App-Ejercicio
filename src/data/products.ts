@@ -4,7 +4,9 @@ import type { Product } from '../types';
  * Precios de referencia, no garantizados ni actualizados en tiempo real.
  * Los enlaces llevan a una búsqueda en el sitio del proveedor, no a un
  * producto específico, para evitar apuntar a listados que cambian o dejan
- * de existir.
+ * de existir. `exerciseIds` referencia ids reales de src/data/exercises.ts
+ * (no texto libre) para poder cruzar productos con ejercicios de forma
+ * confiable.
  */
 export const products: Product[] = [
   {
@@ -15,7 +17,7 @@ export const products: Product[] = [
     currency: 'MXN',
     vendorName: 'Mercado Libre',
     vendorSearchUrl: 'https://listado.mercadolibre.com.mx/mancuernas-5-kg-par',
-    usedFor: ['Curl de biceps con mancuernas', 'Curl martillo', 'Press de hombros con mancuernas'],
+    exerciseIds: ['biceps-curl', 'hammer-curl', 'shoulder-press', 'alternating-curl', 'reverse-curl', 'lateral-raise', 'romanian-deadlift', 'reverse-lunge', 'calf-raise', 'isometric-hold', 'farmers-walk'],
     note: 'Ya lo usas en la rutina actual; este es solo un ejemplo de dónde conseguirlo si te faltan.',
   },
   {
@@ -26,7 +28,8 @@ export const products: Product[] = [
     currency: 'MXN',
     vendorName: 'Mercado Libre',
     vendorSearchUrl: 'https://listado.mercadolibre.com.mx/mancuernas-ajustables',
-    usedFor: ['Progresar de peso cuando 5 kg se sienta ligero'],
+    exerciseIds: [],
+    generalPurpose: 'Progresar de peso cuando 5 kg se sienta ligero, en cualquier ejercicio con mancuernas.',
   },
   {
     id: 'bandas-resistencia-set',
@@ -36,7 +39,8 @@ export const products: Product[] = [
     currency: 'MXN',
     vendorName: 'Amazon México',
     vendorSearchUrl: 'https://www.amazon.com.mx/s?k=bandas+de+resistencia+set',
-    usedFor: ['Calentamiento de hombros', 'Variaciones más ligeras de curl y press'],
+    exerciseIds: [],
+    generalPurpose: 'Calentamiento de hombros y variaciones más ligeras de curl y press.',
     note: 'Buena opción si te falta peso en las mancuernas o quieres variar el estímulo.',
   },
   {
@@ -47,18 +51,18 @@ export const products: Product[] = [
     currency: 'MXN',
     vendorName: 'Amazon México',
     vendorSearchUrl: 'https://www.amazon.com.mx/s?k=guantes+de+entrenamiento+gimnasio',
-    usedFor: ['Farmer\'s walk', 'Sostén isométrico de mancuernas'],
+    exerciseIds: ['farmers-walk', 'isometric-hold'],
     note: 'Opcional: ayuda si las manos sudan o si el agarre se siente incómodo.',
   },
   {
-    id: 'muñequeras-soporte',
+    id: 'munequeras-soporte',
     name: 'Muñequeras de soporte',
     category: 'Accesorios',
     priceReference: 180,
     currency: 'MXN',
     vendorName: 'Mercado Libre',
     vendorSearchUrl: 'https://listado.mercadolibre.com.mx/munequeras-de-soporte-gimnasio',
-    usedFor: ['Press de hombros con mancuernas', 'Extensión de tríceps sobre la cabeza'],
+    exerciseIds: ['shoulder-press', 'overhead-triceps'],
     note: 'Útil si sientes molestia en la muñeca al extender el brazo con peso sobre la cabeza.',
   },
   {
@@ -69,6 +73,11 @@ export const products: Product[] = [
     currency: 'MXN',
     vendorName: 'Amazon México',
     vendorSearchUrl: 'https://www.amazon.com.mx/s?k=tapete+de+ejercicio+antideslizante',
-    usedFor: ['Base estable para cualquier rutina en casa'],
+    exerciseIds: ['glute-bridge', 'goblet-squat'],
+    generalPurpose: 'Base estable y cómoda para cualquier rutina en casa, sobre todo ejercicios en el piso.',
   },
 ];
+
+export function getProductsForExercise(exerciseId: string): Product[] {
+  return products.filter((product) => product.exerciseIds.includes(exerciseId));
+}
