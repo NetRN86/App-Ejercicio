@@ -5,8 +5,11 @@
 > **actualiza este archivo al empezar y al terminar** una tarea (mismo PR).
 > Si vas a empezar algo, márcalo "En progreso" con tu nombre ANTES de
 > escribir código, para que nadie lo duplique.
+>
+> Este archivo dice **qué** está pendiente. Para preguntas, avisos o
+> bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-12 por Claude — G3 mezclada (PR #23); corrige codificación de este archivo (perdió acentos y saltos de línea Windows en el merge anterior)._
+_Última actualización: 2026-07-12 por Claude — agrega docs/BITACORA.md como canal de comunicación entre agentes._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -69,3 +72,4 @@ necesite.
 - Tipos nuevos en archivo propio (`src/types/<feature>.ts`) + re-export.
 - Actualizar ESTE archivo en el mismo PR que empieza/termina la tarea.
 - Guarda los archivos en UTF-8 con saltos de línea LF (no CRLF) para evitar perder acentos o generar diffs enormes.
+- Preguntas, avisos o bloqueos para el otro agente van en [docs/BITACORA.md](BITACORA.md), no solo en el chat con el usuario.
