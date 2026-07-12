@@ -6,7 +6,7 @@
 > Si vas a empezar algo, márcalo "En progreso" con tu nombre ANTES de
 > escribir código, para que nadie lo duplique.
 
-_Última actualización: 2026-07-11 por Claude._
+_Última actualización: 2026-07-12 por Claude — corrige duplicados (G1/X2 aparecían en dos tablas a la vez) y documenta el bloqueo de G2._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -19,16 +19,15 @@ necesite.
 
 ## En progreso ahora
 
-| Tarea | Agente | Rama |
-|---|---|---|
-| G1 — Rutina de espalda | GonzalezJD86 | `feature/rutina-espalda` |
+| Tarea | Agente | Rama | Nota |
+|---|---|---|---|
+| G1 — Rutina de espalda | GonzalezJD86 | `feature/rutina-espalda` (commit `6d45a2b`) | Sincronizada con master, build/test verdes. Lista para abrir PR. |
+| G2 — Rutina de pecho | GonzalezJD86 | `feature/rutina-pecho` (commit `f94514b`) | **Bloqueada.** Se creó encima de una versión vieja de espalda, no de `master` — no incluye ni las poses nuevas de espalda ni el fix de `CONTRIBUTING.md` (PR #17). No se puede abrir PR de esto todavía: hay que **recrear la rama desde `origin/master` limpio** después de que G1 se mezcle (no basta con un merge, hay que rehacer los cambios de pecho sobre la base nueva). |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
 | # | Tarea | Detalle |
 |---|---|---|
-| G1 | Rutina de espalda | Mismo patrón que piernas: ejercicios en `src/data/exercises.ts`, sesión nueva en `workouts.ts`, **calentamiento propio de espalda** en `warmupStepsByGroup`, animaciones y filtros de biblioteca. Ojo: `SessionId` y `WorkoutGroup` en `src/types/index.ts` necesitan el valor nuevo. |
-| G2 | Rutina de pecho | Igual que G1 pero para pecho. Puede compartir calentamiento con espalda si tiene sentido fisiológico, decidirlo explícitamente. |
 | G3 | Rutina de core | Igual que G1 para core (mayoría peso corporal). |
 | G4 | Plan semanal configurable | El usuario elige qué sesión va qué día (guardar en `UserSettings` versionado); Inicio y Progreso dejan de asumir el orden fijo. Hacerla DESPUÉS de G1–G3. |
 | G5 | Progresión sugerida simple | Regla: si el usuario completó todas las series de un ejercicio en las últimas 3 sesiones, sugerir subir una repetición. Mostrarlo en la tarjeta del ejercicio durante el entrenamiento. |
@@ -37,13 +36,13 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
+| C5 | Rediseño visual de las figuras de animación | El usuario pidió un cambio de estilo completo (no solo ajustes) porque las figuras actuales "no se ven bien" y no comunican explícitamente cómo hacer el ejercicio. Se está eligiendo dirección con el usuario (mockups comparativos ya mostrados); pendiente de que confirme el estilo antes de rehacer las 20 poses. |
 
 ## Tareas cruzadas (Épica 10 — cualquiera puede tomarlas)
 
 | # | Tarea | Detalle |
 |---|---|---|
 | X1 | Revisión de contenido: brazos y piernas | El agente que NO escribió el contenido revisa instrucciones/errores/calentamientos contra fuentes reconocidas y abre PR con correcciones. Claude revisa brazos+piernas (escritos por GonzalezJD86); GonzalezJD86 revisará productos/práctica (escritos por Claude). |
-| X2 | Rediseño de figuras de animación | `ExerciseAnimation.tsx` usaba UNA sola silueta fija (postura de curl) para los 15 ejercicios, solo la animación CSS cambiaba — por eso sentadilla/peso muerto/etc. no se veían como el ejercicio real. Reportado por el usuario. Tomado por Claude fuera de su área asignada, con aviso en el chat, porque afectaba contenido de ambos agentes. |
 
 ## Hechas (más reciente primero)
 
