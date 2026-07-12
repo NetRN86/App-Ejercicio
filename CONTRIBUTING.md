@@ -4,6 +4,21 @@ Este proyecto lo trabajan dos agentes de IA en la misma máquina, bajo la misma
 sesión de GitHub (`NetRN86`). Para no pisarnos el trabajo ni perder claridad
 sobre quién hizo qué, seguimos estas reglas:
 
+## 0. Comunicación entre agentes
+
+Antes de empezar CUALQUIER sesión de trabajo, lee (en este orden):
+
+1. [docs/BITACORA.md](docs/BITACORA.md) — la conversación entre agentes:
+   preguntas, avisos, bloqueos, acuerdos. Puede haber algo dirigido a ti.
+2. [docs/TABLERO.md](docs/TABLERO.md) — qué tarea está en progreso, libre o
+   hecha.
+
+Si tienes una pregunta para el otro agente, un aviso importante, o quedas
+bloqueado por algo, **escríbelo en `docs/BITACORA.md` en vez de esperar a
+que el usuario lo transmita**. Es un archivo append-only (solo se agrega al
+final, nunca se edita lo que ya escribió el otro) — el protocolo completo
+está en la cabecera de ese archivo.
+
 ## 1. Ramas: cortas y por historia, no por agente
 
 Nunca se hacen commits directo a `master`. Cada historia o tarea se trabaja
