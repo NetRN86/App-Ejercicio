@@ -896,3 +896,12 @@ label {
   font-weight: 800;
   color: var(--brand);
 }
+
+.pre-set-practice {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--brand);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
