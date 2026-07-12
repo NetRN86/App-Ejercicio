@@ -18,7 +18,7 @@ Historias agrupadas por épica, en orden de prioridad. Estado:
 
 ## Épica 2 — Modo de práctica interactivo (tipo juego)
 
-**Estado: Por priorizar**
+**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero simular el movimiento de un ejercicio dentro de la
   app (siguiendo un patrón/ritmo en pantalla) para practicar la secuencia
@@ -36,7 +36,7 @@ dispositivo).
 
 ## Épica 3 — Expandir a otros grupos musculares
 
-**Estado: Por priorizar**
+**Estado: Por priorizar** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero rutinas de piernas, espalda, pecho y core, con la
   misma estructura que brazos (biblioteca, calentamiento, animaciones,
@@ -46,7 +46,7 @@ dispositivo).
 
 ## Épica 4 — Recomendación de productos
 
-**Estado: Por priorizar**
+**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero ver qué equipo necesito para los ejercicios que aún
   no puedo hacer por falta de material (ej. bandas, mancuernas de otro
