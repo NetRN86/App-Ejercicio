@@ -37,7 +37,7 @@ export function HomePage({ logs, onStart, onNavigate }: Props) {
         <div className="hero-panel" aria-label="Resumen de la proxima sesion">
           <div><Timer aria-hidden="true" /><span>Duración</span><strong>{nextSession.estimatedMinutes}</strong></div>
           <div><Dumbbell aria-hidden="true" /><span>Ejercicios</span><strong>{exerciseCount}</strong></div>
-          <div><Trophy aria-hidden="true" /><span>Última sesión</span><strong>{last ? `${last.sessionId} · ${new Date(last.date).toLocaleDateString('es-MX')}` : 'Aún sin registro'}</strong></div>
+          <div><Trophy aria-hidden="true" /><span>Última sesión</span><strong>{last ? `${workoutSessions.find((session) => session.id === last.sessionId)?.group ?? last.sessionId} · ${new Date(last.date).toLocaleDateString('es-MX')}` : 'Aún sin registro'}</strong></div>
         </div>
       </section>
 
