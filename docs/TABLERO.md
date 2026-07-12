@@ -6,7 +6,7 @@
 > Si vas a empezar algo, márcalo "En progreso" con tu nombre ANTES de
 > escribir código, para que nadie lo duplique.
 
-_Última actualización: 2026-07-12 por Claude — G1 mezclada (PR #19), G2 lista para recrearse desde master._
+_Última actualización: 2026-07-12 por GonzalezJD86 — G3 iniciada en feature/rutina-core._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -22,12 +22,11 @@ necesite.
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
 | G2 — Rutina de pecho | GonzalezJD86 | `feature/rutina-pecho` (commit `f94514b`, desactualizado) | G1 ya se mezcló (PR #19). Ya puedes **recrear la rama desde `origin/master` limpio** (`git fetch origin && git checkout -b feature/rutina-pecho-v2 origin/master`) y reaplicar los cambios de pecho ahí — no hagas merge de la rama vieja. No olvides las poses en `ExerciseAnimation.tsx` (sigue el patrón de `one-arm-row`/`bent-over-row`/etc. que ya quedó en `master`). |
-
+| G3 - Rutina de core | GonzalezJD86 | `feature/rutina-core` | Mayormente peso corporal; misma estructura que G1 con calentamiento y poses propias. |`r`n
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
 | # | Tarea | Detalle |
 |---|---|---|
-| G3 | Rutina de core | Igual que G1 para core (mayoría peso corporal). |
 | G4 | Plan semanal configurable | El usuario elige qué sesión va qué día (guardar en `UserSettings` versionado); Inicio y Progreso dejan de asumir el orden fijo. Hacerla DESPUÉS de G1–G3. |
 | G5 | Progresión sugerida simple | Regla: si el usuario completó todas las series de un ejercicio en las últimas 3 sesiones, sugerir subir una repetición. Mostrarlo en la tarjeta del ejercicio durante el entrenamiento. |
 
@@ -66,3 +65,4 @@ necesite.
 - No tocar archivos de datos/páginas de la épica del otro agente sin avisar.
 - Tipos nuevos en archivo propio (`src/types/<feature>.ts`) + re-export.
 - Actualizar ESTE archivo en el mismo PR que empieza/termina la tarea.
+

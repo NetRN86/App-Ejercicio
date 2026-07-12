@@ -400,6 +400,7 @@ p {
 .is-playing .hinge-body,
 .is-playing .bridge-hip,
 .is-playing .calf-body,
+.is-playing .twist-body,
 .is-playing .kickback-torso,
 .is-playing .kickback-head {
   animation-duration: 1.8s;
@@ -420,6 +421,7 @@ p {
 .is-slow .hinge-body,
 .is-slow .bridge-hip,
 .is-slow .calf-body,
+.is-slow .twist-body,
 .is-slow .kickback-torso,
 .is-slow .kickback-head {
   animation-duration: 3.8s;
@@ -525,6 +527,29 @@ p {
 .motion-superman-hold .arm,
 .motion-superman-hold .leg { animation-name: hold-pulse; }
 
+/* Core: boca arriba con alcance alternado. */
+.motion-dead-bug .left-arm,
+.motion-dead-bug .left-leg { animation-name: dead-bug-left; transform-origin: 116px 144px; }
+.motion-dead-bug .right-arm,
+.motion-dead-bug .right-leg { animation-name: dead-bug-right; transform-origin: 136px 144px; }
+
+/* Bird dog: desde cuatro apoyos se alargan extremidades opuestas. */
+.motion-bird-dog .left-arm { animation-name: bird-dog-arm; transform-origin: 114px 120px; }
+.motion-bird-dog .right-leg { animation-name: bird-dog-leg; transform-origin: 126px 120px; }
+
+/* Plancha lateral y hollow hold: pulso isometrico suave. */
+.motion-side-plank .body,
+.motion-side-plank .body-line,
+.motion-side-plank .arm,
+.motion-side-plank .leg,
+.motion-hollow-hold .body,
+.motion-hollow-hold .body-line,
+.motion-hollow-hold .arm,
+.motion-hollow-hold .leg { animation-name: hold-pulse; }
+
+/* Giro ruso: el torso rota corto de lado a lado. */
+.motion-russian-twist .twist-body { animation-name: russian-twist; transform-origin: 126px 136px; }
+
 @keyframes curl-left { to { transform: rotate(-58deg); } }
 @keyframes curl-right { to { transform: rotate(58deg); } }
 @keyframes lift-left { to { transform: translate(22px, -42px); } }
@@ -550,6 +575,11 @@ p {
 @keyframes lunge-drop { to { transform: translateY(10px); } }
 @keyframes calf-rise { to { transform: translateY(-10px); } }
 @keyframes bridge-lift { to { transform: rotate(-10deg); } }
+@keyframes dead-bug-left { to { transform: rotate(-16deg) translate(-12px, -12px); } }
+@keyframes dead-bug-right { to { transform: rotate(12deg) translate(12px, -10px); } }
+@keyframes bird-dog-arm { to { transform: translate(-22px, -8px); } }
+@keyframes bird-dog-leg { to { transform: translate(22px, -10px); } }
+@keyframes russian-twist { to { transform: rotate(14deg); } }
 
 .routine-choice-grid {
   display: grid;
