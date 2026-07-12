@@ -457,6 +457,29 @@ p {
 .motion-glute-bridge .arm,
 .motion-glute-bridge .leg,
 .motion-glute-bridge .dumbbell { animation-name: bridge-lift; }
+.motion-one-arm-row .right-forearm { animation-name: kickback; transform-origin: 152px 92px; }
+.motion-one-arm-row .right-weight { animation-name: kickback-weight; }
+.motion-bent-over-row .body,
+.motion-bent-over-row .body-line,
+.motion-bent-over-row .arm,
+.motion-bent-over-row .dumbbell { animation-name: hinge-forward; transform-origin: 130px 126px; }
+.motion-bent-over-row .left-forearm { animation-name: curl-left; transform-origin: 108px 92px; }
+.motion-bent-over-row .right-forearm { animation-name: curl-right; transform-origin: 152px 92px; }
+.motion-bent-over-row .left-weight { animation-name: lift-left; }
+.motion-bent-over-row .right-weight { animation-name: lift-right; }
+.motion-pullover .left-forearm,
+.motion-pullover .right-forearm { animation-name: press-right; transform-origin: 130px 92px; }
+.motion-pullover .left-weight,
+.motion-pullover .right-weight,
+.motion-pullover .body,
+.motion-pullover .body-line { animation-name: bridge-lift; }
+.motion-reverse-fly .body,
+.motion-reverse-fly .body-line { animation-name: hinge-forward; transform-origin: 130px 126px; }
+.motion-reverse-fly .upper-arm { animation-name: lateral-arms; animation-duration: 1.8s; animation-iteration-count: infinite; animation-direction: alternate; transform-origin: 130px 80px; }
+.motion-superman-hold .body,
+.motion-superman-hold .body-line,
+.motion-superman-hold .arm,
+.motion-superman-hold .leg { animation-name: hold-pulse; }
 
 @keyframes curl-left { to { transform: rotate(-58deg); } }
 @keyframes curl-right { to { transform: rotate(58deg); } }

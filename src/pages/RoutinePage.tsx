@@ -8,7 +8,7 @@ export function RoutinePage({ onStart }: { onStart: (sessionId: SessionId) => vo
     <div className="page-stack">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">Brazos y piernas</span>
+          <span className="eyebrow">Brazos, piernas y espalda</span>
           <h1>Rutinas iniciales</h1>
         </div>
       </div>

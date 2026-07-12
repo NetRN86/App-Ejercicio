@@ -23,6 +23,11 @@ const movementCopy: Record<AnimationType, string> = {
   'reverse-lunge': 'Da un paso atras, baja con control y regresa empujando con la pierna delantera.',
   'calf-raise': 'Sube los talones lentamente, pausa arriba y baja sin rebotar.',
   'glute-bridge': 'Eleva la cadera apretando gluteos y baja con control.',
+  'one-arm-row': 'Lleva el codo hacia la cadera sin girar el torso y baja con control.',
+  'bent-over-row': 'Rema con ambos codos hacia atras manteniendo la espalda larga.',
+  'pullover': 'Lleva la mancuerna hacia atras con control y vuelve sin arquear la espalda.',
+  'reverse-fly': 'Abre los brazos hacia los lados con movimiento corto y limpio.',
+  'superman-hold': 'Eleva pecho, brazos y piernas unos centimetros y sosten respirando.',
 };
 
 export function ExerciseAnimation({ type, label }: Props) {

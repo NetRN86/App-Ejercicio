@@ -6,7 +6,7 @@
 > Si vas a empezar algo, márcalo "En progreso" con tu nombre ANTES de
 > escribir código, para que nadie lo duplique.
 
-_Última actualización: 2026-07-11 por Claude._
+_Última actualización: 2026-07-11 por GonzalezJD86._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -21,13 +21,12 @@ necesite.
 
 | Tarea | Agente | Rama |
 |---|---|---|
-| _(nada en progreso)_ | | |
+| G1 - Rutina de espalda | GonzalezJD86 | `feature/rutina-espalda` |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
 | # | Tarea | Detalle |
 |---|---|---|
-| G1 | Rutina de espalda | Mismo patrón que piernas: ejercicios en `src/data/exercises.ts`, sesión nueva en `workouts.ts`, **calentamiento propio de espalda** en `warmupStepsByGroup`, animaciones y filtros de biblioteca. Ojo: `SessionId` y `WorkoutGroup` en `src/types/index.ts` necesitan el valor nuevo. |
 | G2 | Rutina de pecho | Igual que G1 pero para pecho. Puede compartir calentamiento con espalda si tiene sentido fisiológico, decidirlo explícitamente. |
 | G3 | Rutina de core | Igual que G1 para core (mayoría peso corporal). |
 | G4 | Plan semanal configurable | El usuario elige qué sesión va qué día (guardar en `UserSettings` versionado); Inicio y Progreso dejan de asumir el orden fijo. Hacerla DESPUÉS de G1–G3. |

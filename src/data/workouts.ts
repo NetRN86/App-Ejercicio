@@ -16,9 +16,18 @@ export const legWarmupSteps: WarmupStep[] = [
   { id: 'calf-warmup', name: 'Elevaciones de talones sin peso', seconds: 45, cue: 'Sube y baja los talones con control para preparar tobillos y pantorrillas.' },
 ];
 
+export const backWarmupSteps: WarmupStep[] = [
+  { id: 'scapular-circles', name: 'Circulos escapulares', seconds: 40, cue: 'Lleva los hombros atras, abajo y adelante sin dolor para activar la espalda alta.' },
+  { id: 'cat-cow', name: 'Gato-vaca', seconds: 50, cue: 'Alterna extension y flexion suave de columna mientras respiras profundo.' },
+  { id: 'thoracic-rotation', name: 'Rotacion toracica', seconds: 50, cue: 'Gira el torso con calma hacia cada lado manteniendo la cadera estable.' },
+  { id: 'hip-hinge-drill', name: 'Bisagra de cadera sin peso', seconds: 60, cue: 'Practica llevar la cadera atras con espalda larga y cuello neutral.' },
+  { id: 'light-row', name: 'Remo lento sin peso', seconds: 60, cue: 'Lleva los codos hacia atras apretando los omoplatos al final.' },
+];
+
 export const warmupStepsByGroup: Record<WorkoutGroup, WarmupStep[]> = {
   Brazos: armWarmupSteps,
   Piernas: legWarmupSteps,
+  Espalda: backWarmupSteps,
 };
 
 export const warmupSteps = armWarmupSteps;
@@ -47,5 +56,13 @@ export const workoutSessions: WorkoutSession[] = [
     estimatedMinutes: '30 a 40 min',
     group: 'Piernas',
     exerciseIds: ['goblet-squat', 'romanian-deadlift', 'reverse-lunge', 'calf-raise', 'glute-bridge'],
+  },
+  {
+    id: 'D',
+    name: 'Sesion Espalda',
+    dayLabel: 'Domingo',
+    estimatedMinutes: '30 a 40 min',
+    group: 'Espalda',
+    exerciseIds: ['one-arm-row', 'bent-over-row', 'pullover', 'reverse-fly', 'superman-hold'],
   },
 ];
