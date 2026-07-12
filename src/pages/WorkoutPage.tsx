@@ -206,7 +206,7 @@ export function WorkoutPage({ sessionId, settings, onFinish, onExit }: Props) {
             <button className="primary-action" type="button" onClick={continueAfterRest}>Continuar</button>
           </>
         ) : offerPractice ? (
-          <PreSetPractice exercise={currentExercise} onContinue={() => setPracticeDismissedIds((value) => [...value, currentExercise.id])} />
+          <PreSetPractice exercise={currentExercise} settings={settings} onContinue={() => setPracticeDismissedIds((value) => [...value, currentExercise.id])} />
         ) : (
           <div className="action-row">
             <button className="primary-action" type="button" disabled={paused} onClick={completeSet}>Serie completada</button>

@@ -21,7 +21,7 @@ necesite.
 
 | Tarea | Agente | Rama |
 |---|---|---|
-| _(nada en progreso)_ | | |
+| G1 — Rutina de espalda | GonzalezJD86 | `feature/rutina-espalda` |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
@@ -37,7 +37,6 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
-| C2 | Sonido/vibración en práctica | El metrónomo respeta `soundEnabled`/`vibrationEnabled` de Ajustes (beep con Web Audio, `navigator.vibrate`). |
 | C3 | Productos ligados a ejercicios | "Te falta X para el ejercicio Y": cruzar `Product.usedFor` con los ejercicios reales por id (no por nombre en texto), y mostrar productos sugeridos en la tarjeta del ejercicio si aplica. |
 | C4 | PWA instalable | Manifest + service worker (offline básico de assets). Probar en teléfono real. |
 
@@ -50,6 +49,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ C2 — Sonido y vibración en el metrónomo de práctica, respetando Ajustes (Claude, PR #14)
 - ✅ X2 — Rediseño de figuras de animación por ejercicio (Claude, PR #12)
 - ✅ C1 — Práctica de ritmo ofrecida antes del primer set de un ejercicio nuevo (Claude, PR #11)
 - ✅ Charter v2 + backlog de épicas 5–10 (Claude, PR #9)
