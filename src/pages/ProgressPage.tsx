@@ -1,5 +1,6 @@
 import { BarChart3, Clock, ListChecks, Repeat } from 'lucide-react';
 import { WeeklyCalendar } from '../components/WeeklyCalendar';
+import { workoutSessions } from '../data/workouts';
 import type { WorkoutLog } from '../types';
 import { countActiveWeekStreak, getWeeklyCounts } from '../utils/progress';
 import { formatDuration } from '../utils/timer';
@@ -46,13 +47,17 @@ export function ProgressPage({ logs }: { logs: WorkoutLog[] }) {
         <h2>Historial por fecha</h2>
         <div className="history-list">
           {logs.length === 0 && <p>No hay entrenamientos guardados todavía.</p>}
-          {logs.map((log) => (
+          {logs.map((log) => {
+            const session = workoutSessions.find((item) => item.id === log.sessionId);
+            const sessionLabel = session ? (session.name.includes(session.group) ? session.name : `${session.name} · ${session.group}`) : `Sesión ${log.sessionId}`;
+            return (
             <article key={log.id}>
-              <strong>Sesión {log.sessionId} · {new Date(log.date).toLocaleString('es-MX')}</strong>
+              <strong>{sessionLabel} · {new Date(log.date).toLocaleString('es-MX')}</strong>
               <span>{log.completedSets.length} series · esfuerzo {log.effort}/10 · {formatDuration(log.durationSeconds)}</span>
               {log.notes && <p>{log.notes}</p>}
             </article>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>
