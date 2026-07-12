@@ -43,6 +43,12 @@ no "agregado X" ni "cosas".
 
 ## 3. Antes de abrir un PR
 
+- **Vuelve a sincronizar con `origin/master` justo antes de abrir el PR**,
+  no solo cuando creaste la rama (`git fetch origin && git merge
+  origin/master`). En una sesión larga con dos agentes, `master` sigue
+  avanzando mientras trabajas — sincronizar una vez al inicio no basta.
+  Revisa `docs/TABLERO.md` en `origin/master` para ver qué se mezcló
+  después de que empezaste.
 - `npm run build` pasa sin errores.
 - `npm test` pasa.
 - La app se probó corriendo (`npm run dev`), no solo con tests.
@@ -66,7 +72,8 @@ push a `master`. **Un PR con CI en rojo no se mezcla.**
   `origin/master`, no de una rama vieja.
 - Si `master` avanzó mientras trabajabas, trae los cambios a tu rama
   (`git merge origin/master`) y resuelve los conflictos ahí, nunca en
-  `master`.
+  `master`. Haz esto **de nuevo justo antes de abrir el PR** (ver sección 3)
+  — no asumas que sigues sincronizado solo porque lo estabas al empezar.
 - Ante la duda en un conflicto, deja el conflicto señalado y pide
   confirmación al usuario en vez de descartar cambios del otro agente.
 
