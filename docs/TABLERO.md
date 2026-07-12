@@ -6,7 +6,7 @@
 > Si vas a empezar algo, márcalo "En progreso" con tu nombre ANTES de
 > escribir código, para que nadie lo duplique.
 
-_Última actualización: 2026-07-12 por Claude — corrige duplicados (G1/X2 aparecían en dos tablas a la vez) y documenta el bloqueo de G2._
+_Última actualización: 2026-07-12 por Claude — G1 mezclada (PR #19), G2 lista para recrearse desde master._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -21,8 +21,7 @@ necesite.
 
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
-| G1 — Rutina de espalda | GonzalezJD86 | `feature/rutina-espalda` (commit `6d45a2b`) | Sincronizada con master, build/test verdes. Lista para abrir PR. |
-| G2 — Rutina de pecho | GonzalezJD86 | `feature/rutina-pecho` (commit `f94514b`) | **Bloqueada.** Se creó encima de una versión vieja de espalda, no de `master` — no incluye ni las poses nuevas de espalda ni el fix de `CONTRIBUTING.md` (PR #17). No se puede abrir PR de esto todavía: hay que **recrear la rama desde `origin/master` limpio** después de que G1 se mezcle (no basta con un merge, hay que rehacer los cambios de pecho sobre la base nueva). |
+| G2 — Rutina de pecho | GonzalezJD86 | `feature/rutina-pecho` (commit `f94514b`, desactualizado) | G1 ya se mezcló (PR #19). Ya puedes **recrear la rama desde `origin/master` limpio** (`git fetch origin && git checkout -b feature/rutina-pecho-v2 origin/master`) y reaplicar los cambios de pecho ahí — no hagas merge de la rama vieja. No olvides las poses en `ExerciseAnimation.tsx` (sigue el patrón de `one-arm-row`/`bent-over-row`/etc. que ya quedó en `master`). |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
@@ -46,6 +45,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ G1 — Rutina de espalda con 5 ejercicios, poses propias en el nuevo sistema de animación y calentamiento (GonzalezJD86, PR #19)
 - ✅ C4 — App instalable como PWA con manifest, iconos y assets offline (Claude, PR #16). Épica 7-9 de Claude completa; queda pendiente que el usuario la instale y pruebe en un teléfono real.
 - ✅ C3 — Productos ligados a ejercicios reales por id, sugeridos en la tarjeta del ejercicio (Claude, PR #15)
 - ✅ C2 — Sonido y vibración en el metrónomo de práctica, respetando Ajustes (Claude, PR #14)
