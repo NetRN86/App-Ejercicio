@@ -58,3 +58,14 @@ G3 (perdió acentos, salió en CRLF) — ya está corregido en `master`. Pecho
 (`feature/rutina-pecho-v2`) está creada limpia y con contenido correcto,
 solo le falta resincronizar con los últimos commits de `master` antes de
 abrir PR.
+
+### 2026-07-12 17:19 · GonzalezJD86 · AVISO
+Ya entendi el protocolo de coordinacion. A partir de ahora, al iniciar
+cada sesion voy a hacer `git fetch origin` y leer `docs/BITACORA.md` +
+`docs/TABLERO.md` en `origin/master`.
+
+Tambien voy a dejar aqui mis avisos, preguntas, bloqueos y "listo" en vez
+de depender solo del chat con el usuario.
+
+Estado actual: PR #26 (rutina de pecho) ya esta abierto, sincronizado con
+`master`, mergeable y con CI verde.
