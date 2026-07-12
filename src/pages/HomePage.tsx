@@ -12,8 +12,13 @@ interface Props {
 }
 
 export function HomePage({ logs, onStart, onNavigate }: Props) {
-  const armsSessions = workoutSessions.filter((session) => session.group === 'Brazos');
-  const nextSession = logs[0]?.sessionId === 'A' ? armsSessions[1] : armsSessions[0];
+  const lastIndex = workoutSessions.findIndex((session) => session.id === logs[0]?.sessionId);
+  const nextSession = lastIndex === -1 ? workoutSessions[0] : workoutSessions[(lastIndex + 1) % workoutSessions.length];
+  const equipmentUsed = Array.from(new Set(
+    nextSession.exerciseIds
+      .map((id) => exercises.find((exercise) => exercise.id === id)?.equipment)
+      .filter(Boolean),
+  ));
   const completedThisWeek = logs.filter((log) => Date.now() - new Date(log.date).getTime() < 7 * 86400000).length;
   const exerciseCount = nextSession.exerciseIds.length;
   const last = logs[0];
@@ -23,8 +28,8 @@ export function HomePage({ logs, onStart, onNavigate }: Props) {
       <section className="home-hero">
         <div>
           <span className="eyebrow">Próxima sesión · {nextSession.dayLabel}</span>
-          <h1>{nextSession.name}: brazos fuertes con técnica tranquila</h1>
-          <p>Rutina principiante en casa con dos mancuernas de 5 kg. Duración estimada: {nextSession.estimatedMinutes}.</p>
+          <h1>{nextSession.name} · {nextSession.group}</h1>
+          <p>Rutina principiante en casa. Equipo: {equipmentUsed.join(', ')}. Duración estimada: {nextSession.estimatedMinutes}.</p>
           <button className="primary-action" type="button" onClick={() => onStart(nextSession.id)}>
             <Play aria-hidden="true" /> Comenzar entrenamiento
           </button>
@@ -46,7 +51,7 @@ export function HomePage({ logs, onStart, onNavigate }: Props) {
           </div>
           <button type="button" className="ghost-button" onClick={() => onNavigate('progreso')}>Ver historial</button>
         </div>
-        <ProgressBar value={(completedThisWeek / 2) * 100} label={`${completedThisWeek} de 2 sesiones completadas`} />
+        <ProgressBar value={(completedThisWeek / workoutSessions.length) * 100} label={`${completedThisWeek} de ${workoutSessions.length} sesiones completadas`} />
       </section>
 
       <section className="content-band">

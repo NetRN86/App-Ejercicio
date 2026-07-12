@@ -59,7 +59,7 @@ export function App() {
       <header className="topbar">
         <div>
           <span>Rutina en casa</span>
-          <strong>Brazos principiante</strong>
+          <strong>Guía de ejercicio principiante</strong>
         </div>
       </header>
       <main>
