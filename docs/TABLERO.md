@@ -36,7 +36,6 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
-| C1 | Práctica antes del primer set | En `WorkoutPage`, si el ejercicio nunca se ha practicado ni entrenado, ofrecer (opcional, no forzar) un intento de práctica de ritmo antes del primer set. |
 | C2 | Sonido/vibración en práctica | El metrónomo respeta `soundEnabled`/`vibrationEnabled` de Ajustes (beep con Web Audio, `navigator.vibrate`). |
 | C3 | Productos ligados a ejercicios | "Te falta X para el ejercicio Y": cruzar `Product.usedFor` con los ejercicios reales por id (no por nombre en texto), y mostrar productos sugeridos en la tarjeta del ejercicio si aplica. |
 | C4 | PWA instalable | Manifest + service worker (offline básico de assets). Probar en teléfono real. |
@@ -49,6 +48,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ C1 — Práctica de ritmo ofrecida antes del primer set de un ejercicio nuevo (Claude, PR #11)
 - ✅ Charter v2 + backlog de épicas 5–10 (Claude, PR #9)
 - ✅ Corrección de estado multi-grupo: título, progreso, próxima sesión (Claude, PR #8)
 - ✅ Modo de práctica interactivo, ritmo visual (Claude, PR #7)

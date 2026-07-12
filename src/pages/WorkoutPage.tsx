@@ -1,12 +1,15 @@
 import { PauseCircle, SkipForward } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { ExerciseAnimation } from '../components/ExerciseAnimation';
+import { PreSetPractice } from '../components/PreSetPractice';
 import { ProgressBar } from '../components/ProgressBar';
 import { RestTimer } from '../components/RestTimer';
 import { warmupStepsByGroup, workoutSessions } from '../data/workouts';
 import { exercises } from '../data/exercises';
-import { clearActiveWorkout, saveActiveWorkout } from '../services/storage';
+import { getPracticeAttempts } from '../services/practiceStorage';
+import { clearActiveWorkout, getWorkoutLogs, saveActiveWorkout } from '../services/storage';
 import type { ActiveWorkoutState, CompletedSet, SessionId, UserSettings, WorkoutLog } from '../types';
+import { isExerciseUnfamiliar } from '../utils/familiarity';
 import { getRestWithAdjustment } from '../utils/timer';
 
 interface Props {
@@ -34,8 +37,16 @@ export function WorkoutPage({ sessionId, settings, onFinish, onExit }: Props) {
   const [effort, setEffort] = useState(6);
   const [notes, setNotes] = useState('');
   const [startedAt] = useState(Date.now());
+  const [unfamiliarIds] = useState<string[]>(() => {
+    const logs = getWorkoutLogs();
+    const attempts = getPracticeAttempts();
+    return session.exerciseIds.filter((id) => isExerciseUnfamiliar(id, logs, attempts));
+  });
+  const [practiceDismissedIds, setPracticeDismissedIds] = useState<string[]>([]);
 
   const currentExercise = workoutExercises[exerciseIndex];
+  const offerPractice = phase === 'exercise' && setNumber === 1 && !!currentExercise
+    && unfamiliarIds.includes(currentExercise.id) && !practiceDismissedIds.includes(currentExercise.id);
   const totalSets = workoutExercises.reduce((sum, exercise) => sum + (exercise?.sets ?? 0), 0);
   const completion = totalSets ? (completedSets.length / totalSets) * 100 : 0;
 
@@ -194,6 +205,8 @@ export function WorkoutPage({ sessionId, settings, onFinish, onExit }: Props) {
             <RestTimer seconds={getRestWithAdjustment(currentExercise.restSeconds, settings.restAdjustmentSeconds)} soundEnabled={settings.soundEnabled} vibrationEnabled={settings.vibrationEnabled} onRecordRest={(seconds) => setRests((value) => [...value, seconds])} onComplete={() => setPaused(true)} />
             <button className="primary-action" type="button" onClick={continueAfterRest}>Continuar</button>
           </>
+        ) : offerPractice ? (
+          <PreSetPractice exercise={currentExercise} onContinue={() => setPracticeDismissedIds((value) => [...value, currentExercise.id])} />
         ) : (
           <div className="action-row">
             <button className="primary-action" type="button" disabled={paused} onClick={completeSet}>Serie completada</button>
