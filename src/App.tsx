@@ -8,7 +8,7 @@ import { RoutinePage } from './pages/RoutinePage';
 import { SettingsPage } from './pages/SettingsPage';
 import { WorkoutPage } from './pages/WorkoutPage';
 import { getSettings, getWorkoutLogs, resetAllProgress, saveSettings, saveWorkoutLog } from './services/storage';
-import type { UserSettings, WorkoutLog } from './types';
+import type { SessionId, UserSettings, WorkoutLog } from './types';
 
 type Page = 'inicio' | 'rutina' | 'entrenamiento' | 'biblioteca' | 'progreso' | 'configuracion';
 
@@ -23,7 +23,7 @@ const navItems: Array<{ id: Page; label: string; icon: LucideIcon }> = [
 
 export function App() {
   const [page, setPage] = useState<Page>('inicio');
-  const [activeSession, setActiveSession] = useState<'A' | 'B'>('A');
+  const [activeSession, setActiveSession] = useState<SessionId>('A');
   const [logs, setLogs] = useState<WorkoutLog[]>(() => getWorkoutLogs());
   const [settings, setSettings] = useState<UserSettings>(() => getSettings());
 
@@ -33,7 +33,7 @@ export function App() {
     saveSettings(settings);
   }, [settings]);
 
-  function startWorkout(sessionId: 'A' | 'B') {
+  function startWorkout(sessionId: SessionId) {
     setActiveSession(sessionId);
     setPage('entrenamiento');
   }

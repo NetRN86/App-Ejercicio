@@ -432,6 +432,31 @@ p {
 .motion-farmers-walk .leg,
 .motion-farmers-walk .dumbbell { animation: walk-bob 1s ease-in-out infinite alternate; }
 .motion-isometric-hold .dumbbell { animation-name: hold-pulse; }
+.motion-goblet-squat .body,
+.motion-goblet-squat .body-line,
+.motion-goblet-squat .upper-arm,
+.motion-goblet-squat .forearm,
+.motion-goblet-squat .dumbbell { animation-name: squat-drop; }
+.motion-goblet-squat .leg { animation: squat-knees 1.8s ease-in-out infinite alternate; transform-origin: 130px 126px; }
+.motion-romanian-deadlift .body-line,
+.motion-romanian-deadlift .body,
+.motion-romanian-deadlift .arm,
+.motion-romanian-deadlift .dumbbell { animation-name: hinge-forward; transform-origin: 130px 126px; }
+.motion-reverse-lunge .leg { animation: lunge-step 1.8s ease-in-out infinite alternate; transform-origin: 130px 126px; }
+.motion-reverse-lunge .body,
+.motion-reverse-lunge .body-line,
+.motion-reverse-lunge .arm,
+.motion-reverse-lunge .dumbbell { animation-name: lunge-drop; }
+.motion-calf-raise .body,
+.motion-calf-raise .body-line,
+.motion-calf-raise .arm,
+.motion-calf-raise .leg,
+.motion-calf-raise .dumbbell { animation-name: calf-rise; }
+.motion-glute-bridge .body,
+.motion-glute-bridge .body-line,
+.motion-glute-bridge .arm,
+.motion-glute-bridge .leg,
+.motion-glute-bridge .dumbbell { animation-name: bridge-lift; }
 
 @keyframes curl-left { to { transform: rotate(-58deg); } }
 @keyframes curl-right { to { transform: rotate(58deg); } }
@@ -446,6 +471,38 @@ p {
 @keyframes kickback-weight { to { transform: translate(34px, -26px); } }
 @keyframes walk-bob { to { transform: translateY(-5px); } }
 @keyframes hold-pulse { to { opacity: 0.72; } }
+@keyframes squat-drop { to { transform: translateY(24px); } }
+@keyframes squat-knees { to { transform: scaleX(1.18) translateY(12px); } }
+@keyframes hinge-forward { to { transform: rotate(18deg) translateY(12px); } }
+@keyframes lunge-step { to { transform: translateX(12px) rotate(-10deg); } }
+@keyframes lunge-drop { to { transform: translateY(18px); } }
+@keyframes calf-rise { to { transform: translateY(-13px); } }
+@keyframes bridge-lift { to { transform: translateY(-18px) rotate(-4deg); } }
+
+.routine-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.routine-choice {
+  min-height: 116px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  color: var(--text);
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  text-align: left;
+}
+
+.routine-choice span,
+.routine-choice small {
+  color: var(--muted);
+}
 
 .animation-controls,
 .timer-actions,

@@ -14,6 +14,7 @@ export const workoutSessions: WorkoutSession[] = [
     name: 'Sesion A',
     dayLabel: 'Martes',
     estimatedMinutes: '25 a 35 min',
+    group: 'Brazos',
     exerciseIds: ['biceps-curl', 'hammer-curl', 'shoulder-press', 'overhead-triceps', 'farmers-walk'],
   },
   {
@@ -21,6 +22,15 @@ export const workoutSessions: WorkoutSession[] = [
     name: 'Sesion B',
     dayLabel: 'Viernes',
     estimatedMinutes: '25 a 35 min',
+    group: 'Brazos',
     exerciseIds: ['alternating-curl', 'reverse-curl', 'lateral-raise', 'triceps-kickback', 'isometric-hold'],
+  },
+  {
+    id: 'C',
+    name: 'Sesion Piernas',
+    dayLabel: 'Sabado',
+    estimatedMinutes: '30 a 40 min',
+    group: 'Piernas',
+    exerciseIds: ['goblet-squat', 'romanian-deadlift', 'reverse-lunge', 'calf-raise', 'glute-bridge'],
   },
 ];

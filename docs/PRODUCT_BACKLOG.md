@@ -36,7 +36,7 @@ dispositivo).
 
 ## Épica 3 — Expandir a otros grupos musculares
 
-**Estado: Por priorizar** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: En sprint** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero rutinas de piernas, espalda, pecho y core, con la
   misma estructura que brazos (biblioteca, calentamiento, animaciones,

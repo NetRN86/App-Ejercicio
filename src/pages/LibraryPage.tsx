@@ -2,12 +2,13 @@ import { useMemo, useState } from 'react';
 import { ExerciseCard } from '../components/ExerciseCard';
 import { exercises } from '../data/exercises';
 
-const filters = ['Todos', 'Biceps', 'Triceps', 'Hombros', 'Antebrazos', 'Una mancuerna', 'Dos mancuernas'];
+const filters = ['Todos', 'Biceps', 'Triceps', 'Hombros', 'Antebrazos', 'Piernas', 'Gluteos', 'Peso corporal', 'Una mancuerna', 'Dos mancuernas'];
 
 export function LibraryPage() {
   const [filter, setFilter] = useState('Todos');
   const filtered = useMemo(() => exercises.filter((exercise) => {
     if (filter === 'Todos') return true;
+    if (filter === 'Peso corporal') return exercise.equipment === 'Peso corporal';
     if (filter === 'Una mancuerna') return exercise.equipment.startsWith('Una');
     if (filter === 'Dos mancuernas') return exercise.equipment.startsWith('Dos');
     return exercise.category === filter;

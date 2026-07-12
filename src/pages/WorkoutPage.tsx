@@ -6,11 +6,11 @@ import { RestTimer } from '../components/RestTimer';
 import { warmupSteps, workoutSessions } from '../data/workouts';
 import { exercises } from '../data/exercises';
 import { clearActiveWorkout, saveActiveWorkout } from '../services/storage';
-import type { ActiveWorkoutState, CompletedSet, UserSettings, WorkoutLog } from '../types';
+import type { ActiveWorkoutState, CompletedSet, SessionId, UserSettings, WorkoutLog } from '../types';
 import { getRestWithAdjustment } from '../utils/timer';
 
 interface Props {
-  sessionId: 'A' | 'B';
+  sessionId: SessionId;
   settings: UserSettings;
   onFinish: (log: WorkoutLog) => void;
   onExit: () => void;
