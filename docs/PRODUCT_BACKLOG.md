@@ -37,9 +37,13 @@ Pendiente para una siguiente iteración: detección de movimiento real
 - Como usuario, quiero que mis intentos de práctica se guarden para ver si
   voy mejorando.
 
-## Épica 3 — Expandir a otros grupos musculares
+## Épica 3 — Expandir a otros grupos musculares (piernas)
 
-**Estado: En sprint** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+Rutina de piernas con biblioteca, animaciones y calentamiento propio
+(movilidad de cadera/rodilla, no el calentamiento de brazos reutilizado).
+Inicio ya permite elegir qué sesión entrenar entre brazos y piernas.
 
 - Como usuario, quiero rutinas de piernas, espalda, pecho y core, con la
   misma estructura que brazos (biblioteca, calentamiento, animaciones,
@@ -70,11 +74,67 @@ ahora el usuario lo confirma él mismo al entrar al enlace).
 disponibilidad de envío real (afecta si esto se puede automatizar o si por
 ahora se cura manualmente una lista de productos).
 
+## Épica 5 — Cobertura completa (espalda, pecho, core)
+
+**Estado: Por priorizar** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+- Como usuario, quiero rutinas de espalda, pecho y core con la misma
+  estructura que brazos y piernas (biblioteca, calentamiento propio,
+  animaciones).
+- Como usuario, quiero que cada grupo muscular nuevo tenga su propio
+  calentamiento relevante (no reutilizar el de otro grupo sin adaptar).
+
+## Épica 6 — Plan semanal configurable y progresión sugerida
+
+**Estado: Por priorizar** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+- Como usuario, quiero armar mi propio plan semanal (qué grupo muscular
+  entreno qué día), no solo usar el orden fijo que trae la app.
+- Como usuario, quiero que la app me sugiera cuándo subir repeticiones o
+  peso según mi historial, para progresar sin adivinar.
+
+*Nota de alcance a definir*: si la progresión sugerida es una regla simple
+(ej. "llevas 3 sesiones completando todas las series, sube una repetición")
+o algo más elaborado; empezar con la regla simple.
+
+## Épica 7 — Práctica integrada al flujo de entrenamiento
+
+**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+- Como usuario, quiero que se me ofrezca practicar el ritmo de un ejercicio
+  nuevo justo antes de su primer set, no solo si entro manualmente a la
+  pestaña de Practicar.
+- Como usuario, quiero que la práctica respete mis ajustes de sonido y
+  vibración ya configurados en Ajustes.
+
+## Épica 8 — Productos ligados a la rutina real
+
+**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+- Como usuario, quiero ver "te falta X para desbloquear Y ejercicio" en vez
+  de una lista genérica de productos sin relación con mi rutina actual.
+
+## Épica 9 — App instalable (PWA)
+
+**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+- Como usuario, quiero instalar la app en mi teléfono y usarla sin
+  conexión, porque es donde realmente entreno.
+
+## Épica 10 — Revisión cruzada de contenido de seguridad
+
+**Estado: Por priorizar** · Dueño: Ambos, cruzada (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+- Cada agente revisa el contenido de técnica/seguridad que escribió el
+  otro (instrucciones, errores comunes, calentamientos) contra fuentes
+  reconocidas, porque el valor central de la app es no lesionar al usuario.
+
 ## Backlog técnico (transversal)
 
 - Formalizar `MuscleGroup` como entidad en vez de string literal (soporta
-  Épica 3).
+  Épica 5).
 - Definir el modelo de `Product` y de dónde se obtienen sus datos (soporta
-  Épica 4).
-- Definir el modelo de `PracticeAttempt` y la mecánica de retroalimentación
-  (soporta Épica 2).
+  Épica 8).
+- Versionar cualquier cambio a la forma de los datos en `localStorage`
+  (historial, ajustes, intentos de práctica) para no romper datos ya
+  guardados de usuarios reales (ver riesgo en `PROJECT_CHARTER.md`).
