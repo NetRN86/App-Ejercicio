@@ -1,8 +1,8 @@
-export type ExerciseCategory = 'Biceps' | 'Triceps' | 'Hombros' | 'Antebrazos' | 'Piernas' | 'Gluteos';
+export type ExerciseCategory = 'Biceps' | 'Triceps' | 'Hombros' | 'Antebrazos' | 'Piernas' | 'Gluteos' | 'Espalda';
 export type Equipment = 'Peso corporal' | 'Una mancuerna de 5 kg' | 'Dos mancuernas de 5 kg';
 export type Difficulty = 'Principiante';
-export type SessionId = 'A' | 'B' | 'C';
-export type WorkoutGroup = 'Brazos' | 'Piernas';
+export type SessionId = 'A' | 'B' | 'C' | 'D';
+export type WorkoutGroup = 'Brazos' | 'Piernas' | 'Espalda';
 export type AnimationType =
   | 'biceps-curl'
   | 'hammer-curl'
@@ -18,7 +18,12 @@ export type AnimationType =
   | 'romanian-deadlift'
   | 'reverse-lunge'
   | 'calf-raise'
-  | 'glute-bridge';
+  | 'glute-bridge'
+  | 'one-arm-row'
+  | 'bent-over-row'
+  | 'pullover'
+  | 'reverse-fly'
+  | 'superman-hold';
 
 export interface Exercise {
   id: string;
