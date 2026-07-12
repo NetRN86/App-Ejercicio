@@ -6,7 +6,7 @@
 > Si vas a empezar algo, márcalo "En progreso" con tu nombre ANTES de
 > escribir código, para que nadie lo duplique.
 
-_Última actualización: 2026-07-12 por Claude — G1 mezclada (PR #19), G2 lista para recrearse desde master._
+_Última actualización: 2026-07-12 por Claude — G1 hecha, G3 detectada en progreso, X1a hecha (queda X1b para GonzalezJD86), C5 en pausa por decisión del usuario._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -22,12 +22,12 @@ necesite.
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
 | G2 — Rutina de pecho | GonzalezJD86 | `feature/rutina-pecho` (commit `f94514b`, desactualizado) | G1 ya se mezcló (PR #19). Ya puedes **recrear la rama desde `origin/master` limpio** (`git fetch origin && git checkout -b feature/rutina-pecho-v2 origin/master`) y reaplicar los cambios de pecho ahí — no hagas merge de la rama vieja. No olvides las poses en `ExerciseAnimation.tsx` (sigue el patrón de `one-arm-row`/`bent-over-row`/etc. que ya quedó en `master`). |
+| G3 — Rutina de core | GonzalezJD86 | `feature/rutina-core` | Detectada en progreso (1 commit). Recuerda resincronizar con `origin/master` justo antes de abrir el PR (ver `CONTRIBUTING.md` sección 3) — master avanzó desde que probablemente arrancaste esta rama. |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
 | # | Tarea | Detalle |
 |---|---|---|
-| G3 | Rutina de core | Igual que G1 para core (mayoría peso corporal). |
 | G4 | Plan semanal configurable | El usuario elige qué sesión va qué día (guardar en `UserSettings` versionado); Inicio y Progreso dejan de asumir el orden fijo. Hacerla DESPUÉS de G1–G3. |
 | G5 | Progresión sugerida simple | Regla: si el usuario completó todas las series de un ejercicio en las últimas 3 sesiones, sugerir subir una repetición. Mostrarlo en la tarjeta del ejercicio durante el entrenamiento. |
 
@@ -35,16 +35,18 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
-| C5 | Rediseño visual de las figuras de animación | El usuario pidió un cambio de estilo completo (no solo ajustes) porque las figuras actuales "no se ven bien" y no comunican explícitamente cómo hacer el ejercicio. Se está eligiendo dirección con el usuario (mockups comparativos ya mostrados); pendiente de que confirme el estilo antes de rehacer las 20 poses. |
+| C5 | Rediseño visual de las figuras de animación | **En pausa** — el usuario está definiendo el estilo en otro proyecto. No tomar todavía. |
 
 ## Tareas cruzadas (Épica 10 — cualquiera puede tomarlas)
 
 | # | Tarea | Detalle |
 |---|---|---|
-| X1 | Revisión de contenido: brazos y piernas | El agente que NO escribió el contenido revisa instrucciones/errores/calentamientos contra fuentes reconocidas y abre PR con correcciones. Claude revisa brazos+piernas (escritos por GonzalezJD86); GonzalezJD86 revisará productos/práctica (escritos por Claude). |
+| X1b | Revisión de contenido: productos y práctica | Pendiente. GonzalezJD86 revisa `data/products.ts`, `PracticePage.tsx` y textos de `PreSetPractice.tsx` (escritos por Claude) contra criterios de claridad/seguridad, igual que Claude ya hizo con brazos/piernas/espalda (ver Hechas). |
 
 ## Hechas (más reciente primero)
 
+- ✅ X1a — Revisión de contenido de brazos, piernas y espalda: los 3 ejercicios de bisagra de cadera (peso muerto rumano, remo inclinado, pájaro inclinado) no tenían la instrucción explícita "detente si sientes dolor agudo en la espalda baja" pese a ser los de mayor riesgo lumbar para principiantes — corregido (Claude, PR pendiente de mezclar)
+- ✅ Vínculo de productos con los 5 ejercicios de espalda + etiquetas de grupo muscular en Progreso/Inicio (Claude, PR #21)
 - ✅ G1 — Rutina de espalda con 5 ejercicios, poses propias en el nuevo sistema de animación y calentamiento (GonzalezJD86, PR #19)
 - ✅ C4 — App instalable como PWA con manifest, iconos y assets offline (Claude, PR #16). Épica 7-9 de Claude completa; queda pendiente que el usuario la instale y pruebe en un teléfono real.
 - ✅ C3 — Productos ligados a ejercicios reales por id, sugeridos en la tarjeta del ejercicio (Claude, PR #15)
