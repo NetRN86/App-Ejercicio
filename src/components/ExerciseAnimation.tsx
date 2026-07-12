@@ -56,6 +56,18 @@ function SideDumbbells() {
   );
 }
 
+function SupineBase() {
+  return (
+    <>
+      <line x1="24" y1="176" x2="236" y2="176" className="ground-line" />
+      <circle cx="60" cy="144" r="16" className="body" />
+      <path d="M76 144 L136 144" className="body-line" />
+      <path d="M136 144 L162 172" className="leg" />
+      <path d="M116 144 L92 172" className="leg" />
+    </>
+  );
+}
+
 function pose(type: AnimationType) {
   switch (type) {
     case 'biceps-curl':
@@ -191,6 +203,69 @@ function pose(type: AnimationType) {
           </g>
         </>
       );
+    case 'one-arm-row':
+      return (
+        <>
+          <circle cx="168" cy="70" r="18" className="body" />
+          <path d="M132 132 L156 86" className="body-line" />
+          <path d="M132 132 L104 162" className="arm left-arm" />
+          <path d="M156 88 L130 96" className="arm forearm right-forearm" />
+          <path d="M132 132 L116 176" className="leg" />
+          <path d="M132 132 L154 176" className="leg" />
+          <rect x="112" y="90" width="20" height="12" rx="4" className="dumbbell right-weight" />
+        </>
+      );
+    case 'bent-over-row':
+      return (
+        <>
+          <g className="hinge-body">
+            <circle cx="176" cy="72" r="18" className="body" />
+            <path d="M130 126 L168 88" className="body-line" />
+            <path d="M166 90 L148 120" className="arm forearm left-forearm" />
+            <path d="M174 92 L158 122" className="arm forearm right-forearm" />
+            <rect x="138" y="118" width="18" height="12" rx="4" className="dumbbell left-weight" />
+            <rect x="152" y="120" width="18" height="12" rx="4" className="dumbbell right-weight" />
+          </g>
+          <path d="M130 126 L118 176" className="leg" />
+          <path d="M130 126 L142 176" className="leg" />
+        </>
+      );
+    case 'pullover':
+      return (
+        <>
+          <SupineBase />
+          <path d="M136 144 L114 110" className="arm forearm left-forearm" />
+          <path d="M136 144 L158 110" className="arm forearm right-forearm" />
+          <rect x="118" y="100" width="24" height="12" rx="4" className="dumbbell left-weight" />
+          <rect x="142" y="100" width="24" height="12" rx="4" className="dumbbell right-weight" />
+        </>
+      );
+    case 'reverse-fly':
+      return (
+        <>
+          <g className="hinge-body">
+            <circle cx="176" cy="72" r="18" className="body" />
+            <path d="M130 126 L168 88" className="body-line" />
+            <path d="M166 90 L144 118" className="arm upper-arm left-arm" />
+            <path d="M174 92 L156 120" className="arm upper-arm right-arm" />
+            <rect x="136" y="118" width="18" height="12" rx="4" className="dumbbell left-weight" />
+            <rect x="150" y="120" width="18" height="12" rx="4" className="dumbbell right-weight" />
+          </g>
+          <path d="M130 126 L118 176" className="leg" />
+          <path d="M130 126 L142 176" className="leg" />
+        </>
+      );
+    case 'superman-hold':
+      return (
+        <>
+          <line x1="24" y1="176" x2="236" y2="176" className="ground-line" />
+          <circle cx="78" cy="144" r="15" className="body" />
+          <path d="M92 144 L140 136" className="body-line" />
+          <path d="M140 136 L176 122" className="arm" />
+          <path d="M122 140 L92 166" className="leg" />
+          <path d="M138 138 L170 162" className="leg" />
+        </>
+      );
     default:
       return null;
   }
@@ -208,7 +283,7 @@ export function ExerciseAnimation({ type, label }: Props) {
         <title id={`${type}-title`}>{label}</title>
         <desc id={`${type}-desc`}>Figura simplificada con posición inicial, final y flechas de movimiento.</desc>
         <rect x="8" y="8" width="244" height="204" rx="16" className="scene-bg" />
-        {type !== 'triceps-kickback' && type !== 'glute-bridge' && <circle cx="130" cy="50" r="18" className="body" />}
+        {!['triceps-kickback', 'glute-bridge', 'romanian-deadlift', 'bent-over-row', 'reverse-fly', 'one-arm-row', 'superman-hold', 'pullover'].includes(type) && <circle cx="130" cy="50" r="18" className="body" />}
         {pose(type)}
         <circle cx="58" cy="38" r="6" className="start-dot" />
         <text x="70" y="43" className="state-label">inicio</text>
