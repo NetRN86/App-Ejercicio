@@ -21,7 +21,7 @@ necesite.
 
 | Tarea | Agente | Rama |
 |---|---|---|
-| X2 — Rediseño de figuras de animación (bug reportado por usuario) | Claude | `fix/figuras-animacion-por-ejercicio` |
+| _(nada en progreso)_ | | |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
@@ -50,6 +50,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ X2 — Rediseño de figuras de animación por ejercicio (Claude, PR #12)
 - ✅ C1 — Práctica de ritmo ofrecida antes del primer set de un ejercicio nuevo (Claude, PR #11)
 - ✅ Charter v2 + backlog de épicas 5–10 (Claude, PR #9)
 - ✅ Corrección de estado multi-grupo: título, progreso, próxima sesión (Claude, PR #8)
