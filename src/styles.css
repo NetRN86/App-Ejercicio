@@ -794,3 +794,40 @@ label {
     stroke-dasharray: 6 8;
   }
 }
+
+.product-disclaimer {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.product-card {
+  padding: 14px;
+  background: var(--surface-strong);
+  border-radius: 12px;
+}
+
+.product-price {
+  font-weight: 600;
+  margin: 4px 0 12px;
+}
+
+.product-price span {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.product-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.product-vendor-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--brand);
+}

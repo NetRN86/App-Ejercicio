@@ -95,3 +95,5 @@ export interface ActiveWorkoutState {
   skippedExerciseIds: string[];
   rests: number[];
 }
+
+export * from './products';

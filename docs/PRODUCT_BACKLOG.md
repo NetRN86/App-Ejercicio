@@ -46,7 +46,14 @@ dispositivo).
 
 ## Épica 4 — Recomendación de productos
 
-**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** (primera versión) · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+Primera versión con lista curada manual (6 productos: mancuernas, bandas,
+accesorios, superficie), precios de referencia en MXN, enlaces de búsqueda
+a Mercado Libre / Amazon México y nota de para qué ejercicio sirve cada uno.
+Pendiente para una siguiente iteración: integración con API real de tienda
+para precio/disponibilidad en vivo, y "envío a tu zona" verificado (por
+ahora el usuario lo confirma él mismo al entrar al enlace).
 
 - Como usuario, quiero ver qué equipo necesito para los ejercicios que aún
   no puedo hacer por falta de material (ej. bandas, mancuernas de otro
