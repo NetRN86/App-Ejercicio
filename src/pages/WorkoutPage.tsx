@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ExerciseAnimation } from '../components/ExerciseAnimation';
 import { ProgressBar } from '../components/ProgressBar';
 import { RestTimer } from '../components/RestTimer';
-import { warmupSteps, workoutSessions } from '../data/workouts';
+import { warmupStepsByGroup, workoutSessions } from '../data/workouts';
 import { exercises } from '../data/exercises';
 import { clearActiveWorkout, saveActiveWorkout } from '../services/storage';
 import type { ActiveWorkoutState, CompletedSet, SessionId, UserSettings, WorkoutLog } from '../types';
@@ -20,6 +20,7 @@ type Phase = 'warmup' | 'exercise' | 'rest' | 'summary';
 
 export function WorkoutPage({ sessionId, settings, onFinish, onExit }: Props) {
   const session = workoutSessions.find((item) => item.id === sessionId) ?? workoutSessions[0];
+  const warmupSteps = warmupStepsByGroup[session.group];
   const workoutExercises = useMemo(() => session.exerciseIds.map((id) => exercises.find((item) => item.id === id)).filter(Boolean), [session.exerciseIds]);
   const [phase, setPhase] = useState<Phase>('warmup');
   const [warmupIndex, setWarmupIndex] = useState(0);

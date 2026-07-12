@@ -59,7 +59,13 @@ export function HomePage({ logs, onStart, onNavigate }: Props) {
         </div>
         <div className="routine-choice-grid">
           {workoutSessions.map((session) => (
-            <button key={session.id} type="button" className="routine-choice" onClick={() => onStart(session.id)}>
+            <button
+              key={session.id}
+              type="button"
+              className="routine-choice"
+              aria-label={`Iniciar ${session.name} de ${session.group}, ${session.exerciseIds.length} ejercicios, ${session.estimatedMinutes}`}
+              onClick={() => onStart(session.id)}
+            >
               <span>{session.group}</span>
               <strong>{session.name}</strong>
               <small>{session.exerciseIds.length} ejercicios · {session.estimatedMinutes}</small>
