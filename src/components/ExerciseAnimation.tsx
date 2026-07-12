@@ -18,6 +18,11 @@ const movementCopy: Record<AnimationType, string> = {
   'lateral-raise': 'Eleva los brazos hacia los lados hasta altura de hombros sin impulso.',
   'triceps-kickback': 'Con el codo fijo, extiende el antebrazo hacia atras.',
   'isometric-hold': 'Sostén las mancuernas con postura alta y respiración constante.',
+  'goblet-squat': 'Baja la cadera como si te sentaras y sube empujando el piso con los talones.',
+  'romanian-deadlift': 'Lleva la cadera hacia atras con espalda larga y vuelve apretando gluteos.',
+  'reverse-lunge': 'Da un paso atras, baja con control y regresa empujando con la pierna delantera.',
+  'calf-raise': 'Sube los talones lentamente, pausa arriba y baja sin rebotar.',
+  'glute-bridge': 'Eleva la cadera apretando gluteos y baja con control.',
 };
 
 export function ExerciseAnimation({ type, label }: Props) {

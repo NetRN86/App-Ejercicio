@@ -1,14 +1,15 @@
 import { exercises } from '../data/exercises';
 import { workoutSessions } from '../data/workouts';
 import { ExerciseCard } from '../components/ExerciseCard';
+import type { SessionId } from '../types';
 
-export function RoutinePage({ onStart }: { onStart: (sessionId: 'A' | 'B') => void }) {
+export function RoutinePage({ onStart }: { onStart: (sessionId: SessionId) => void }) {
   return (
     <div className="page-stack">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">Dos sesiones semanales</span>
-          <h1>Rutina inicial</h1>
+          <span className="eyebrow">Brazos y piernas</span>
+          <h1>Rutinas iniciales</h1>
         </div>
       </div>
       <div className="session-grid">
@@ -16,7 +17,7 @@ export function RoutinePage({ onStart }: { onStart: (sessionId: 'A' | 'B') => vo
           <section className="content-band" key={session.id}>
             <div className="section-heading">
               <div>
-                <span className="eyebrow">{session.dayLabel} · {session.estimatedMinutes}</span>
+                <span className="eyebrow">{session.group} · {session.dayLabel} · {session.estimatedMinutes}</span>
                 <h2>{session.name}</h2>
               </div>
               <button type="button" className="primary-small" onClick={() => onStart(session.id)}>Iniciar</button>
