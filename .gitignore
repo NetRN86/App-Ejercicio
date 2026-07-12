@@ -1,1 +1,8 @@
 .claude/settings.local.json
+node_modules/
+dist/
+.vite/
+.env
+.env.*
+*.log
+npm-debug.log*
