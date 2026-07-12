@@ -1,8 +1,9 @@
-import { BookOpen, CalendarDays, Home, ListChecks, PlayCircle, Settings } from 'lucide-react';
+import { BookOpen, CalendarDays, Home, ListChecks, PlayCircle, Settings, ShoppingBag } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { HomePage } from './pages/HomePage';
 import { LibraryPage } from './pages/LibraryPage';
+import { ProductsPage } from './pages/ProductsPage';
 import { ProgressPage } from './pages/ProgressPage';
 import { RoutinePage } from './pages/RoutinePage';
 import { SettingsPage } from './pages/SettingsPage';
@@ -10,13 +11,14 @@ import { WorkoutPage } from './pages/WorkoutPage';
 import { getSettings, getWorkoutLogs, resetAllProgress, saveSettings, saveWorkoutLog } from './services/storage';
 import type { UserSettings, WorkoutLog } from './types';
 
-type Page = 'inicio' | 'rutina' | 'entrenamiento' | 'biblioteca' | 'progreso' | 'configuracion';
+type Page = 'inicio' | 'rutina' | 'entrenamiento' | 'biblioteca' | 'productos' | 'progreso' | 'configuracion';
 
 const navItems: Array<{ id: Page; label: string; icon: LucideIcon }> = [
   { id: 'inicio', label: 'Inicio', icon: Home },
   { id: 'rutina', label: 'Rutina', icon: CalendarDays },
   { id: 'entrenamiento', label: 'Entrenar', icon: PlayCircle },
   { id: 'biblioteca', label: 'Biblioteca', icon: BookOpen },
+  { id: 'productos', label: 'Productos', icon: ShoppingBag },
   { id: 'progreso', label: 'Progreso', icon: ListChecks },
   { id: 'configuracion', label: 'Ajustes', icon: Settings },
 ];
@@ -63,6 +65,7 @@ export function App() {
         {page === 'rutina' && <RoutinePage onStart={startWorkout} />}
         {page === 'entrenamiento' && <WorkoutPage sessionId={activeSession} settings={settings} onFinish={finishWorkout} onExit={() => setPage('inicio')} />}
         {page === 'biblioteca' && <LibraryPage />}
+        {page === 'productos' && <ProductsPage />}
         {page === 'progreso' && <ProgressPage logs={logs} />}
         {page === 'configuracion' && <SettingsPage settings={settings} onChange={setSettings} onReset={resetProgress} />}
       </main>
