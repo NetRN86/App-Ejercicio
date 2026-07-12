@@ -28,6 +28,11 @@ const movementCopy: Record<AnimationType, string> = {
   'pullover': 'Lleva la mancuerna hacia atras con control y vuelve sin arquear la espalda.',
   'reverse-fly': 'Abre los brazos hacia los lados con movimiento corto y limpio.',
   'superman-hold': 'Eleva pecho, brazos y piernas unos centimetros y sosten respirando.',
+  'knee-pushup': 'Baja el pecho con control y empuja el suelo sin dejar caer la cadera.',
+  'floor-press': 'Empuja las mancuernas desde el pecho y baja hasta tocar suave el suelo.',
+  'squeeze-press': 'Aprieta las mancuernas entre si durante todo el press.',
+  'floor-fly': 'Abre los brazos en arco y cierra abrazando el pecho.',
+  'chest-squeeze-hold': 'Aprieta la mancuerna frente al pecho y sosten la tension con respiracion tranquila.',
 };
 
 /**
@@ -266,6 +271,59 @@ function pose(type: AnimationType) {
           <path d="M138 138 L170 162" className="leg" />
         </>
       );
+    case 'knee-pushup':
+      return (
+        <>
+          <line x1="24" y1="176" x2="236" y2="176" className="ground-line" />
+          <circle cx="180" cy="88" r="16" className="body" />
+          <g className="pushup-body">
+            <path d="M168 98 L126 120 L84 146" className="body-line" />
+            <path d="M132 118 L118 146" className="arm left-arm" />
+            <path d="M146 112 L132 142" className="arm right-arm" />
+          </g>
+          <path d="M84 146 L64 176" className="leg" />
+          <path d="M108 136 L132 176" className="leg" />
+        </>
+      );
+    case 'floor-press':
+      return (
+        <>
+          <SupineBase />
+          <path d="M126 144 L118 112" className="arm forearm left-forearm" />
+          <path d="M146 144 L154 112" className="arm forearm right-forearm" />
+          <rect x="108" y="102" width="18" height="12" rx="4" className="dumbbell left-weight" />
+          <rect x="154" y="102" width="18" height="12" rx="4" className="dumbbell right-weight" />
+        </>
+      );
+    case 'squeeze-press':
+      return (
+        <>
+          <SupineBase />
+          <path d="M130 144 L130 112" className="arm forearm left-forearm" />
+          <path d="M142 144 L142 112" className="arm forearm right-forearm" />
+          <rect x="126" y="100" width="16" height="12" rx="4" className="dumbbell left-weight" />
+          <rect x="142" y="100" width="16" height="12" rx="4" className="dumbbell right-weight" />
+        </>
+      );
+    case 'floor-fly':
+      return (
+        <>
+          <SupineBase />
+          <path d="M130 144 L102 118" className="arm left-arm" />
+          <path d="M142 144 L170 118" className="arm right-arm" />
+          <rect x="90" y="112" width="18" height="12" rx="4" className="dumbbell left-weight" />
+          <rect x="170" y="112" width="18" height="12" rx="4" className="dumbbell right-weight" />
+        </>
+      );
+    case 'chest-squeeze-hold':
+      return (
+        <>
+          <path d="M130 68 L130 126" className="body-line" />
+          <path d="M118 90 L130 104 L142 90" className="arm" />
+          <StandingLegs />
+          <rect x="118" y="96" width="24" height="12" rx="4" className="dumbbell single-weight" />
+        </>
+      );
     default:
       return null;
   }
@@ -283,7 +341,7 @@ export function ExerciseAnimation({ type, label }: Props) {
         <title id={`${type}-title`}>{label}</title>
         <desc id={`${type}-desc`}>Figura simplificada con posición inicial, final y flechas de movimiento.</desc>
         <rect x="8" y="8" width="244" height="204" rx="16" className="scene-bg" />
-        {!['triceps-kickback', 'glute-bridge', 'romanian-deadlift', 'bent-over-row', 'reverse-fly', 'one-arm-row', 'superman-hold', 'pullover'].includes(type) && <circle cx="130" cy="50" r="18" className="body" />}
+        {!['triceps-kickback', 'glute-bridge', 'romanian-deadlift', 'bent-over-row', 'reverse-fly', 'one-arm-row', 'superman-hold', 'pullover', 'knee-pushup', 'floor-press', 'squeeze-press', 'floor-fly'].includes(type) && <circle cx="130" cy="50" r="18" className="body" />}
         {pose(type)}
         <circle cx="58" cy="38" r="6" className="start-dot" />
         <text x="70" y="43" className="state-label">inicio</text>
