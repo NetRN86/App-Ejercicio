@@ -37,7 +37,6 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
-| C4 | PWA instalable | Manifest + service worker (offline básico de assets). Probar en teléfono real. |
 
 ## Tareas cruzadas (Épica 10 — cualquiera puede tomarlas)
 
@@ -48,6 +47,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ C4 — App instalable como PWA con manifest, iconos y assets offline (Claude, PR #16). Épica 7-9 de Claude completa; queda pendiente que el usuario la instale y pruebe en un teléfono real.
 - ✅ C3 — Productos ligados a ejercicios reales por id, sugeridos en la tarjeta del ejercicio (Claude, PR #15)
 - ✅ C2 — Sonido y vibración en el metrónomo de práctica, respetando Ajustes (Claude, PR #14)
 - ✅ X2 — Rediseño de figuras de animación por ejercicio (Claude, PR #12)
