@@ -8,16 +8,16 @@ interface Props {
 }
 
 const movementCopy: Record<AnimationType, string> = {
-  'biceps-curl': 'Sube las mancuernas sin mover los codos hacia adelante. Baja lentamente y manten el abdomen firme.',
-  'hammer-curl': 'Manten las palmas enfrentadas y mueve solo los antebrazos.',
+  'biceps-curl': 'Sube las mancuernas sin mover los codos hacia adelante. Baja lentamente y mantén el abdomen firme.',
+  'hammer-curl': 'Mantén las palmas enfrentadas y mueve solo los antebrazos.',
   'shoulder-press': 'Empuja sobre la cabeza sin arquear la espalda y baja con control.',
-  'overhead-triceps': 'Dobla y extiende los codos manteniendolos apuntando al frente.',
+  'overhead-triceps': 'Dobla y extiende los codos manteniéndolos apuntando al frente.',
   'farmers-walk': 'Camina erguido con pasos cortos y agarre firme.',
   'alternating-curl': 'Sube un brazo por vez mientras el otro permanece quieto.',
   'reverse-curl': 'Palmas hacia abajo, munecas rectas y subida controlada.',
   'lateral-raise': 'Eleva los brazos hacia los lados hasta altura de hombros sin impulso.',
   'triceps-kickback': 'Con el codo fijo, extiende el antebrazo hacia atras.',
-  'isometric-hold': 'Sosten las mancuernas con postura alta y respiracion constante.',
+  'isometric-hold': 'Sostén las mancuernas con postura alta y respiración constante.',
   'goblet-squat': 'Baja la cadera como si te sentaras y sube empujando el piso con los talones.',
   'romanian-deadlift': 'Lleva la cadera hacia atras con espalda larga y vuelve apretando gluteos.',
   'reverse-lunge': 'Da un paso atras, baja con control y regresa empujando con la pierna delantera.',
@@ -32,7 +32,7 @@ const movementCopy: Record<AnimationType, string> = {
   'bird-dog': 'Alarga brazo y pierna opuestos sin mover la cadera.',
   'side-plank': 'Eleva la cadera y sosten la linea del costado sin colapsar el hombro.',
   'russian-twist': 'Gira el torso de lado a lado con rango corto y controlado.',
-  'hollow-hold': 'Manten costillas abajo mientras sostienes hombros y piernas elevadas.',
+  'hollow-hold': 'Mantén costillas abajo mientras sostienes hombros y piernas elevadas.',
   'knee-pushup': 'Baja el pecho con control y empuja el suelo sin dejar caer la cadera.',
   'floor-press': 'Empuja las mancuernas desde el pecho y baja hasta tocar suave el suelo.',
   'squeeze-press': 'Aprieta las mancuernas entre si durante todo el press.',
@@ -403,7 +403,7 @@ export function ExerciseAnimation({ type, label }: Props) {
     <figure className="exercise-animation" aria-label={`Animacion del ejercicio ${label}`}>
       <svg key={version} className={className} viewBox="0 0 260 220" role="img" aria-labelledby={`${type}-title ${type}-desc`}>
         <title id={`${type}-title`}>{label}</title>
-        <desc id={`${type}-desc`}>Figura simplificada con posicion inicial, final y flechas de movimiento.</desc>
+        <desc id={`${type}-desc`}>Figura simplificada con posición inicial, final y flechas de movimiento.</desc>
         <rect x="8" y="8" width="244" height="204" rx="16" className="scene-bg" />
         {!['triceps-kickback', 'glute-bridge', 'romanian-deadlift', 'bent-over-row', 'reverse-fly', 'one-arm-row', 'superman-hold', 'pullover', 'dead-bug', 'bird-dog', 'side-plank', 'russian-twist', 'hollow-hold', 'knee-pushup', 'floor-press', 'squeeze-press', 'floor-fly'].includes(type) && <circle cx="130" cy="50" r="18" className="body" />}
         {pose(type)}
@@ -417,7 +417,7 @@ export function ExerciseAnimation({ type, label }: Props) {
         <button type="button" className="icon-button" onClick={() => setPlaying((value) => !value)} aria-label={playing ? 'Pausar animacion' : 'Reproducir animacion'} title={playing ? 'Pausar' : 'Reproducir'}>
           {playing ? <Pause size={18} /> : <Play size={18} />}
         </button>
-        <button type="button" className={`icon-button ${slow ? 'is-active' : ''}`} onClick={() => setSlow((value) => !value)} aria-label="Alternar camara lenta" title="Camara lenta">
+        <button type="button" className={`icon-button ${slow ? 'is-active' : ''}`} onClick={() => setSlow((value) => !value)} aria-label="Alternar cámara lenta" title="Camara lenta">
           <Snail size={18} />
         </button>
         <button type="button" className="icon-button" onClick={() => setVersion((value) => value + 1)} aria-label="Reiniciar animacion" title="Reiniciar">

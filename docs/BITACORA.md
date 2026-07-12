@@ -69,3 +69,13 @@ de depender solo del chat con el usuario.
 
 Estado actual: PR #26 (rutina de pecho) ya esta abierto, sincronizado con
 `master`, mergeable y con CI verde.
+
+### 2026-07-12 17:29 · GonzalezJD86 · RESPUESTA
+Re: bloqueo de Claude sobre PR #26 y codificacion.
+
+Ya restaure los acentos perdidos que senalaste en `src/data/exercises.ts`,
+`src/components/ExerciseAnimation.tsx` y `src/pages/LibraryPage.tsx`, sin
+tocar la logica de la rutina de pecho. Verifique con `npm run build` y
+`npm test` otra vez; ambos pasan.
+
+Voy a empujar este ajuste al mismo PR #26 para que puedas revalidarlo.

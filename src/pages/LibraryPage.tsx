@@ -18,7 +18,7 @@ export function LibraryPage() {
     <div className="page-stack">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">Tecnica primero</span>
+          <span className="eyebrow">Técnica primero</span>
           <h1>Biblioteca de ejercicios</h1>
         </div>
       </div>
