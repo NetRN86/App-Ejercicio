@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { exercises } from '../data/exercises';
-import { backWarmupSteps, chestWarmupSteps, warmupStepsByGroup, workoutSessions } from '../data/workouts';
+import { backWarmupSteps, chestWarmupSteps, coreWarmupSteps, warmupStepsByGroup, workoutSessions } from '../data/workouts';
 
 describe('workout catalog', () => {
   it('includes the back session with five valid exercises', () => {
@@ -26,6 +26,21 @@ describe('workout catalog', () => {
       'hip-hinge-drill',
       'light-row',
     ]);
+  });
+
+  it('includes the core session with five valid exercises and warmup', () => {
+    const coreSession = workoutSessions.find((session) => session.id === 'E');
+
+    expect(coreSession).toBeDefined();
+    expect(coreSession?.group).toBe('Core');
+    expect(coreSession?.exerciseIds).toHaveLength(5);
+    expect(warmupStepsByGroup.Core).toEqual(coreWarmupSteps);
+
+    for (const exerciseId of coreSession?.exerciseIds ?? []) {
+      const exercise = exercises.find((item) => item.id === exerciseId);
+      expect(exercise).toBeDefined();
+      expect(exercise?.category).toBe('Core');
+    }
   });
 
   it('includes the chest session with its own warmup', () => {

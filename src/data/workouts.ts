@@ -24,6 +24,14 @@ export const backWarmupSteps: WarmupStep[] = [
   { id: 'light-row', name: 'Remo lento sin peso', seconds: 60, cue: 'Lleva los codos hacia atras apretando los omoplatos al final.' },
 ];
 
+export const coreWarmupSteps: WarmupStep[] = [
+  { id: 'breathing-brace', name: 'Respiracion y brace abdominal', seconds: 45, cue: 'Inhala por nariz y aprieta suave el abdomen como si fueras a recibir un toque.' },
+  { id: 'cat-cow-core', name: 'Gato-vaca suave', seconds: 45, cue: 'Mueve la columna con control para despertar abdomen y espalda.' },
+  { id: 'dead-bug-reach', name: 'Alcances alternados sin peso', seconds: 50, cue: 'Lleva brazo y pierna opuestos con zona lumbar estable.' },
+  { id: 'hip-bridge-light', name: 'Puente corto sin peso', seconds: 50, cue: 'Eleva y baja la cadera sin perder costillas abajo.' },
+  { id: 'side-brace', name: 'Plancha lateral corta', seconds: 40, cue: 'Activa el costado del abdomen en un apoyo comodo antes de empezar.' },
+];
+
 export const chestWarmupSteps: WarmupStep[] = [
   { id: 'chest-circles', name: 'Circulos de hombros y pecho', seconds: 45, cue: 'Haz circulos amplios hacia atras y abre el pecho sin dolor.' },
   { id: 'wall-slide', name: 'Deslizamientos en pared', seconds: 45, cue: 'Apoya brazos en la pared y sube-baja con costillas controladas.' },
@@ -36,6 +44,7 @@ export const warmupStepsByGroup: Record<WorkoutGroup, WarmupStep[]> = {
   Brazos: armWarmupSteps,
   Piernas: legWarmupSteps,
   Espalda: backWarmupSteps,
+  Core: coreWarmupSteps,
   Pecho: chestWarmupSteps,
 };
 
@@ -73,6 +82,14 @@ export const workoutSessions: WorkoutSession[] = [
     estimatedMinutes: '30 a 40 min',
     group: 'Espalda',
     exerciseIds: ['one-arm-row', 'bent-over-row', 'pullover', 'reverse-fly', 'superman-hold'],
+  },
+  {
+    id: 'E',
+    name: 'Sesion Core',
+    dayLabel: 'Lunes',
+    estimatedMinutes: '20 a 30 min',
+    group: 'Core',
+    exerciseIds: ['dead-bug', 'bird-dog', 'side-plank', 'russian-twist', 'hollow-hold'],
   },
   {
     id: 'F',

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { ExerciseCard } from '../components/ExerciseCard';
 import { exercises } from '../data/exercises';
 
-const filters = ['Todos', 'Biceps', 'Triceps', 'Hombros', 'Antebrazos', 'Piernas', 'Gluteos', 'Espalda', 'Pecho', 'Peso corporal', 'Una mancuerna', 'Dos mancuernas'];
+const filters = ['Todos', 'Biceps', 'Triceps', 'Hombros', 'Antebrazos', 'Piernas', 'Gluteos', 'Espalda', 'Core', 'Pecho', 'Peso corporal', 'Una mancuerna', 'Dos mancuernas'];
 
 export function LibraryPage() {
   const [filter, setFilter] = useState('Todos');
@@ -18,7 +18,7 @@ export function LibraryPage() {
     <div className="page-stack">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">Técnica primero</span>
+          <span className="eyebrow">Tecnica primero</span>
           <h1>Biblioteca de ejercicios</h1>
         </div>
       </div>
