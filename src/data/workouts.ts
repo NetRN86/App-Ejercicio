@@ -32,11 +32,20 @@ export const coreWarmupSteps: WarmupStep[] = [
   { id: 'side-brace', name: 'Plancha lateral corta', seconds: 40, cue: 'Activa el costado del abdomen en un apoyo comodo antes de empezar.' },
 ];
 
+export const chestWarmupSteps: WarmupStep[] = [
+  { id: 'chest-circles', name: 'Circulos de hombros y pecho', seconds: 45, cue: 'Haz circulos amplios hacia atras y abre el pecho sin dolor.' },
+  { id: 'wall-slide', name: 'Deslizamientos en pared', seconds: 45, cue: 'Apoya brazos en la pared y sube-baja con costillas controladas.' },
+  { id: 'scapular-pushup', name: 'Flexion escapular suave', seconds: 50, cue: 'Desde pared o mesa, separa y junta los omoplatos sin doblar mucho los codos.' },
+  { id: 'chest-opener', name: 'Apertura de pecho sin peso', seconds: 50, cue: 'Abre y cierra los brazos con codos suaves para preparar hombros y pectoral.' },
+  { id: 'light-floor-press', name: 'Press lento sin peso', seconds: 60, cue: 'Simula el press con recorrido corto y hombros estables.' },
+];
+
 export const warmupStepsByGroup: Record<WorkoutGroup, WarmupStep[]> = {
   Brazos: armWarmupSteps,
   Piernas: legWarmupSteps,
   Espalda: backWarmupSteps,
   Core: coreWarmupSteps,
+  Pecho: chestWarmupSteps,
 };
 
 export const warmupSteps = armWarmupSteps;
@@ -81,5 +90,13 @@ export const workoutSessions: WorkoutSession[] = [
     estimatedMinutes: '20 a 30 min',
     group: 'Core',
     exerciseIds: ['dead-bug', 'bird-dog', 'side-plank', 'russian-twist', 'hollow-hold'],
+  },
+  {
+    id: 'F',
+    name: 'Sesion Pecho',
+    dayLabel: 'Miercoles',
+    estimatedMinutes: '30 a 40 min',
+    group: 'Pecho',
+    exerciseIds: ['knee-pushup', 'floor-press', 'squeeze-press', 'floor-fly', 'chest-squeeze-hold'],
   },
 ];

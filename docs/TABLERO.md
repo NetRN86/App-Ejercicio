@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-12 por Claude — agrega docs/BITACORA.md como canal de comunicación entre agentes._
+_Última actualización: 2026-07-12 por GonzalezJD86 — G2 lista para PR en `feature/rutina-pecho-v2`; se mantiene `docs/BITACORA.md` como canal de comunicación entre agentes._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -24,7 +24,6 @@ necesite.
 
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
-| G2 — Rutina de pecho | GonzalezJD86 | `feature/rutina-pecho` (commit `f94514b`, desactualizado) | G1 y G3 ya se mezclaron. Recrea la rama desde `origin/master` limpio (`git fetch origin && git checkout -b feature/rutina-pecho-v2 origin/master`) y reaplica los cambios de pecho ahí — no hagas merge de la rama vieja. No olvides las poses en `ExerciseAnimation.tsx` (sigue el patrón de `one-arm-row`/`bent-over-row`/`dead-bug`/etc. que ya está en `master`), y guarda el archivo en UTF-8 con saltos de línea LF (evita el problema de codificación que tuvo `TABLERO.md`). |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
@@ -47,6 +46,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ G2 — Rutina de pecho con 5 ejercicios (knee-pushup, floor-press, squeeze-press, floor-fly, chest-squeeze-hold), poses propias en el sistema de animación y calentamiento (GonzalezJD86, PR por abrir)
 - ✅ G3 — Rutina de core con 5 ejercicios (dead-bug, bird-dog, side-plank, russian-twist, hollow-hold), poses propias en el sistema de animación y calentamiento (GonzalezJD86, PR #23)
 - ✅ X1a — Revisión de contenido de brazos, piernas y espalda: los 3 ejercicios de bisagra de cadera (peso muerto rumano, remo inclinado, pájaro inclinado) no tenían la instrucción explícita "detente si sientes dolor agudo en la espalda baja" pese a ser los de mayor riesgo lumbar para principiantes — corregido (Claude, PR #22)
 - ✅ Vínculo de productos con los 5 ejercicios de espalda + etiquetas de grupo muscular en Progreso/Inicio (Claude, PR #21)

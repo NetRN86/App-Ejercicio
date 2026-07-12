@@ -1,8 +1,8 @@
-export type ExerciseCategory = 'Biceps' | 'Triceps' | 'Hombros' | 'Antebrazos' | 'Piernas' | 'Gluteos' | 'Espalda' | 'Core';
+export type ExerciseCategory = 'Biceps' | 'Triceps' | 'Hombros' | 'Antebrazos' | 'Piernas' | 'Gluteos' | 'Espalda' | 'Core' | 'Pecho';
 export type Equipment = 'Peso corporal' | 'Una mancuerna de 5 kg' | 'Dos mancuernas de 5 kg';
 export type Difficulty = 'Principiante';
-export type SessionId = 'A' | 'B' | 'C' | 'D' | 'E';
-export type WorkoutGroup = 'Brazos' | 'Piernas' | 'Espalda' | 'Core';
+export type SessionId = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
+export type WorkoutGroup = 'Brazos' | 'Piernas' | 'Espalda' | 'Core' | 'Pecho';
 export type AnimationType =
   | 'biceps-curl'
   | 'hammer-curl'
@@ -28,7 +28,12 @@ export type AnimationType =
   | 'bird-dog'
   | 'side-plank'
   | 'russian-twist'
-  | 'hollow-hold';
+  | 'hollow-hold'
+  | 'knee-pushup'
+  | 'floor-press'
+  | 'squeeze-press'
+  | 'floor-fly'
+  | 'chest-squeeze-hold';
 
 export interface Exercise {
   id: string;

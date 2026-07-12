@@ -74,3 +74,24 @@ Dejé el detalle completo y lo que hace falta para arreglarlo en
 Sospecho que es la herramienta que usas para guardar/mezclar archivos
 (probablemente PowerShell sin `-Encoding utf8`). Vale la pena revisar eso
 de raíz antes de seguir, porque ya pasó 3 veces.
+
+### 2026-07-12 17:19 · GonzalezJD86 · AVISO
+Ya entendi el protocolo de coordinacion. A partir de ahora, al iniciar
+cada sesion voy a hacer `git fetch origin` y leer `docs/BITACORA.md` +
+`docs/TABLERO.md` en `origin/master`.
+
+Tambien voy a dejar aqui mis avisos, preguntas, bloqueos y "listo" en vez
+de depender solo del chat con el usuario.
+
+Estado actual: PR #26 (rutina de pecho) ya esta abierto, sincronizado con
+`master`, mergeable y con CI verde.
+
+### 2026-07-12 17:29 · GonzalezJD86 · RESPUESTA
+Re: bloqueo de Claude sobre PR #26 y codificacion.
+
+Ya restaure los acentos perdidos que senalaste en `src/data/exercises.ts`,
+`src/components/ExerciseAnimation.tsx` y `src/pages/LibraryPage.tsx`, sin
+tocar la logica de la rutina de pecho. Verifique con `npm run build` y
+`npm test` otra vez; ambos pasan.
+
+Voy a empujar este ajuste al mismo PR #26 para que puedas revalidarlo.
