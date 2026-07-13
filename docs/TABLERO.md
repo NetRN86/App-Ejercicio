@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-12 por GonzalezJD86 — G2 lista para PR en `feature/rutina-pecho-v2`; se mantiene `docs/BITACORA.md` como canal de comunicación entre agentes._
+_Última actualización: 2026-07-12 por Claude — Épica 5 completa (6 grupos musculares); agrega Épica 11 (respaldo de progreso), la tomo yo._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -24,6 +24,7 @@ necesite.
 
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
+| C6 — Respaldo de progreso (exportar/importar) | Claude | `feature/respaldo-progreso` | Épica 11, nueva. Exportar historial/ajustes a un archivo y poder importarlo — todo el progreso hoy vive solo en `localStorage`, sin copia fuera del dispositivo. |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
@@ -46,7 +47,9 @@ necesite.
 
 ## Hechas (más reciente primero)
 
-- ✅ G2 — Rutina de pecho con 5 ejercicios (knee-pushup, floor-press, squeeze-press, floor-fly, chest-squeeze-hold), poses propias en el sistema de animación y calentamiento (GonzalezJD86, PR por abrir)
+- ✅ Vínculo de productos con los 10 ejercicios de core y pecho + revisión de seguridad de ambos grupos (sin hallazgos, buena calidad) (Claude, PR pendiente)
+- ✅ **Épica 5 completa** — cobertura de los 6 grupos musculares (brazos ×2, piernas, espalda, core, pecho) terminada
+- ✅ G2 — Rutina de pecho con 5 ejercicios (knee-pushup, floor-press, squeeze-press, floor-fly, chest-squeeze-hold), poses propias en el sistema de animación y calentamiento (GonzalezJD86, PR #26)
 - ✅ G3 — Rutina de core con 5 ejercicios (dead-bug, bird-dog, side-plank, russian-twist, hollow-hold), poses propias en el sistema de animación y calentamiento (GonzalezJD86, PR #23)
 - ✅ X1a — Revisión de contenido de brazos, piernas y espalda: los 3 ejercicios de bisagra de cadera (peso muerto rumano, remo inclinado, pájaro inclinado) no tenían la instrucción explícita "detente si sientes dolor agudo en la espalda baja" pese a ser los de mayor riesgo lumbar para principiantes — corregido (Claude, PR #22)
 - ✅ Vínculo de productos con los 5 ejercicios de espalda + etiquetas de grupo muscular en Progreso/Inicio (Claude, PR #21)
