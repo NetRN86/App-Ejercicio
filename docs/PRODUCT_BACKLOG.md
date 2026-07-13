@@ -76,7 +76,11 @@ ahora se cura manualmente una lista de productos).
 
 ## Épica 5 — Cobertura completa (espalda, pecho, core)
 
-**Estado: Por priorizar** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+Los 6 grupos musculares (brazos ×2 sesiones, piernas, espalda, core, pecho)
+ya tienen biblioteca, calentamiento propio, poses de animación y equipo
+recomendado. La app cubre el cuerpo completo para un principiante.
 
 - Como usuario, quiero rutinas de espalda, pecho y core con la misma
   estructura que brazos y piernas (biblioteca, calentamiento propio,
@@ -99,7 +103,7 @@ o algo más elaborado; empezar con la regla simple.
 
 ## Épica 7 — Práctica integrada al flujo de entrenamiento
 
-**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero que se me ofrezca practicar el ritmo de un ejercicio
   nuevo justo antes de su primer set, no solo si entro manualmente a la
@@ -109,25 +113,45 @@ o algo más elaborado; empezar con la regla simple.
 
 ## Épica 8 — Productos ligados a la rutina real
 
-**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero ver "te falta X para desbloquear Y ejercicio" en vez
   de una lista genérica de productos sin relación con mi rutina actual.
 
 ## Épica 9 — App instalable (PWA)
 
-**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero instalar la app en mi teléfono y usarla sin
   conexión, porque es donde realmente entreno.
 
 ## Épica 10 — Revisión cruzada de contenido de seguridad
 
-**Estado: Por priorizar** · Dueño: Ambos, cruzada (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: En curso** · Dueño: Ambos, cruzada (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Cada agente revisa el contenido de técnica/seguridad que escribió el
   otro (instrucciones, errores comunes, calentamientos) contra fuentes
   reconocidas, porque el valor central de la app es no lesionar al usuario.
+- Claude ya revisó brazos, piernas, espalda, core y pecho (sin hallazgos
+  graves salvo el de bisagra de cadera, corregido). Falta X1b: GonzalezJD86
+  revisa el contenido escrito por Claude (`products.ts`, textos de
+  práctica).
+
+## Épica 11 — Respaldo de progreso (exportar/importar)
+
+**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+
+- Como usuario, quiero exportar mi historial de entrenamientos y ajustes a
+  un archivo para no perderlos si cambio de teléfono o borro datos del
+  navegador.
+- Como usuario, quiero poder importar ese archivo de vuelta y recuperar mi
+  progreso exacto.
+
+Motivación: todo el progreso vive únicamente en `localStorage` del
+navegador — no hay ninguna copia fuera del dispositivo. Con 6 grupos
+musculares y meses de historial potencial, perderlo por limpiar el
+navegador o cambiar de equipo sería un golpe real a la constancia del
+usuario.
 
 ## Backlog técnico (transversal)
 
