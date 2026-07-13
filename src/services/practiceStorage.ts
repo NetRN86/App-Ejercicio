@@ -27,6 +27,10 @@ export function savePracticeAttempt(attempt: PracticeAttempt): PracticeAttempt[]
   return attempts;
 }
 
+export function restorePracticeAttempts(attempts: PracticeAttempt[]) {
+  writeJson(ATTEMPTS_KEY, attempts);
+}
+
 export function getBestAccuracyForExercise(exerciseId: string): number | null {
   const attempts = getPracticeAttempts().filter((attempt) => attempt.exerciseId === exerciseId);
   if (attempts.length === 0) return null;

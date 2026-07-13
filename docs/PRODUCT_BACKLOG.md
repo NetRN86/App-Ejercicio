@@ -139,7 +139,7 @@ o algo más elaborado; empezar con la regla simple.
 
 ## Épica 11 — Respaldo de progreso (exportar/importar)
 
-**Estado: Por priorizar** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** · Dueño: Claude (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero exportar mi historial de entrenamientos y ajustes a
   un archivo para no perderlos si cambio de teléfono o borro datos del

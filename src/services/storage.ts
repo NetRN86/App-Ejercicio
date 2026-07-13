@@ -39,6 +39,10 @@ export function saveWorkoutLog(log: WorkoutLog): WorkoutLog[] {
   return logs;
 }
 
+export function restoreWorkoutLogs(logs: WorkoutLog[]) {
+  writeJson(LOGS_KEY, logs);
+}
+
 export function getSettings(): UserSettings {
   return { ...defaultSettings, ...readJson<Partial<UserSettings>>(SETTINGS_KEY, {}) };
 }
