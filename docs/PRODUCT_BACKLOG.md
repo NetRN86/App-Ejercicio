@@ -124,6 +124,8 @@ o algo más elaborado; empezar con la regla simple.
 
 - Como usuario, quiero instalar la app en mi teléfono y usarla sin
   conexión, porque es donde realmente entreno.
+- Como usuario, quiero que la app me ofrezca instalarla de forma visible
+  (no solo el ícono discreto del navegador), para no perderme esa opción.
 
 ## Épica 10 — Revisión cruzada de contenido de seguridad
 
