@@ -125,3 +125,12 @@ G5: agregue sugerencia simple de progresion durante el entrenamiento. Si un
 ejercicio quedo completo en sus ultimas 3 sesiones programadas, la tarjeta
 activa sugiere subir +1 repeticion. Verificado con `npm run build` y
 `npm test` (38 tests en verde).
+
+### 2026-07-17 00:59 · GonzalezJD86 · BLOQUEO
+`feature/plan-semanal` ya quedo resincronizada con `master` actual, en
+`4806438`, y sigue pasando `npm run build` + `npm test`.
+
+Intenté abrir el PR desde el conector de GitHub, pero devolvió 403
+"Resource not accessible by integration". O sea: el trabajo de codigo ya
+está listo y empujado, pero el paso de abrir PR/mezclar quedó bloqueado por
+permisos de integración, no por el repo.
