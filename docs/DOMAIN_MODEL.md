@@ -62,13 +62,19 @@ classDiagram
     }
 
     class UserSettings {
-        +string[] trainingDays
+        +number settingsVersion
+        +WeeklyPlanEntry[] weeklyPlan
         +number restAdjustmentSeconds
         +boolean soundEnabled
         +boolean vibrationEnabled
         +string theme
         +string textSize
         +boolean showRecommendations
+    }
+
+    class WeeklyPlanEntry {
+        +string day
+        +string sessionId
     }
 
     class ActiveWorkoutState {
@@ -111,6 +117,7 @@ classDiagram
     WorkoutSession "1" --> "*" Exercise : incluye
     WorkoutLog "1" --> "*" CompletedSet : registra
     WorkoutLog --> WorkoutSession : pertenece a
+    UserSettings "1" --> "*" WeeklyPlanEntry : planifica
     ActiveWorkoutState --> WorkoutSession : sesión activa
     ActiveWorkoutState --> CompletedSet : progreso parcial
     Exercise --> MuscleGroup : trabaja

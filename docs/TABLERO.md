@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-13 por Claude — C6 (respaldo de progreso) hecha._
+_Última actualización: 2026-07-17 por GonzalezJD86 — G4 tomada en `feature/plan-semanal`._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -24,12 +24,12 @@ necesite.
 
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
+| G4 — Plan semanal configurable | GonzalezJD86 | `feature/plan-semanal` | En curso. Migrar `UserSettings` a versión con plan semanal editable y quitar la suposición de orden fijo en Inicio/Progreso. |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
 | # | Tarea | Detalle |
 |---|---|---|
-| G4 | Plan semanal configurable | El usuario elige qué sesión va qué día (guardar en `UserSettings` versionado); Inicio y Progreso dejan de asumir el orden fijo. Hacerla DESPUÉS de G1–G3 (ya hechas). |
 | G5 | Progresión sugerida simple | Regla: si el usuario completó todas las series de un ejercicio en las últimas 3 sesiones, sugerir subir una repetición. Mostrarlo en la tarjeta del ejercicio durante el entrenamiento. |
 
 ## Tareas libres para Claude (Épicas 7, 8 y 9)

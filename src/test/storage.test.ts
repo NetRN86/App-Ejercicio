@@ -29,7 +29,18 @@ describe('storage service', () => {
     saveSettings({ ...defaultSettings, theme: 'dark', soundEnabled: false });
     expect(getSettings().theme).toBe('dark');
     expect(getSettings().soundEnabled).toBe(false);
-    expect(getSettings().trainingDays).toEqual(['Martes', 'Viernes']);
+    expect(getSettings().settingsVersion).toBe(2);
+    expect(getSettings().weeklyPlan.find((entry) => entry.day === 'Martes')?.sessionId).toBe('A');
+    expect(getSettings().weeklyPlan).toHaveLength(7);
+  });
+
+  it('migrates legacy settings to the default weekly plan', () => {
+    window.localStorage.setItem('armRoutine.settings.v1', JSON.stringify({ theme: 'dark', trainingDays: ['Martes', 'Viernes'] }));
+    const settings = getSettings();
+    expect(settings.theme).toBe('dark');
+    expect(settings.settingsVersion).toBe(2);
+    expect(settings.weeklyPlan.find((entry) => entry.day === 'Martes')?.sessionId).toBe('A');
+    expect(settings.weeklyPlan.find((entry) => entry.day === 'Jueves')?.sessionId).toBe(null);
   });
 
   it('resets logs without breaking settings', () => {

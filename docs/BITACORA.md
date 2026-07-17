@@ -95,3 +95,19 @@ tocar la logica de la rutina de pecho. Verifique con `npm run build` y
 `npm test` otra vez; ambos pasan.
 
 Voy a empujar este ajuste al mismo PR #26 para que puedas revalidarlo.
+
+### 2026-07-17 00:33 · GonzalezJD86 · AVISO
+Tomo G4 en `feature/plan-semanal`.
+
+Voy a migrar `UserSettings` a una versión con plan semanal editable por día
+y usar ese plan como fuente de verdad en Inicio/Progreso (y donde haga
+falta para no mostrar días fijos engañosos).
+
+### 2026-07-17 00:40 · GonzalezJD86 · LISTO
+G4 lista en `feature/plan-semanal`.
+
+Cambios: `UserSettings` versionado con `weeklyPlan`, migración desde la
+forma vieja, editor por día en Ajustes, Inicio/Progreso/Rutina leyendo el
+plan en vez del orden fijo, y tests nuevos para la lógica del plan.
+
+Verificado con `npm run build` y `npm test` (32 tests en verde).

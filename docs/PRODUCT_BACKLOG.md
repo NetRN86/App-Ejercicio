@@ -90,7 +90,7 @@ recomendado. La app cubre el cuerpo completo para un principiante.
 
 ## Épica 6 — Plan semanal configurable y progresión sugerida
 
-**Estado: Por priorizar** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: En sprint** · Dueño: GonzalezJD86 (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Como usuario, quiero armar mi propio plan semanal (qué grupo muscular
   entreno qué día), no solo usar el orden fijo que trae la app.
