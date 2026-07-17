@@ -2,6 +2,7 @@ import { BookOpen, CalendarDays, Gamepad2, Home, ListChecks, PlayCircle, Setting
 import type { LucideIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { InstallBanner } from './components/InstallBanner';
+import { ResumeWorkoutBanner } from './components/ResumeWorkoutBanner';
 import { HomePage } from './pages/HomePage';
 import { LibraryPage } from './pages/LibraryPage';
 import { PracticePage } from './pages/PracticePage';
@@ -10,8 +11,8 @@ import { ProgressPage } from './pages/ProgressPage';
 import { RoutinePage } from './pages/RoutinePage';
 import { SettingsPage } from './pages/SettingsPage';
 import { WorkoutPage } from './pages/WorkoutPage';
-import { getSettings, getWorkoutLogs, resetAllProgress, saveSettings, saveWorkoutLog } from './services/storage';
-import type { SessionId, UserSettings, WorkoutLog } from './types';
+import { clearActiveWorkout, getActiveWorkout, getSettings, getWorkoutLogs, resetAllProgress, saveSettings, saveWorkoutLog } from './services/storage';
+import type { ActiveWorkoutState, SessionId, UserSettings, WorkoutLog } from './types';
 
 type Page = 'inicio' | 'rutina' | 'entrenamiento' | 'biblioteca' | 'practica' | 'productos' | 'progreso' | 'configuracion';
 
@@ -29,6 +30,8 @@ const navItems: Array<{ id: Page; label: string; icon: LucideIcon }> = [
 export function App() {
   const [page, setPage] = useState<Page>('inicio');
   const [activeSession, setActiveSession] = useState<SessionId>('A');
+  const [resumeState, setResumeState] = useState<ActiveWorkoutState | null>(null);
+  const [activeWorkout, setActiveWorkout] = useState<ActiveWorkoutState | null>(() => getActiveWorkout());
   const [logs, setLogs] = useState<WorkoutLog[]>(() => getWorkoutLogs());
   const [settings, setSettings] = useState<UserSettings>(() => getSettings());
 
@@ -38,9 +41,26 @@ export function App() {
     saveSettings(settings);
   }, [settings]);
 
+  useEffect(() => {
+    if (page === 'inicio') setActiveWorkout(getActiveWorkout());
+  }, [page]);
+
   function startWorkout(sessionId: SessionId) {
+    setResumeState(null);
     setActiveSession(sessionId);
     setPage('entrenamiento');
+  }
+
+  function resumeWorkout() {
+    if (!activeWorkout) return;
+    setResumeState(activeWorkout);
+    setActiveSession(activeWorkout.sessionId);
+    setPage('entrenamiento');
+  }
+
+  function discardActiveWorkout() {
+    clearActiveWorkout();
+    setActiveWorkout(null);
   }
 
   function finishWorkout(log: WorkoutLog) {
@@ -53,6 +73,7 @@ export function App() {
     if (!ok) return;
     resetAllProgress();
     setLogs([]);
+    setActiveWorkout(null);
   }
 
   return (
@@ -64,10 +85,11 @@ export function App() {
         </div>
       </header>
       <InstallBanner />
+      {page === 'inicio' && activeWorkout && <ResumeWorkoutBanner state={activeWorkout} onResume={resumeWorkout} onDiscard={discardActiveWorkout} />}
       <main>
         {page === 'inicio' && <HomePage logs={logs} onStart={startWorkout} onNavigate={(target) => setPage(target as Page)} />}
         {page === 'rutina' && <RoutinePage onStart={startWorkout} />}
-        {page === 'entrenamiento' && <WorkoutPage sessionId={activeSession} settings={settings} onFinish={finishWorkout} onExit={() => setPage('inicio')} />}
+        {page === 'entrenamiento' && <WorkoutPage sessionId={activeSession} settings={settings} resumeState={resumeState} onFinish={finishWorkout} onExit={() => setPage('inicio')} />}
         {page === 'biblioteca' && <LibraryPage />}
         {page === 'practica' && <PracticePage settings={settings} />}
         {page === 'productos' && <ProductsPage />}
