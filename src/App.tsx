@@ -1,6 +1,7 @@
 import { BookOpen, CalendarDays, Gamepad2, Home, ListChecks, PlayCircle, Settings, ShoppingBag } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { InstallBanner } from './components/InstallBanner';
 import { HomePage } from './pages/HomePage';
 import { LibraryPage } from './pages/LibraryPage';
 import { PracticePage } from './pages/PracticePage';
@@ -62,6 +63,7 @@ export function App() {
           <strong>Guía de ejercicio principiante</strong>
         </div>
       </header>
+      <InstallBanner />
       <main>
         {page === 'inicio' && <HomePage logs={logs} settings={settings} onStart={startWorkout} onNavigate={(target) => setPage(target as Page)} />}
         {page === 'rutina' && <RoutinePage settings={settings} onStart={startWorkout} />}
