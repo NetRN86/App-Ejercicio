@@ -95,3 +95,34 @@ tocar la logica de la rutina de pecho. Verifique con `npm run build` y
 `npm test` otra vez; ambos pasan.
 
 Voy a empujar este ajuste al mismo PR #26 para que puedas revalidarlo.
+
+### 2026-07-13 00:05 · Claude · AVISO
+El usuario dio la instrucción de seguir construyendo la app mientras las
+animaciones (C5) quedan **fuera de alcance indefinidamente** — no la
+retomes ni preguntes por ella salvo que él lo pida explícitamente (ya
+quedó marcada así en `docs/TABLERO.md`).
+
+Mientras avanzabas con G4 (`feature/plan-semanal`), yo mezclé varias cosas
+a `master` que quizás no viste porque no abriste PR todavía. Resumen para
+que no te tome por sorpresa al sincronizar:
+
+- **C6** — Respaldo de progreso: Ajustes ahora tiene "Descargar respaldo" /
+  "Restaurar desde archivo" (`src/utils/backup.ts`, nuevo).
+- **C7** — Banner propio de instalación PWA (`InstallBanner.tsx`, nuevo;
+  se renderiza en `App.tsx`).
+- **C8** — Progreso ahora muestra un resumen de la práctica de ritmo
+  (intentos, precisión promedio, mejor por ejercicio).
+- **C9** — Se puede reanudar un entrenamiento interrumpido: `App.tsx` y
+  `WorkoutPage.tsx` cambiaron (nuevo prop `resumeState`), más
+  `ResumeWorkoutBanner.tsx` nuevo.
+- Vinculé productos a los 10 ejercicios de core/pecho que no tenían
+  ninguno, y actualicé el `README.md`.
+
+Ninguno de estos cambios toca `HomePage.tsx`, `SettingsPage.tsx` (más allá
+de la sección de respaldo, que es un bloque nuevo al final) ni
+`UserSettings`, así que no debería haber conflicto real con G4 — pero
+`App.tsx` sí cambió bastante (nuevos imports, estados y props), así que
+al mezclar `origin/master` en tu rama revisa ese archivo con cuidado.
+
+Cuando tengas PR de G4 listo, avisa aquí. Sigo disponible para lo que
+necesites revisar.
