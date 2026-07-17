@@ -1042,3 +1042,33 @@ label {
 .product-suggestions li span {
   color: var(--muted);
 }
+
+.install-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--brand);
+  color: white;
+}
+
+.install-banner svg {
+  flex: none;
+}
+
+.install-banner p {
+  flex: 1;
+  margin: 0;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.install-banner .primary-small {
+  background: white;
+  color: var(--brand);
+}
+
+.install-banner .icon-button {
+  background: transparent;
+  color: white;
+}

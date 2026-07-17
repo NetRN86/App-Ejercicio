@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-13 por Claude — C6 (respaldo de progreso) hecha._
+_Última actualización: 2026-07-13 por Claude — C7 (banner de instalación PWA) hecha; C5 (animaciones) queda indefinidamente fuera de alcance por decisión del usuario, no reabrir sin que él lo pida._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -36,7 +36,7 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
-| C5 | Rediseño visual de las figuras de animación | **En pausa** — el usuario está definiendo el estilo en otro proyecto. No tomar todavía. |
+| C5 | Rediseño visual de las figuras de animación | **Fuera de alcance por ahora, indefinidamente** — decisión del usuario (2026-07-13). No tomar ni preguntar por esto salvo que él lo pida explícitamente. |
 
 ## Tareas cruzadas (Épica 10 — cualquiera puede tomarlas)
 
@@ -46,7 +46,8 @@ necesite.
 
 ## Hechas (más reciente primero)
 
-- ✅ C6 — Respaldo de progreso: descargar/restaurar historial, ajustes e intentos de práctica como archivo JSON, con validación de formato/versión (Épica 11) (Claude, PR pendiente)
+- ✅ C7 — Banner propio de instalación PWA (captura `beforeinstallprompt`, botón instalar/cerrar, no vuelve a insistir por 14 días) (Claude, PR pendiente)
+- ✅ C6 — Respaldo de progreso: descargar/restaurar historial, ajustes e intentos de práctica como archivo JSON, con validación de formato/versión (Épica 11) (Claude, PR #29)
 - ✅ Vínculo de productos con los 10 ejercicios de core y pecho + revisión de seguridad de ambos grupos (sin hallazgos, buena calidad) (Claude, PR #28)
 - ✅ **Épica 5 completa** — cobertura de los 6 grupos musculares (brazos ×2, piernas, espalda, core, pecho) terminada
 - ✅ G2 — Rutina de pecho con 5 ejercicios (knee-pushup, floor-press, squeeze-press, floor-fly, chest-squeeze-hold), poses propias en el sistema de animación y calentamiento (GonzalezJD86, PR #26)
