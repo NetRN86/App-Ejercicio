@@ -1,6 +1,8 @@
-import { BarChart3, Clock, ListChecks, Repeat } from 'lucide-react';
+import { BarChart3, Clock, Gamepad2, ListChecks, Repeat, Target } from 'lucide-react';
 import { WeeklyCalendar } from '../components/WeeklyCalendar';
+import { exercises } from '../data/exercises';
 import { workoutSessions } from '../data/workouts';
+import { getPracticeAttempts } from '../services/practiceStorage';
 import type { WorkoutLog } from '../types';
 import { countActiveWeekStreak, getWeeklyCounts } from '../utils/progress';
 import { formatDuration } from '../utils/timer';
@@ -11,6 +13,20 @@ export function ProgressPage({ logs }: { logs: WorkoutLog[] }) {
   const weeklyCounts = Object.entries(getWeeklyCounts(logs)).slice(-8);
   const streak = countActiveWeekStreak(logs);
   const maxCount = Math.max(1, ...weeklyCounts.map(([, count]) => count));
+
+  const practiceAttempts = getPracticeAttempts();
+  const avgAccuracy = practiceAttempts.length
+    ? Math.round(practiceAttempts.reduce((sum, attempt) => sum + attempt.accuracyScore, 0) / practiceAttempts.length)
+    : 0;
+  const bestByExercise = new Map<string, number>();
+  for (const attempt of practiceAttempts) {
+    const current = bestByExercise.get(attempt.exerciseId) ?? 0;
+    if (attempt.accuracyScore > current) bestByExercise.set(attempt.exerciseId, attempt.accuracyScore);
+  }
+  const practicedExercises = Array.from(bestByExercise.entries())
+    .map(([exerciseId, bestAccuracy]) => ({ exercise: exercises.find((item) => item.id === exerciseId), bestAccuracy }))
+    .filter((item): item is { exercise: NonNullable<typeof item.exercise>; bestAccuracy: number } => Boolean(item.exercise))
+    .sort((a, b) => b.bestAccuracy - a.bestAccuracy);
 
   return (
     <div className="page-stack">
@@ -42,6 +58,24 @@ export function ProgressPage({ logs }: { logs: WorkoutLog[] }) {
             </div>
           ))}
         </div>
+      </section>
+      <section className="content-band">
+        <h2>Práctica de ritmo</h2>
+        {practiceAttempts.length === 0 ? (
+          <p>Aún no has practicado ningún ejercicio. Ve a la pestaña Practicar para empezar.</p>
+        ) : (
+          <>
+            <div className="stats-grid">
+              <div><Gamepad2 aria-hidden="true" /><span>Intentos de práctica</span><strong>{practiceAttempts.length}</strong></div>
+              <div><Target aria-hidden="true" /><span>Precisión promedio</span><strong>{avgAccuracy}%</strong></div>
+            </div>
+            <div className="compact-list">
+              {practicedExercises.map(({ exercise, bestAccuracy }) => (
+                <div key={exercise.id}><strong>{exercise.name}</strong><span>Mejor precisión: {bestAccuracy}%</span></div>
+              ))}
+            </div>
+          </>
+        )}
       </section>
       <section className="content-band">
         <h2>Historial por fecha</h2>

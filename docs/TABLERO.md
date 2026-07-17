@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-13 por Claude — C7 (banner de instalación PWA) hecha; C5 (animaciones) queda indefinidamente fuera de alcance por decisión del usuario, no reabrir sin que él lo pida._
+_Última actualización: 2026-07-13 por Claude — C8 (resumen de práctica en Progreso) hecha. GonzalezJD86 ya inició G4 en `feature/plan-semanal`._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -24,6 +24,7 @@ necesite.
 
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
+| G4 — Plan semanal configurable | GonzalezJD86 | `feature/plan-semanal` | Detectada en progreso (sin PR todavía). Recuerda resincronizar con `origin/master` justo antes de abrir el PR. |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
@@ -46,7 +47,8 @@ necesite.
 
 ## Hechas (más reciente primero)
 
-- ✅ C7 — Banner propio de instalación PWA (captura `beforeinstallprompt`, botón instalar/cerrar, no vuelve a insistir por 14 días) (Claude, PR pendiente)
+- ✅ C8 — Resumen de práctica de ritmo en Progreso: intentos totales, precisión promedio, mejor precisión por ejercicio (Claude, PR pendiente)
+- ✅ C7 — Banner propio de instalación PWA (captura `beforeinstallprompt`, botón instalar/cerrar, no vuelve a insistir por 14 días) (Claude, PR #30)
 - ✅ C6 — Respaldo de progreso: descargar/restaurar historial, ajustes e intentos de práctica como archivo JSON, con validación de formato/versión (Épica 11) (Claude, PR #29)
 - ✅ Vínculo de productos con los 10 ejercicios de core y pecho + revisión de seguridad de ambos grupos (sin hallazgos, buena calidad) (Claude, PR #28)
 - ✅ **Épica 5 completa** — cobertura de los 6 grupos musculares (brazos ×2, piernas, espalda, core, pecho) terminada
