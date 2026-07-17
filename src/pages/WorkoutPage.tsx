@@ -9,7 +9,8 @@ import { exercises } from '../data/exercises';
 import { getPracticeAttempts } from '../services/practiceStorage';
 import { clearActiveWorkout, getWorkoutLogs, saveActiveWorkout } from '../services/storage';
 import type { ActiveWorkoutState, CompletedSet, SessionId, UserSettings, WorkoutLog } from '../types';
-import { isExerciseUnfamiliar } from '../utils/familiarity';
+import { isExerciseUnfamiliar, isTempoPracticeEligible } from '../utils/familiarity';
+import { getProgressionSuggestion } from '../utils/progression';
 import { getRestWithAdjustment } from '../utils/timer';
 
 interface Props {
@@ -37,14 +38,18 @@ export function WorkoutPage({ sessionId, settings, onFinish, onExit }: Props) {
   const [effort, setEffort] = useState(6);
   const [notes, setNotes] = useState('');
   const [startedAt] = useState(Date.now());
+  const [workoutHistory] = useState<WorkoutLog[]>(() => getWorkoutLogs());
   const [unfamiliarIds] = useState<string[]>(() => {
-    const logs = getWorkoutLogs();
     const attempts = getPracticeAttempts();
-    return session.exerciseIds.filter((id) => isExerciseUnfamiliar(id, logs, attempts));
+    return session.exerciseIds.filter((id) => {
+      const exercise = exercises.find((item) => item.id === id);
+      return !!exercise && isTempoPracticeEligible(exercise) && isExerciseUnfamiliar(id, workoutHistory, attempts);
+    });
   });
   const [practiceDismissedIds, setPracticeDismissedIds] = useState<string[]>([]);
 
   const currentExercise = workoutExercises[exerciseIndex];
+  const progressionSuggestion = currentExercise ? getProgressionSuggestion(currentExercise, workoutHistory) : null;
   const offerPractice = phase === 'exercise' && setNumber === 1 && !!currentExercise
     && unfamiliarIds.includes(currentExercise.id) && !practiceDismissedIds.includes(currentExercise.id);
   const totalSets = workoutExercises.reduce((sum, exercise) => sum + (exercise?.sets ?? 0), 0);
@@ -194,6 +199,15 @@ export function WorkoutPage({ sessionId, settings, onFinish, onExit }: Props) {
           <div><span>Objetivo</span><strong>{currentExercise.reps}</strong></div>
           <div><span>Músculos</span><strong>{currentExercise.musclesWorked.join(', ')}</strong></div>
         </div>
+        {progressionSuggestion && (
+          <div className="progression-note" role="status" aria-live="polite">
+            <strong>Sugerencia de progresión</strong>
+            <p>
+              Completaste todas las series de este ejercicio en tus últimas {progressionSuggestion.supportingSessions} sesiones.
+              Si hoy te sientes sólido, prueba subir de <strong>{progressionSuggestion.currentTarget}</strong> a <strong>{progressionSuggestion.suggestedTarget}</strong>.
+            </p>
+          </div>
+        )}
         {currentExercise.warning && <p className="warning-text">{currentExercise.warning}</p>}
         <details open>
           <summary>Ver instrucciones</summary>

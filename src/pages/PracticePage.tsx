@@ -3,6 +3,7 @@ import { Gamepad2 } from 'lucide-react';
 import { exercises } from '../data/exercises';
 import { PracticeMetronome } from '../components/PracticeMetronome';
 import { getBestAccuracyForExercise, getPracticeAttempts, savePracticeAttempt } from '../services/practiceStorage';
+import { isTempoPracticeEligible } from '../utils/familiarity';
 import { scoreRhythmAttempt } from '../utils/rhythm';
 import type { PracticeAttempt, UserSettings } from '../types';
 
@@ -18,7 +19,8 @@ interface Props {
 }
 
 export function PracticePage({ settings }: Props) {
-  const [exerciseId, setExerciseId] = useState(exercises[0]?.id ?? '');
+  const eligibleExercises = exercises.filter(isTempoPracticeEligible);
+  const [exerciseId, setExerciseId] = useState(eligibleExercises[0]?.id ?? '');
   const [tempoId, setTempoId] = useState(TEMPOS[1].id);
   const [running, setRunning] = useState(false);
   const [startTimeMs, setStartTimeMs] = useState<number | null>(null);
@@ -26,7 +28,7 @@ export function PracticePage({ settings }: Props) {
   const [lastResult, setLastResult] = useState<PracticeAttempt | null>(null);
   const [attempts, setAttempts] = useState(() => getPracticeAttempts());
 
-  const exercise = exercises.find((item) => item.id === exerciseId) ?? exercises[0];
+  const exercise = eligibleExercises.find((item) => item.id === exerciseId) ?? eligibleExercises[0];
   const tempo = TEMPOS.find((item) => item.id === tempoId) ?? TEMPOS[1];
   const bestAccuracy = useMemo(() => (exercise ? getBestAccuracyForExercise(exercise.id) : null), [exercise, attempts]);
 
@@ -77,7 +79,7 @@ export function PracticePage({ settings }: Props) {
         <label className="practice-field">
           <span>Ejercicio</span>
           <select value={exerciseId} onChange={(event) => { setExerciseId(event.target.value); setRunning(false); }} disabled={running}>
-            {exercises.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
+            {eligibleExercises.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
           </select>
         </label>
         <label className="practice-field">

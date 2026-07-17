@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { isExerciseUnfamiliar } from '../utils/familiarity';
-import type { PracticeAttempt, WorkoutLog } from '../types';
+import { isExerciseUnfamiliar, isTempoPracticeEligible } from '../utils/familiarity';
+import type { Exercise, PracticeAttempt, WorkoutLog } from '../types';
 
 const logWith = (exerciseId: string): WorkoutLog => ({
   id: 'log-1',
@@ -38,5 +38,37 @@ describe('isExerciseUnfamiliar', () => {
 
   it('history of other exercises does not count', () => {
     expect(isExerciseUnfamiliar('biceps-curl', [logWith('goblet-squat')], [attemptFor('hammer-curl')])).toBe(true);
+  });
+});
+
+describe('isTempoPracticeEligible', () => {
+  function exerciseWithReps(reps: string): Exercise {
+    return {
+      id: 'demo',
+      name: 'Demo',
+      category: 'Biceps',
+      equipment: 'Peso corporal',
+      difficulty: 'Principiante',
+      sets: 3,
+      reps,
+      restSeconds: 60,
+      instructions: [],
+      techniqueTips: [],
+      commonMistakes: [],
+      breathing: '',
+      safetyNotes: [],
+      easierVariation: '',
+      harderVariation: '',
+      animationType: 'biceps-curl',
+      musclesWorked: [],
+    };
+  }
+
+  it('allows rhythm practice for repetition-based exercises', () => {
+    expect(isTempoPracticeEligible(exerciseWithReps('10 a 12 repeticiones'))).toBe(true);
+  });
+
+  it('skips rhythm practice for time-based exercises', () => {
+    expect(isTempoPracticeEligible(exerciseWithReps('20 a 30 segundos'))).toBe(false);
   });
 });

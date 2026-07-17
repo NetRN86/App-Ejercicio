@@ -783,6 +783,24 @@ label {
   background: color-mix(in srgb, var(--brand) 10%, var(--surface));
 }
 
+.progression-note {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--good) 42%, var(--line));
+  border-left: 6px solid var(--good);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--good) 10%, var(--surface));
+}
+
+.progression-note strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.progression-note p {
+  margin: 0;
+}
+
 .rest-timer strong {
   display: block;
   margin-top: 6px;

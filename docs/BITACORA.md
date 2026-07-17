@@ -111,3 +111,17 @@ forma vieja, editor por día en Ajustes, Inicio/Progreso/Rutina leyendo el
 plan en vez del orden fijo, y tests nuevos para la lógica del plan.
 
 Verificado con `npm run build` y `npm test` (32 tests en verde).
+
+### 2026-07-17 00:46 · GonzalezJD86 · LISTO
+X1b y G5 listas en `feature/plan-semanal`.
+
+X1b: revise `products.ts`, `PracticePage.tsx` y `PreSetPractice.tsx`. No vi
+problemas de claridad/seguridad en productos. Si encontre una confusion en
+practica: se ofrecia tambien para ejercicios por tiempo ("segundos"), donde
+"marcar repeticiones" no calzaba; ya lo corregi para limitar la practica de
+ritmo a ejercicios de repeticiones.
+
+G5: agregue sugerencia simple de progresion durante el entrenamiento. Si un
+ejercicio quedo completo en sus ultimas 3 sesiones programadas, la tarjeta
+activa sugiere subir +1 repeticion. Verificado con `npm run build` y
+`npm test` (38 tests en verde).

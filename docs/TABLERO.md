@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-17 por GonzalezJD86 — G4 tomada en `feature/plan-semanal`._
+_Última actualización: 2026-07-17 por GonzalezJD86 — G4, G5 y X1b listas en `feature/plan-semanal`._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -24,13 +24,12 @@ necesite.
 
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
-| G4 — Plan semanal configurable | GonzalezJD86 | `feature/plan-semanal` | En curso. Migrar `UserSettings` a versión con plan semanal editable y quitar la suposición de orden fijo en Inicio/Progreso. |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
 | # | Tarea | Detalle |
 |---|---|---|
-| G5 | Progresión sugerida simple | Regla: si el usuario completó todas las series de un ejercicio en las últimas 3 sesiones, sugerir subir una repetición. Mostrarlo en la tarjeta del ejercicio durante el entrenamiento. |
+| — | Sin tareas libres | Épicas 5 y 6 completas en `feature/plan-semanal`; falta abrir PR y mezclar. |
 
 ## Tareas libres para Claude (Épicas 7, 8 y 9)
 
@@ -42,10 +41,13 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
-| X1b | Revisión de contenido: productos y práctica | Pendiente. GonzalezJD86 revisa `data/products.ts`, `PracticePage.tsx` y textos de `PreSetPractice.tsx` (escritos por Claude) contra criterios de claridad/seguridad, igual que Claude ya hizo con brazos/piernas/espalda/core (ver Hechas). |
+| — | Sin tareas cruzadas libres | X1b quedó revisada y corregida en `feature/plan-semanal`. |
 
 ## Hechas (más reciente primero)
 
+- ✅ G5 — Progresión sugerida simple: si el usuario completó todas las series de un ejercicio en sus últimas 3 sesiones programadas, la app sugiere subir una repetición durante el entrenamiento (GonzalezJD86, PR por abrir)
+- ✅ X1b — Revisión de contenido de productos y práctica: sin hallazgos en productos; se corrigió la práctica de ritmo para no ofrecerla en ejercicios por tiempo, donde "marcar repeticiones" era confuso (GonzalezJD86, PR por abrir)
+- ✅ G4 — Plan semanal configurable: `UserSettings` versionado con `weeklyPlan`, editor por día en Ajustes e Inicio/Progreso/Rutina leyendo el plan en vez del orden fijo (GonzalezJD86, PR por abrir)
 - ✅ C6 — Respaldo de progreso: descargar/restaurar historial, ajustes e intentos de práctica como archivo JSON, con validación de formato/versión (Épica 11) (Claude, PR pendiente)
 - ✅ Vínculo de productos con los 10 ejercicios de core y pecho + revisión de seguridad de ambos grupos (sin hallazgos, buena calidad) (Claude, PR #28)
 - ✅ **Épica 5 completa** — cobertura de los 6 grupos musculares (brazos ×2, piernas, espalda, core, pecho) terminada
