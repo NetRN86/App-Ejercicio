@@ -9,7 +9,11 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
+<<<<<<< HEAD
 _Última actualización: 2026-07-17 por GonzalezJD86 — G4, G5 y X1b listas en `feature/plan-semanal`; C8 ya estaba mezclada en `master`._
+=======
+_Última actualización: 2026-07-13 por Claude — C9 (reanudar entrenamiento interrumpido) hecha; README actualizado (PR #32)._
+>>>>>>> origin/master
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -45,10 +49,16 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+<<<<<<< HEAD
 - ✅ G5 — Progresión sugerida simple: si el usuario completó todas las series de un ejercicio en sus últimas 3 sesiones programadas, la app sugiere subir una repetición durante el entrenamiento (GonzalezJD86, PR por abrir)
 - ✅ X1b — Revisión de contenido de productos y práctica: sin hallazgos en productos; se corrigió la práctica de ritmo para no ofrecerla en ejercicios por tiempo, donde "marcar repeticiones" era confuso (GonzalezJD86, PR por abrir)
 - ✅ G4 — Plan semanal configurable: `UserSettings` versionado con `weeklyPlan`, editor por día en Ajustes e Inicio/Progreso/Rutina leyendo el plan en vez del orden fijo (GonzalezJD86, PR por abrir)
 - ✅ C8 — Resumen de práctica de ritmo en Progreso: intentos totales, precisión promedio, mejor precisión por ejercicio (Claude, PR pendiente)
+=======
+- ✅ C9 — Reanudar entrenamiento interrumpido: `saveActiveWorkout` guardaba progreso pero nada lo leía de vuelta; ahora un banner en Inicio ofrece reanudar (retoma ejercicio/serie exactos, salta el calentamiento) o descartar (Claude, PR pendiente)
+- ✅ Actualiza README para reflejar el estado real de la app (Claude, PR #32)
+- ✅ C8 — Resumen de práctica de ritmo en Progreso: intentos totales, precisión promedio, mejor precisión por ejercicio (Claude, PR #31)
+>>>>>>> origin/master
 - ✅ C7 — Banner propio de instalación PWA (captura `beforeinstallprompt`, botón instalar/cerrar, no vuelve a insistir por 14 días) (Claude, PR #30)
 - ✅ C6 — Respaldo de progreso: descargar/restaurar historial, ajustes e intentos de práctica como archivo JSON, con validación de formato/versión (Épica 11) (Claude, PR #29)
 - ✅ Vínculo de productos con los 10 ejercicios de core y pecho + revisión de seguridad de ambos grupos (sin hallazgos, buena calidad) (Claude, PR #28)

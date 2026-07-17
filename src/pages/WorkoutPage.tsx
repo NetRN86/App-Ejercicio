@@ -4,8 +4,8 @@ import { ExerciseAnimation } from '../components/ExerciseAnimation';
 import { PreSetPractice } from '../components/PreSetPractice';
 import { ProgressBar } from '../components/ProgressBar';
 import { RestTimer } from '../components/RestTimer';
-import { warmupStepsByGroup, workoutSessions } from '../data/workouts';
 import { exercises } from '../data/exercises';
+import { warmupStepsByGroup, workoutSessions } from '../data/workouts';
 import { getPracticeAttempts } from '../services/practiceStorage';
 import { clearActiveWorkout, getWorkoutLogs, saveActiveWorkout } from '../services/storage';
 import type { ActiveWorkoutState, CompletedSet, SessionId, UserSettings, WorkoutLog } from '../types';
@@ -16,28 +16,29 @@ import { getRestWithAdjustment } from '../utils/timer';
 interface Props {
   sessionId: SessionId;
   settings: UserSettings;
+  resumeState?: ActiveWorkoutState | null;
   onFinish: (log: WorkoutLog) => void;
   onExit: () => void;
 }
 
 type Phase = 'warmup' | 'exercise' | 'rest' | 'summary';
 
-export function WorkoutPage({ sessionId, settings, onFinish, onExit }: Props) {
+export function WorkoutPage({ sessionId, settings, resumeState, onFinish, onExit }: Props) {
   const session = workoutSessions.find((item) => item.id === sessionId) ?? workoutSessions[0];
   const warmupSteps = warmupStepsByGroup[session.group];
   const workoutExercises = useMemo(() => session.exerciseIds.map((id) => exercises.find((item) => item.id === id)).filter(Boolean), [session.exerciseIds]);
-  const [phase, setPhase] = useState<Phase>('warmup');
+  const [phase, setPhase] = useState<Phase>(resumeState ? 'exercise' : 'warmup');
   const [warmupIndex, setWarmupIndex] = useState(0);
   const [warmupRemaining, setWarmupRemaining] = useState(warmupSteps[0].seconds);
-  const [exerciseIndex, setExerciseIndex] = useState(0);
-  const [setNumber, setSetNumber] = useState(1);
-  const [completedSets, setCompletedSets] = useState<CompletedSet[]>([]);
-  const [skippedIds, setSkippedIds] = useState<string[]>([]);
-  const [rests, setRests] = useState<number[]>([]);
+  const [exerciseIndex, setExerciseIndex] = useState(resumeState?.currentExerciseIndex ?? 0);
+  const [setNumber, setSetNumber] = useState(resumeState?.currentSet ?? 1);
+  const [completedSets, setCompletedSets] = useState<CompletedSet[]>(resumeState?.completedSets ?? []);
+  const [skippedIds, setSkippedIds] = useState<string[]>(resumeState?.skippedExerciseIds ?? []);
+  const [rests, setRests] = useState<number[]>(resumeState?.rests ?? []);
   const [paused, setPaused] = useState(false);
   const [effort, setEffort] = useState(6);
   const [notes, setNotes] = useState('');
-  const [startedAt] = useState(Date.now());
+  const [startedAt] = useState(resumeState?.startedAt ?? Date.now());
   const [workoutHistory] = useState<WorkoutLog[]>(() => getWorkoutLogs());
   const [unfamiliarIds] = useState<string[]>(() => {
     const attempts = getPracticeAttempts();
@@ -186,7 +187,7 @@ export function WorkoutPage({ sessionId, settings, onFinish, onExit }: Props) {
       <section className="active-card">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">{session.name} · ejercicio {exerciseIndex + 1} de {workoutExercises.length}</span>
+            <span className="eyebrow">{session.name} · ejercicio {exerciseIndex + 1} de {workoutExercises.length}{resumeState ? ' · reanudado' : ''}</span>
             <h1>{currentExercise.name}</h1>
           </div>
           <button className="icon-text-button" type="button" onClick={() => setPaused((value) => !value)}><PauseCircle size={18} /> {paused ? 'Reanudar' : 'Pausar'}</button>
