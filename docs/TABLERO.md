@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-18 por Claude — Épica 12 (aviso de actualización de la PWA) hecha. Todas las épicas 1-12 completas; ver [docs/PRODUCT_BACKLOG.md](PRODUCT_BACKLOG.md) por si surgen nuevas._
+_Última actualización: 2026-07-18 por Claude — Épica 13 (identidad visual propia) hecha: paleta, tipografía y firma visual nuevas en toda la app. Todas las épicas 1-13 completas; ver [docs/PRODUCT_BACKLOG.md](PRODUCT_BACKLOG.md) por si surgen nuevas._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -45,6 +45,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ Épica 13 — Identidad visual propia: paleta "piso de gimnasio en casa" (acero/hule + teal + naranja de seguridad), tipografía nueva (Big Shoulders Display + JetBrains Mono + Public Sans, auto-hospedadas), franja de cinta de peligro como firma visual en encabezado y avisos de seguridad, botones con relieve táctil. No cambia ningún dato ni lógica, solo `src/styles.css`, `index.html`, `vite.config.ts` (Claude)
 - ✅ Épica 12 — Aviso de actualización de la PWA: `UpdateBanner.tsx` nuevo con `virtual:pwa-register/react`, ofrece "Actualizar" cuando hay una versión nueva del service worker en vez de aplicarla en silencio (Claude)
 - ✅ G5 — Progresión sugerida simple: si el usuario completó todas las series de un ejercicio en sus últimas 3 sesiones programadas, la app sugiere subir una repetición durante el entrenamiento (GonzalezJD86, rama `feature/plan-semanal`, mezclada por Claude)
 - ✅ X1b — Revisión de contenido de productos y práctica: sin hallazgos en productos; se corrigió la práctica de ritmo para no ofrecerla en ejercicios por tiempo, donde "marcar repeticiones" era confuso (GonzalezJD86, rama `feature/plan-semanal`, mezclada por Claude)

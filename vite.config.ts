@@ -17,8 +17,8 @@ export default defineConfig({
         start_url: '/App-Ejercicio/',
         scope: '/App-Ejercicio/',
         display: 'standalone',
-        background_color: '#f7f1e8',
-        theme_color: '#176f64',
+        background_color: '#eef1ef',
+        theme_color: '#0c5c53',
         lang: 'es-MX',
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
@@ -27,7 +27,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+        globPatterns: ['**/*.{js,css,html,png,svg,ico,woff2}'],
         navigateFallbackDenylist: [/^\/App-Ejercicio\/api\//],
       },
     }),

@@ -10,6 +10,9 @@
     "test": "vitest run --config vitest.config.ts"
   },
   "dependencies": {
+    "@fontsource-variable/big-shoulders-display": "^5.2.5",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource-variable/public-sans": "^5.2.7",
     "@vitejs/plugin-react": "^4.3.4",
     "lucide-react": "^0.468.0",
     "react": "^19.0.0",
