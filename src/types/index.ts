@@ -1,7 +1,8 @@
+import type { SessionId, WeeklyPlanEntry } from './planning';
+
 export type ExerciseCategory = 'Biceps' | 'Triceps' | 'Hombros' | 'Antebrazos' | 'Piernas' | 'Gluteos' | 'Espalda' | 'Core' | 'Pecho';
 export type Equipment = 'Peso corporal' | 'Una mancuerna de 5 kg' | 'Dos mancuernas de 5 kg';
 export type Difficulty = 'Principiante';
-export type SessionId = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 export type WorkoutGroup = 'Brazos' | 'Piernas' | 'Espalda' | 'Core' | 'Pecho';
 export type AnimationType =
   | 'biceps-curl'
@@ -92,7 +93,8 @@ export interface WorkoutLog {
 }
 
 export interface UserSettings {
-  trainingDays: string[];
+  settingsVersion: 2;
+  weeklyPlan: WeeklyPlanEntry[];
   restAdjustmentSeconds: number;
   soundEnabled: boolean;
   vibrationEnabled: boolean;
@@ -113,3 +115,4 @@ export interface ActiveWorkoutState {
 
 export * from './products';
 export * from './practice';
+export * from './planning';

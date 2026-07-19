@@ -1,9 +1,14 @@
 import { exercises } from '../data/exercises';
 import { workoutSessions } from '../data/workouts';
 import { ExerciseCard } from '../components/ExerciseCard';
-import type { SessionId } from '../types';
+import type { SessionId, UserSettings } from '../types';
+import { getAssignedDaysForSession } from '../utils/planning';
 
-export function RoutinePage({ onStart }: { onStart: (sessionId: SessionId) => void }) {
+function getScheduleLabel(days: string[]) {
+  return days.length ? days.join(', ') : 'Sin programar';
+}
+
+export function RoutinePage({ settings, onStart }: { settings: UserSettings; onStart: (sessionId: SessionId) => void }) {
   return (
     <div className="page-stack">
       <div className="section-heading">
@@ -17,7 +22,7 @@ export function RoutinePage({ onStart }: { onStart: (sessionId: SessionId) => vo
           <section className="content-band" key={session.id}>
             <div className="section-heading">
               <div>
-                <span className="eyebrow">{session.group} · {session.dayLabel} · {session.estimatedMinutes}</span>
+                <span className="eyebrow">{session.group} · {getScheduleLabel(getAssignedDaysForSession(settings.weeklyPlan, session.id))} · {session.estimatedMinutes}</span>
                 <h2>{session.name}</h2>
               </div>
               <button type="button" className="primary-small" onClick={() => onStart(session.id)}>Iniciar</button>

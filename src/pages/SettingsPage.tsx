@@ -1,7 +1,8 @@
 import { Download, RotateCcw, Upload } from 'lucide-react';
 import { useRef, useState } from 'react';
+import { workoutSessions } from '../data/workouts';
 import { applyBackup, BackupValidationError, downloadBackup, parseBackupFile } from '../utils/backup';
-import type { UserSettings } from '../types';
+import type { UserSettings, Weekday } from '../types';
 
 interface Props {
   settings: UserSettings;
@@ -9,15 +10,17 @@ interface Props {
   onReset: () => void;
 }
 
-const allDays = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-
 export function SettingsPage({ settings, onChange, onReset }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [importMessage, setImportMessage] = useState<{ kind: 'ok' | 'error'; text: string } | null>(null);
 
-  function toggleDay(day: string) {
-    const selected = settings.trainingDays.includes(day);
-    onChange({ ...settings, trainingDays: selected ? settings.trainingDays.filter((item) => item !== day) : [...settings.trainingDays, day] });
+  function updatePlanDay(day: Weekday, nextSessionId: string) {
+    onChange({
+      ...settings,
+      weeklyPlan: settings.weeklyPlan.map((entry) => (
+        entry.day === day ? { ...entry, sessionId: nextSessionId ? (nextSessionId as typeof entry.sessionId) : null } : entry
+      )),
+    });
   }
 
   function handleImportClick() {
@@ -56,9 +59,19 @@ export function SettingsPage({ settings, onChange, onReset }: Props) {
         </div>
       </div>
       <section className="content-band settings-grid">
-        <label>Días de entrenamiento</label>
-        <div className="day-picker">
-          {allDays.map((day) => <button key={day} type="button" className={settings.trainingDays.includes(day) ? 'selected' : ''} onClick={() => toggleDay(day)}>{day.slice(0, 3)}</button>)}
+        <label>Plan semanal</label>
+        <div className="plan-grid" aria-label="Plan semanal editable">
+          {settings.weeklyPlan.map((entry) => (
+            <label key={entry.day} className="plan-row">
+              <span>{entry.day}</span>
+              <select value={entry.sessionId ?? ''} onChange={(event) => updatePlanDay(entry.day, event.target.value)}>
+                <option value="">Descanso</option>
+                {workoutSessions.map((session) => (
+                  <option key={session.id} value={session.id}>{session.name} · {session.group}</option>
+                ))}
+              </select>
+            </label>
+          ))}
         </div>
 
         <label>Duración de descanso global: {settings.restAdjustmentSeconds >= 0 ? '+' : ''}{settings.restAdjustmentSeconds}s</label>

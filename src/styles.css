@@ -711,6 +711,29 @@ summary {
   min-width: 110px;
 }
 
+.plan-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.plan-row {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.plan-row select {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
 .workout-shell {
   min-height: calc(100vh - 160px);
   display: grid;
@@ -760,6 +783,24 @@ label {
   background: color-mix(in srgb, var(--brand) 10%, var(--surface));
 }
 
+.progression-note {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--good) 42%, var(--line));
+  border-left: 6px solid var(--good);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--good) 10%, var(--surface));
+}
+
+.progression-note strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.progression-note p {
+  margin: 0;
+}
+
 .rest-timer strong {
   display: block;
   margin-top: 6px;
@@ -780,19 +821,37 @@ label {
 }
 
 .weekly-calendar div {
-  min-height: 70px;
-  padding: 10px 6px;
+  min-height: 88px;
+  padding: 10px 8px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface-strong);
   display: grid;
   place-items: center;
   text-align: center;
+  gap: 4px;
+}
+
+.weekly-calendar strong {
+  font-size: 0.92rem;
+}
+
+.weekly-calendar small {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.weekly-calendar .planned {
+  border-color: color-mix(in srgb, var(--brand) 40%, var(--line));
 }
 
 .weekly-calendar .trained {
   border-color: var(--good);
   box-shadow: inset 0 0 0 2px var(--good);
+}
+
+.weekly-calendar .rest {
+  opacity: 0.78;
 }
 
 .bar-chart {

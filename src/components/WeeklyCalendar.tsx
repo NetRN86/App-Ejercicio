@@ -1,18 +1,26 @@
-import type { WorkoutLog } from '../types';
+import { workoutSessions } from '../data/workouts';
+import type { WorkoutLog, WeeklyPlanEntry } from '../types';
+import { getWeekdayShortLabel, getWeeklyPlanStatus } from '../utils/planning';
 
-const days = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
+interface Props {
+  logs: WorkoutLog[];
+  weeklyPlan: WeeklyPlanEntry[];
+}
 
-export function WeeklyCalendar({ logs }: { logs: WorkoutLog[] }) {
-  const trainedDays = new Set(logs.slice(0, 20).map((log) => new Date(log.date).getDay()));
-  const mapIndex = [1, 2, 3, 4, 5, 6, 0];
+export function WeeklyCalendar({ logs, weeklyPlan }: Props) {
+  const weekStatus = getWeeklyPlanStatus(weeklyPlan, logs);
+
   return (
-    <div className="weekly-calendar" aria-label="Calendario de dias entrenados">
-      {days.map((day, index) => {
-        const trained = trainedDays.has(mapIndex[index]);
+    <div className="weekly-calendar" aria-label="Calendario del plan semanal">
+      {weekStatus.map((entry) => {
+        const session = entry.sessionId ? workoutSessions.find((item) => item.id === entry.sessionId) : null;
+        const stateClass = entry.sessionId ? (entry.completed ? 'trained planned' : 'planned') : 'rest';
+
         return (
-          <div key={day} className={trained ? 'trained' : ''}>
-            <span>{day}</span>
-            <strong>{trained ? 'Hecho' : 'Libre'}</strong>
+          <div key={entry.day} className={stateClass}>
+            <span>{getWeekdayShortLabel(entry.day)}</span>
+            <strong>{session?.group ?? 'Descanso'}</strong>
+            <small>{entry.sessionId ? (entry.completed ? 'Hecho' : 'Pendiente') : 'Libre'}</small>
           </div>
         );
       })}

@@ -1,4 +1,4 @@
-import type { PracticeAttempt, WorkoutLog } from '../types';
+import type { Exercise, PracticeAttempt, WorkoutLog } from '../types';
 
 /**
  * Un ejercicio es "desconocido" si el usuario nunca lo ha practicado en el
@@ -9,4 +9,8 @@ export function isExerciseUnfamiliar(exerciseId: string, logs: WorkoutLog[], att
   const trained = logs.some((log) => log.completedExercises.includes(exerciseId));
   const practiced = attempts.some((attempt) => attempt.exerciseId === exerciseId);
   return !trained && !practiced;
+}
+
+export function isTempoPracticeEligible(exercise: Exercise): boolean {
+  return !exercise.reps.toLowerCase().includes('segundos');
 }

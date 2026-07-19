@@ -87,13 +87,13 @@ export function App() {
       <InstallBanner />
       {page === 'inicio' && activeWorkout && <ResumeWorkoutBanner state={activeWorkout} onResume={resumeWorkout} onDiscard={discardActiveWorkout} />}
       <main>
-        {page === 'inicio' && <HomePage logs={logs} onStart={startWorkout} onNavigate={(target) => setPage(target as Page)} />}
-        {page === 'rutina' && <RoutinePage onStart={startWorkout} />}
+        {page === 'inicio' && <HomePage logs={logs} settings={settings} onStart={startWorkout} onNavigate={(target) => setPage(target as Page)} />}
+        {page === 'rutina' && <RoutinePage settings={settings} onStart={startWorkout} />}
         {page === 'entrenamiento' && <WorkoutPage sessionId={activeSession} settings={settings} resumeState={resumeState} onFinish={finishWorkout} onExit={() => setPage('inicio')} />}
         {page === 'biblioteca' && <LibraryPage />}
         {page === 'practica' && <PracticePage settings={settings} />}
         {page === 'productos' && <ProductsPage />}
-        {page === 'progreso' && <ProgressPage logs={logs} />}
+        {page === 'progreso' && <ProgressPage logs={logs} settings={settings} />}
         {page === 'configuracion' && <SettingsPage settings={settings} onChange={setSettings} onReset={resetProgress} />}
       </main>
       <nav className="bottom-nav" aria-label="Navegacion principal">

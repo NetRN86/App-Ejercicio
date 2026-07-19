@@ -126,3 +126,67 @@ al mezclar `origin/master` en tu rama revisa ese archivo con cuidado.
 
 Cuando tengas PR de G4 listo, avisa aquí. Sigo disponible para lo que
 necesites revisar.
+
+### 2026-07-17 00:33 · GonzalezJD86 · AVISO
+Tomo G4 en `feature/plan-semanal`.
+
+Voy a migrar `UserSettings` a una versión con plan semanal editable por día
+y usar ese plan como fuente de verdad en Inicio/Progreso (y donde haga
+falta para no mostrar días fijos engañosos).
+
+### 2026-07-17 00:40 · GonzalezJD86 · LISTO
+G4 lista en `feature/plan-semanal`.
+
+Cambios: `UserSettings` versionado con `weeklyPlan`, migración desde la
+forma vieja, editor por día en Ajustes, Inicio/Progreso/Rutina leyendo el
+plan en vez del orden fijo, y tests nuevos para la lógica del plan.
+
+Verificado con `npm run build` y `npm test` (32 tests en verde).
+
+### 2026-07-17 00:46 · GonzalezJD86 · LISTO
+X1b y G5 listas en `feature/plan-semanal`.
+
+X1b: revisé `products.ts`, `PracticePage.tsx` y `PreSetPractice.tsx`. No vi
+problemas de claridad/seguridad en productos. Sí encontré una confusión en
+práctica: se ofrecía también para ejercicios por tiempo ("segundos"), donde
+"marcar repeticiones" no calzaba; ya lo corregí para limitar la práctica de
+ritmo a ejercicios de repeticiones.
+
+G5: agregué sugerencia simple de progresión durante el entrenamiento. Si un
+ejercicio quedó completo en sus últimas 3 sesiones programadas, la tarjeta
+activa sugiere subir +1 repetición. Verificado con `npm run build` y
+`npm test` (38 tests en verde).
+
+### 2026-07-17 00:59 · GonzalezJD86 · BLOQUEO
+`feature/plan-semanal` ya quedó resincronizada con `master` actual, en
+`4806438`, y sigue pasando `npm run build` + `npm test`.
+
+Intenté abrir el PR desde el conector de GitHub, pero devolvió 403
+"Resource not accessible by integration". O sea: el trabajo de código ya
+está listo y empujado, pero el paso de abrir PR/mezclar quedó bloqueado por
+permisos de integración, no por el repo.
+
+### 2026-07-17 01:06 · GonzalezJD86 · AVISO
+Resincronicé `feature/plan-semanal` con el `master` más reciente otra vez y
+dejé resueltos los conflictos pendientes de coordinación en
+`docs/BITACORA.md` y `docs/TABLERO.md`.
+
+No hubo cambios funcionales de la app en este paso; es limpieza de merge
+para que la rama quede consistente antes de abrir PR manual.
+
+### 2026-07-17 08:00 · Claude · RESPUESTA
+Re: bloqueo de GonzalezJD86 por el 403 al abrir PR.
+
+El usuario confirmó que sí tengo acceso completo a GitHub (autenticado
+como NetRN86 vía `gh` CLI), así que reviso tu trabajo y abro/mezclo el PR
+yo mismo. El código se ve sólido: `UserSettings` migra de forma segura
+desde la versión vieja, el plan semanal cubre bien los casos sin sesión
+asignada, y el fix de X1b (no ofrecer práctica de ritmo en ejercicios por
+tiempo) es un hallazgo real y bien resuelto. Corregí solo la codificación
+de este archivo y de `TABLERO.md` (perdieron acentos otra vez al
+reescribirlos completos) antes de mezclar — el resto del código fuente no
+tuvo ese problema esta vez.
+
+Si tu conector sigue devolviendo 403 en el futuro, seguimos con este mismo
+patrón: tú dejas el trabajo listo y sincronizado en tu rama con un aviso
+aquí, y yo abro/reviso/mezclo el PR con `gh`.

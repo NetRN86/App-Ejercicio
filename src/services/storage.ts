@@ -1,17 +1,24 @@
 import type { ActiveWorkoutState, UserSettings, WorkoutLog } from '../types';
+import { getDefaultWeeklyPlan, normalizeWeeklyPlan } from '../utils/planning';
 
 const LOGS_KEY = 'armRoutine.logs.v1';
 const SETTINGS_KEY = 'armRoutine.settings.v1';
 const ACTIVE_KEY = 'armRoutine.activeWorkout.v1';
 
 export const defaultSettings: UserSettings = {
-  trainingDays: ['Martes', 'Viernes'],
+  settingsVersion: 2,
+  weeklyPlan: getDefaultWeeklyPlan(),
   restAdjustmentSeconds: 0,
   soundEnabled: true,
   vibrationEnabled: true,
   theme: 'light',
   textSize: 'normal',
   showRecommendations: true,
+};
+
+type StoredSettings = Partial<UserSettings> & {
+  settingsVersion?: number;
+  trainingDays?: string[];
 };
 
 function readJson<T>(key: string, fallback: T): T {
@@ -44,11 +51,21 @@ export function restoreWorkoutLogs(logs: WorkoutLog[]) {
 }
 
 export function getSettings(): UserSettings {
-  return { ...defaultSettings, ...readJson<Partial<UserSettings>>(SETTINGS_KEY, {}) };
+  const stored = readJson<StoredSettings | null>(SETTINGS_KEY, null);
+  return {
+    ...defaultSettings,
+    ...stored,
+    settingsVersion: 2,
+    weeklyPlan: normalizeWeeklyPlan(stored?.weeklyPlan),
+  };
 }
 
 export function saveSettings(settings: UserSettings) {
-  writeJson(SETTINGS_KEY, settings);
+  writeJson(SETTINGS_KEY, {
+    ...settings,
+    settingsVersion: 2,
+    weeklyPlan: normalizeWeeklyPlan(settings.weeklyPlan),
+  });
 }
 
 export function getActiveWorkout(): ActiveWorkoutState | null {

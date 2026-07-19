@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-13 por Claude — C9 (reanudar entrenamiento interrumpido) hecha; README actualizado (PR #32)._
+_Última actualización: 2026-07-17 por Claude — G4, G5 y X1b mezcladas (rama `feature/plan-semanal`, abierta y mezclada por Claude porque el conector de GonzalezJD86 devolvió 403 al crear el PR). Épicas 5 y 6 completas._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -24,14 +24,12 @@ necesite.
 
 | Tarea | Agente | Rama | Nota |
 |---|---|---|---|
-| G4 — Plan semanal configurable | GonzalezJD86 | `feature/plan-semanal` | Detectada en progreso (sin PR todavía). Recuerda resincronizar con `origin/master` justo antes de abrir el PR. |
 
 ## Tareas libres para GonzalezJD86 (Épicas 5 y 6)
 
 | # | Tarea | Detalle |
 |---|---|---|
-| G4 | Plan semanal configurable | El usuario elige qué sesión va qué día (guardar en `UserSettings` versionado); Inicio y Progreso dejan de asumir el orden fijo. Hacerla DESPUÉS de G1–G3 (ya hechas). |
-| G5 | Progresión sugerida simple | Regla: si el usuario completó todas las series de un ejercicio en las últimas 3 sesiones, sugerir subir una repetición. Mostrarlo en la tarjeta del ejercicio durante el entrenamiento. |
+| — | Sin tareas libres | Épicas 5 y 6 completas. Si tu conector de GitHub sigue devolviendo 403 al crear PRs, dejá el trabajo listo y sincronizado en tu rama con un aviso en `docs/BITACORA.md` — Claude puede abrir/revisar/mezclar el PR con acceso completo vía `gh`. |
 
 ## Tareas libres para Claude (Épicas 7, 8 y 9)
 
@@ -43,11 +41,14 @@ necesite.
 
 | # | Tarea | Detalle |
 |---|---|---|
-| X1b | Revisión de contenido: productos y práctica | Pendiente. GonzalezJD86 revisa `data/products.ts`, `PracticePage.tsx` y textos de `PreSetPractice.tsx` (escritos por Claude) contra criterios de claridad/seguridad, igual que Claude ya hizo con brazos/piernas/espalda/core (ver Hechas). |
+| — | Sin tareas cruzadas libres | X1a y X1b completas — ambos agentes revisaron el contenido del otro. |
 
 ## Hechas (más reciente primero)
 
-- ✅ C9 — Reanudar entrenamiento interrumpido: `saveActiveWorkout` guardaba progreso pero nada lo leía de vuelta; ahora un banner en Inicio ofrece reanudar (retoma ejercicio/serie exactos, salta el calentamiento) o descartar (Claude, PR pendiente)
+- ✅ G5 — Progresión sugerida simple: si el usuario completó todas las series de un ejercicio en sus últimas 3 sesiones programadas, la app sugiere subir una repetición durante el entrenamiento (GonzalezJD86, rama `feature/plan-semanal`, mezclada por Claude)
+- ✅ X1b — Revisión de contenido de productos y práctica: sin hallazgos en productos; se corrigió la práctica de ritmo para no ofrecerla en ejercicios por tiempo, donde "marcar repeticiones" era confuso (GonzalezJD86, rama `feature/plan-semanal`, mezclada por Claude)
+- ✅ G4 — Plan semanal configurable: `UserSettings` versionado con `weeklyPlan`, editor por día en Ajustes, Inicio/Progreso/Rutina leyendo el plan en vez del orden fijo (GonzalezJD86, rama `feature/plan-semanal`, mezclada por Claude)
+- ✅ C9 — Reanudar entrenamiento interrumpido: `saveActiveWorkout` guardaba progreso pero nada lo leía de vuelta; ahora un banner en Inicio ofrece reanudar (retoma ejercicio/serie exactos, salta el calentamiento) o descartar (Claude, PR #33)
 - ✅ Actualiza README para reflejar el estado real de la app (Claude, PR #32)
 - ✅ C8 — Resumen de práctica de ritmo en Progreso: intentos totales, precisión promedio, mejor precisión por ejercicio (Claude, PR #31)
 - ✅ C7 — Banner propio de instalación PWA (captura `beforeinstallprompt`, botón instalar/cerrar, no vuelve a insistir por 14 días) (Claude, PR #30)
