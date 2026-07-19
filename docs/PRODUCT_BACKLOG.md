@@ -129,15 +129,15 @@ o algo más elaborado; empezar con la regla simple.
 
 ## Épica 10 — Revisión cruzada de contenido de seguridad
 
-**Estado: En curso** · Dueño: Ambos, cruzada (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
+**Estado: Hecho** · Dueño: Ambos, cruzada (ver [WORK_ALLOCATION.md](WORK_ALLOCATION.md))
 
 - Cada agente revisa el contenido de técnica/seguridad que escribió el
   otro (instrucciones, errores comunes, calentamientos) contra fuentes
   reconocidas, porque el valor central de la app es no lesionar al usuario.
-- Claude ya revisó brazos, piernas, espalda, core y pecho (sin hallazgos
-  graves salvo el de bisagra de cadera, corregido). Falta X1b: GonzalezJD86
-  revisa el contenido escrito por Claude (`products.ts`, textos de
-  práctica).
+- Claude revisó brazos, piernas, espalda, core y pecho (sin hallazgos
+  graves salvo el de bisagra de cadera, corregido). GonzalezJD86 revisó
+  productos y práctica (X1b): sin hallazgos en productos; corrigió que la
+  práctica de ritmo se ofrecía en ejercicios por tiempo donde no aplicaba.
 
 ## Épica 11 — Respaldo de progreso (exportar/importar)
 
