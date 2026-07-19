@@ -693,6 +693,122 @@ p {
 @keyframes bird-dog-leg { to { transform: translate(22px, -10px); } }
 @keyframes russian-twist { to { transform: rotate(14deg); } }
 
+/* Calentamiento: animaciones propias por tipo de movimiento. */
+.warmup-animation .arrow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.warmup-animation .joint-arrow-head {
+  fill: var(--accent);
+}
+
+.warmup-animation .joint-dot {
+  fill: var(--brand);
+}
+
+.warmup-animation .joint-rotate-arrow {
+  animation: joint-spin 2.2s linear infinite;
+}
+
+@keyframes joint-spin { to { transform: rotate(360deg); } }
+
+.warmup-motion-rotate-torso .warmup-twist {
+  animation: torso-twist 1.8s ease-in-out infinite alternate;
+  transform-origin: 130px 104px;
+}
+
+@keyframes torso-twist { 0% { transform: rotate(-14deg); } 100% { transform: rotate(14deg); } }
+
+.warmup-motion-leg-swing .swing-leg {
+  animation: leg-swing-motion 1.6s ease-in-out infinite alternate;
+  transform-origin: 130px 126px;
+}
+
+@keyframes leg-swing-motion { 0% { transform: rotate(-20deg); } 100% { transform: rotate(20deg); } }
+
+.warmup-motion-squat .warmup-squat-body {
+  animation: squat-drop 1.8s ease-in-out infinite alternate;
+}
+
+.warmup-motion-squat .leg {
+  animation: squat-knees 1.8s ease-in-out infinite alternate;
+  transform-origin: 130px 126px;
+}
+
+.warmup-motion-calf-raise .warmup-calf-body {
+  animation: calf-rise 1.8s ease-in-out infinite alternate;
+}
+
+.warmup-motion-hinge .warmup-hinge-body {
+  animation: hinge-deepen 1.8s ease-in-out infinite alternate;
+  transform-origin: 130px 126px;
+}
+
+.warmup-motion-row .warmup-row-arm {
+  animation: kickback 1.8s ease-in-out infinite alternate;
+  transform-origin: 148px 100px;
+}
+
+.warmup-motion-cat-cow .warmup-cat-cow {
+  animation: cat-cow-arch 2.2s ease-in-out infinite alternate;
+  transform-origin: 130px 130px;
+}
+
+@keyframes cat-cow-arch { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-8px) rotate(-4deg); } }
+
+.warmup-motion-breathe .warmup-breathe {
+  animation: breathe-pulse 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes breathe-pulse { 0% { transform: scale(1); } 100% { transform: scale(1.06); } }
+
+.warmup-motion-reach .left-arm,
+.warmup-motion-reach .left-leg {
+  animation: dead-bug-left 1.8s ease-in-out infinite alternate;
+  transform-origin: 116px 144px;
+}
+
+.warmup-motion-reach .right-arm,
+.warmup-motion-reach .right-leg {
+  animation: dead-bug-right 1.8s ease-in-out infinite alternate;
+  transform-origin: 136px 144px;
+}
+
+.warmup-motion-bridge .warmup-bridge-hip {
+  animation: bridge-lift 1.8s ease-in-out infinite alternate;
+  transform-origin: 76px 150px;
+}
+
+.warmup-motion-side-hold .warmup-hold,
+.warmup-motion-pace .warmup-hold {
+  animation: hold-pulse 2s ease-in-out infinite alternate;
+}
+
+.warmup-motion-chest-opener .warmup-open-left {
+  animation: raise-left 1.8s ease-in-out infinite alternate;
+  transform-origin: 130px 92px;
+}
+
+.warmup-motion-chest-opener .warmup-open-right {
+  animation: raise-right 1.8s ease-in-out infinite alternate;
+  transform-origin: 130px 92px;
+}
+
+.warmup-motion-wall-press .warmup-press-left,
+.warmup-motion-floor-press-warmup .warmup-press-left {
+  animation: press-left 1.8s ease-in-out infinite alternate;
+  transform-origin: 110px 86px;
+}
+
+.warmup-motion-wall-press .warmup-press-right,
+.warmup-motion-floor-press-warmup .warmup-press-right {
+  animation: press-right 1.8s ease-in-out infinite alternate;
+  transform-origin: 150px 86px;
+}
+
 .routine-choice-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

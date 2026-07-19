@@ -57,11 +57,35 @@ export interface Exercise {
   warning?: string;
 }
 
+export type WarmupMotion =
+  | 'rotate-shoulders'
+  | 'rotate-elbows'
+  | 'rotate-wrists'
+  | 'rotate-hips'
+  | 'rotate-knees-ankles'
+  | 'rotate-scapula'
+  | 'rotate-torso'
+  | 'leg-swing'
+  | 'squat'
+  | 'calf-raise'
+  | 'hinge'
+  | 'row'
+  | 'cat-cow'
+  | 'breathe'
+  | 'reach'
+  | 'bridge'
+  | 'side-hold'
+  | 'chest-opener'
+  | 'wall-press'
+  | 'floor-press-warmup'
+  | 'pace';
+
 export interface WarmupStep {
   id: string;
   name: string;
   seconds: number;
   cue: string;
+  motion: WarmupMotion;
 }
 
 export interface WorkoutSession {

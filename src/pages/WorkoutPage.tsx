@@ -4,6 +4,7 @@ import { ExerciseAnimation } from '../components/ExerciseAnimation';
 import { PreSetPractice } from '../components/PreSetPractice';
 import { ProgressBar } from '../components/ProgressBar';
 import { RestTimer } from '../components/RestTimer';
+import { WarmupAnimation } from '../components/WarmupAnimation';
 import { exercises } from '../data/exercises';
 import { warmupStepsByGroup, workoutSessions } from '../data/workouts';
 import { getPracticeAttempts } from '../services/practiceStorage';
@@ -152,6 +153,7 @@ export function WorkoutPage({ sessionId, settings, resumeState, onFinish, onExit
           <span className="eyebrow">Calentamiento guiado · paso {warmupIndex + 1} de {warmupSteps.length}</span>
           <h1>{step.name}</h1>
           <p>{step.cue}</p>
+          <WarmupAnimation motion={step.motion} label={step.name} />
           <div className="warmup-time">{warmupRemaining}s</div>
           <input aria-label="Tiempo restante de calentamiento" type="range" min="0" max={step.seconds} value={warmupRemaining} onChange={(event) => setWarmupRemaining(Number(event.target.value))} />
           <button className="primary-action" type="button" onClick={completeWarmupStep}>Avanzar</button>

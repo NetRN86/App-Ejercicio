@@ -203,6 +203,33 @@ una decisión, era lo que sale por defecto. Rediseño con identidad de
   al hacer click) en vez de planos, para que se sientan como un control
   físico de equipo de gimnasio.
 
+## Épica 14 — Animación del calentamiento guiado
+
+**Estado: Hecho** · Dueño: Claude
+
+- Como usuario, quiero ver una animación de cada paso del calentamiento
+  (no solo un número contando), para saber exactamente qué movimiento
+  hacer sin tener que adivinar a partir del nombre y la descripción.
+
+Motivación: pedido directo del usuario — el calentamiento hacía cuenta
+regresiva pero no mostraba ninguna referencia visual del movimiento,
+a diferencia de la fase de ejercicio (que sí tiene `ExerciseAnimation`).
+
+- `src/types/index.ts`: nuevo tipo `WarmupMotion` (21 valores) y campo
+  `motion: WarmupMotion` en `WarmupStep`.
+- `src/data/workouts.ts`: los 25 pasos de calentamiento (5 por grupo
+  muscular) ya tienen su `motion` asignado — rotaciones de articulación,
+  sentadilla, bisagra de cadera, remo, gato-vaca, respiración, puente,
+  plancha lateral, apertura de pecho, press contra pared, etc.
+- `src/components/WarmupAnimation.tsx` (nuevo): mismo lenguaje visual
+  que `ExerciseAnimation` (figura de palitos, mismos tokens de color),
+  con un helper `RotateArrow` para los movimientos de rotación articular
+  (flecha circular animada alrededor de la articulación) y reutiliza
+  keyframes ya existentes (`squat-drop`, `hinge-deepen`, `bridge-lift`,
+  `dead-bug-left/right`, `hold-pulse`, etc.) para los demás.
+- `WorkoutPage.tsx`: la fase de calentamiento ahora muestra la animación
+  arriba del contador, igual que la fase de ejercicio.
+
 ## Backlog técnico (transversal)
 
 - Formalizar `MuscleGroup` como entidad en vez de string literal (soporta

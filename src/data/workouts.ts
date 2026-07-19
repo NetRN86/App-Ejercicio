@@ -1,43 +1,43 @@
 import type { WarmupStep, WorkoutGroup, WorkoutSession } from '../types';
 
 export const armWarmupSteps: WarmupStep[] = [
-  { id: 'shoulders', name: 'Rotaciones de hombros', seconds: 45, cue: 'Haz circulos amplios hacia atras y luego hacia adelante.' },
-  { id: 'elbows', name: 'Rotaciones de codos', seconds: 35, cue: 'Mueve los codos con suavidad y sin dolor.' },
-  { id: 'wrists', name: 'Rotaciones de munecas', seconds: 35, cue: 'Gira lento en ambos sentidos.' },
-  { id: 'wall-pushups', name: 'Flexiones contra la pared', seconds: 75, cue: 'Cuerpo recto, manos a la altura del pecho.' },
-  { id: 'first-light', name: 'Serie lenta del primer ejercicio', seconds: 90, cue: 'Practica el patron con menos rango y mucha calma.' },
+  { id: 'shoulders', name: 'Rotaciones de hombros', seconds: 45, cue: 'Haz circulos amplios hacia atras y luego hacia adelante.', motion: 'rotate-shoulders' },
+  { id: 'elbows', name: 'Rotaciones de codos', seconds: 35, cue: 'Mueve los codos con suavidad y sin dolor.', motion: 'rotate-elbows' },
+  { id: 'wrists', name: 'Rotaciones de munecas', seconds: 35, cue: 'Gira lento en ambos sentidos.', motion: 'rotate-wrists' },
+  { id: 'wall-pushups', name: 'Flexiones contra la pared', seconds: 75, cue: 'Cuerpo recto, manos a la altura del pecho.', motion: 'wall-press' },
+  { id: 'first-light', name: 'Serie lenta del primer ejercicio', seconds: 90, cue: 'Practica el patron con menos rango y mucha calma.', motion: 'pace' },
 ];
 
 export const legWarmupSteps: WarmupStep[] = [
-  { id: 'hip-circles', name: 'Rotaciones de cadera', seconds: 45, cue: 'Dibuja circulos lentos con la cadera en ambos sentidos.' },
-  { id: 'knee-ankle-circles', name: 'Movilidad de rodillas y tobillos', seconds: 45, cue: 'Flexiona suave las rodillas y gira los tobillos sin dolor.' },
-  { id: 'leg-swings', name: 'Balanceo de piernas', seconds: 60, cue: 'Balancea una pierna a la vez al frente y atras, sujetandote si hace falta.' },
-  { id: 'bodyweight-squat', name: 'Sentadilla sin peso', seconds: 75, cue: 'Baja lento con pecho alto y rodillas siguiendo la linea de los pies.' },
-  { id: 'calf-warmup', name: 'Elevaciones de talones sin peso', seconds: 45, cue: 'Sube y baja los talones con control para preparar tobillos y pantorrillas.' },
+  { id: 'hip-circles', name: 'Rotaciones de cadera', seconds: 45, cue: 'Dibuja circulos lentos con la cadera en ambos sentidos.', motion: 'rotate-hips' },
+  { id: 'knee-ankle-circles', name: 'Movilidad de rodillas y tobillos', seconds: 45, cue: 'Flexiona suave las rodillas y gira los tobillos sin dolor.', motion: 'rotate-knees-ankles' },
+  { id: 'leg-swings', name: 'Balanceo de piernas', seconds: 60, cue: 'Balancea una pierna a la vez al frente y atras, sujetandote si hace falta.', motion: 'leg-swing' },
+  { id: 'bodyweight-squat', name: 'Sentadilla sin peso', seconds: 75, cue: 'Baja lento con pecho alto y rodillas siguiendo la linea de los pies.', motion: 'squat' },
+  { id: 'calf-warmup', name: 'Elevaciones de talones sin peso', seconds: 45, cue: 'Sube y baja los talones con control para preparar tobillos y pantorrillas.', motion: 'calf-raise' },
 ];
 
 export const backWarmupSteps: WarmupStep[] = [
-  { id: 'scapular-circles', name: 'Circulos escapulares', seconds: 40, cue: 'Lleva los hombros atras, abajo y adelante sin dolor para activar la espalda alta.' },
-  { id: 'cat-cow', name: 'Gato-vaca', seconds: 50, cue: 'Alterna extension y flexion suave de columna mientras respiras profundo.' },
-  { id: 'thoracic-rotation', name: 'Rotacion toracica', seconds: 50, cue: 'Gira el torso con calma hacia cada lado manteniendo la cadera estable.' },
-  { id: 'hip-hinge-drill', name: 'Bisagra de cadera sin peso', seconds: 60, cue: 'Practica llevar la cadera atras con espalda larga y cuello neutral.' },
-  { id: 'light-row', name: 'Remo lento sin peso', seconds: 60, cue: 'Lleva los codos hacia atras apretando los omoplatos al final.' },
+  { id: 'scapular-circles', name: 'Circulos escapulares', seconds: 40, cue: 'Lleva los hombros atras, abajo y adelante sin dolor para activar la espalda alta.', motion: 'rotate-scapula' },
+  { id: 'cat-cow', name: 'Gato-vaca', seconds: 50, cue: 'Alterna extension y flexion suave de columna mientras respiras profundo.', motion: 'cat-cow' },
+  { id: 'thoracic-rotation', name: 'Rotacion toracica', seconds: 50, cue: 'Gira el torso con calma hacia cada lado manteniendo la cadera estable.', motion: 'rotate-torso' },
+  { id: 'hip-hinge-drill', name: 'Bisagra de cadera sin peso', seconds: 60, cue: 'Practica llevar la cadera atras con espalda larga y cuello neutral.', motion: 'hinge' },
+  { id: 'light-row', name: 'Remo lento sin peso', seconds: 60, cue: 'Lleva los codos hacia atras apretando los omoplatos al final.', motion: 'row' },
 ];
 
 export const coreWarmupSteps: WarmupStep[] = [
-  { id: 'breathing-brace', name: 'Respiracion y brace abdominal', seconds: 45, cue: 'Inhala por nariz y aprieta suave el abdomen como si fueras a recibir un toque.' },
-  { id: 'cat-cow-core', name: 'Gato-vaca suave', seconds: 45, cue: 'Mueve la columna con control para despertar abdomen y espalda.' },
-  { id: 'dead-bug-reach', name: 'Alcances alternados sin peso', seconds: 50, cue: 'Lleva brazo y pierna opuestos con zona lumbar estable.' },
-  { id: 'hip-bridge-light', name: 'Puente corto sin peso', seconds: 50, cue: 'Eleva y baja la cadera sin perder costillas abajo.' },
-  { id: 'side-brace', name: 'Plancha lateral corta', seconds: 40, cue: 'Activa el costado del abdomen en un apoyo comodo antes de empezar.' },
+  { id: 'breathing-brace', name: 'Respiracion y brace abdominal', seconds: 45, cue: 'Inhala por nariz y aprieta suave el abdomen como si fueras a recibir un toque.', motion: 'breathe' },
+  { id: 'cat-cow-core', name: 'Gato-vaca suave', seconds: 45, cue: 'Mueve la columna con control para despertar abdomen y espalda.', motion: 'cat-cow' },
+  { id: 'dead-bug-reach', name: 'Alcances alternados sin peso', seconds: 50, cue: 'Lleva brazo y pierna opuestos con zona lumbar estable.', motion: 'reach' },
+  { id: 'hip-bridge-light', name: 'Puente corto sin peso', seconds: 50, cue: 'Eleva y baja la cadera sin perder costillas abajo.', motion: 'bridge' },
+  { id: 'side-brace', name: 'Plancha lateral corta', seconds: 40, cue: 'Activa el costado del abdomen en un apoyo comodo antes de empezar.', motion: 'side-hold' },
 ];
 
 export const chestWarmupSteps: WarmupStep[] = [
-  { id: 'chest-circles', name: 'Circulos de hombros y pecho', seconds: 45, cue: 'Haz circulos amplios hacia atras y abre el pecho sin dolor.' },
-  { id: 'wall-slide', name: 'Deslizamientos en pared', seconds: 45, cue: 'Apoya brazos en la pared y sube-baja con costillas controladas.' },
-  { id: 'scapular-pushup', name: 'Flexion escapular suave', seconds: 50, cue: 'Desde pared o mesa, separa y junta los omoplatos sin doblar mucho los codos.' },
-  { id: 'chest-opener', name: 'Apertura de pecho sin peso', seconds: 50, cue: 'Abre y cierra los brazos con codos suaves para preparar hombros y pectoral.' },
-  { id: 'light-floor-press', name: 'Press lento sin peso', seconds: 60, cue: 'Simula el press con recorrido corto y hombros estables.' },
+  { id: 'chest-circles', name: 'Circulos de hombros y pecho', seconds: 45, cue: 'Haz circulos amplios hacia atras y abre el pecho sin dolor.', motion: 'rotate-shoulders' },
+  { id: 'wall-slide', name: 'Deslizamientos en pared', seconds: 45, cue: 'Apoya brazos en la pared y sube-baja con costillas controladas.', motion: 'wall-press' },
+  { id: 'scapular-pushup', name: 'Flexion escapular suave', seconds: 50, cue: 'Desde pared o mesa, separa y junta los omoplatos sin doblar mucho los codos.', motion: 'wall-press' },
+  { id: 'chest-opener', name: 'Apertura de pecho sin peso', seconds: 50, cue: 'Abre y cierra los brazos con codos suaves para preparar hombros y pectoral.', motion: 'chest-opener' },
+  { id: 'light-floor-press', name: 'Press lento sin peso', seconds: 60, cue: 'Simula el press con recorrido corto y hombros estables.', motion: 'floor-press-warmup' },
 ];
 
 export const warmupStepsByGroup: Record<WorkoutGroup, WarmupStep[]> = {
