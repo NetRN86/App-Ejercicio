@@ -3,6 +3,7 @@ import type { LucideIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { InstallBanner } from './components/InstallBanner';
 import { ResumeWorkoutBanner } from './components/ResumeWorkoutBanner';
+import { UpdateBanner } from './components/UpdateBanner';
 import { HomePage } from './pages/HomePage';
 import { LibraryPage } from './pages/LibraryPage';
 import { PracticePage } from './pages/PracticePage';
@@ -84,6 +85,7 @@ export function App() {
           <strong>Guía de ejercicio principiante</strong>
         </div>
       </header>
+      <UpdateBanner />
       <InstallBanner />
       {page === 'inicio' && activeWorkout && <ResumeWorkoutBanner state={activeWorkout} onResume={resumeWorkout} onDiscard={discardActiveWorkout} />}
       <main>

@@ -155,6 +155,22 @@ musculares y meses de historial potencial, perderlo por limpiar el
 navegador o cambiar de equipo sería un golpe real a la constancia del
 usuario.
 
+## Épica 12 — Aviso de actualización de la PWA
+
+**Estado: Hecho** · Dueño: Claude
+
+- Como usuario, quiero enterarme cuando hay una versión nueva de la app
+  lista, para actualizar cuando yo quiera en vez de tener cambios
+  aplicados en silencio o quedarme con una versión vieja sin saberlo.
+
+Motivación: la PWA usa `registerType: 'autoUpdate'` (`vite.config.ts`),
+pero nada en la app llamaba a `useRegisterSW`/`updateSW` — el service
+worker se actualizaba en segundo plano sin ningún aviso visible, así que
+un usuario con la pestaña abierta mucho tiempo podía quedar corriendo
+código viejo hasta recargar por su cuenta. `UpdateBanner.tsx` (nuevo)
+usa `virtual:pwa-register/react` y ofrece "Actualizar" quitando cachés
+viejos vía `updateServiceWorker(true)`.
+
 ## Backlog técnico (transversal)
 
 - Formalizar `MuscleGroup` como entidad en vez de string literal (soporta
