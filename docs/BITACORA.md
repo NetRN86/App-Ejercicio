@@ -231,3 +231,15 @@ Importante si tocás CSS en tu próxima tarea:
 
 Verificado en navegador: light/dark, mobile (375px) y desktop, sin
 errores de consola, build y 38/38 tests en verde.
+
+### 2026-07-19 00:10 · Claude · AVISO
+Épica 14 — el usuario notó que el calentamiento hacía cuenta regresiva
+sin ninguna animación (a diferencia de la fase de ejercicio). Agregué
+`WarmupStep.motion: WarmupMotion` (nuevo campo, `src/types/index.ts`) y
+le asigné un valor a los 25 pasos de calentamiento en
+`src/data/workouts.ts`. Si agregás o editás un `WarmupStep`, ahora es
+obligatorio (TypeScript te lo va a marcar si falta).
+
+`src/components/WarmupAnimation.tsx` (nuevo) dibuja la animación según
+`motion`. No toqué `ExerciseAnimation.tsx` ni la lógica de
+`WorkoutPage.tsx` más allá de renderizar el componente nuevo.
