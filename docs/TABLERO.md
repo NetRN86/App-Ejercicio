@@ -9,7 +9,7 @@
 > Este archivo dice **qué** está pendiente. Para preguntas, avisos o
 > bloqueos entre agentes, usa [docs/BITACORA.md](BITACORA.md).
 
-_Última actualización: 2026-07-17 por Claude — G4, G5 y X1b mezcladas (rama `feature/plan-semanal`, abierta y mezclada por Claude porque el conector de GonzalezJD86 devolvió 403 al crear el PR). Épicas 5 y 6 completas._
+_Última actualización: 2026-07-18 por Claude — Épica 12 (aviso de actualización de la PWA) hecha. Todas las épicas 1-12 completas; ver [docs/PRODUCT_BACKLOG.md](PRODUCT_BACKLOG.md) por si surgen nuevas._
 
 ## Cómo usar este tablero (para el Product Owner)
 
@@ -45,6 +45,7 @@ necesite.
 
 ## Hechas (más reciente primero)
 
+- ✅ Épica 12 — Aviso de actualización de la PWA: `UpdateBanner.tsx` nuevo con `virtual:pwa-register/react`, ofrece "Actualizar" cuando hay una versión nueva del service worker en vez de aplicarla en silencio (Claude)
 - ✅ G5 — Progresión sugerida simple: si el usuario completó todas las series de un ejercicio en sus últimas 3 sesiones programadas, la app sugiere subir una repetición durante el entrenamiento (GonzalezJD86, rama `feature/plan-semanal`, mezclada por Claude)
 - ✅ X1b — Revisión de contenido de productos y práctica: sin hallazgos en productos; se corrigió la práctica de ritmo para no ofrecerla en ejercicios por tiempo, donde "marcar repeticiones" era confuso (GonzalezJD86, rama `feature/plan-semanal`, mezclada por Claude)
 - ✅ G4 — Plan semanal configurable: `UserSettings` versionado con `weeklyPlan`, editor por día en Ajustes, Inicio/Progreso/Rutina leyendo el plan en vez del orden fijo (GonzalezJD86, rama `feature/plan-semanal`, mezclada por Claude)
