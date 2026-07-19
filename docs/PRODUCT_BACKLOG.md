@@ -171,6 +171,38 @@ código viejo hasta recargar por su cuenta. `UpdateBanner.tsx` (nuevo)
 usa `virtual:pwa-register/react` y ofrece "Actualizar" quitando cachés
 viejos vía `updateServiceWorker(true)`.
 
+## Épica 13 — Identidad visual propia
+
+**Estado: Hecho** · Dueño: Claude
+
+- Como usuario, quiero que la app se sienta como un producto con
+  personalidad propia (no una plantilla genérica), para que se sienta
+  hecha a propósito para entrenar en casa.
+
+Motivación: la paleta original (crema + terracota + Inter) coincidía casi
+exactamente con un "default" genérico de diseño asistido por IA — no era
+una decisión, era lo que sale por defecto. Rediseño con identidad de
+"piso de gimnasio en casa":
+
+- Paleta: fondo gris-piedra frío (`#eef1ef`), acero/hule para tarjetas,
+  teal `#0c5c53` como marca (acción principal), naranja seguridad
+  `#ff7a1a` + amarillo precaución `#ffcf3f` para todo lo relacionado a
+  seguridad — mismo lenguaje que la cinta de peligro de un gimnasio real.
+- Tipografía: "Big Shoulders Display" (condensada, industrial) para
+  títulos/etiquetas/botones; "JetBrains Mono" con `tabular-nums` para
+  todo lo que es un marcador en vivo (cuenta regresiva de calentamiento,
+  temporizador de descanso, porcentajes, contadores de series);
+  "Public Sans" para texto de lectura. Las tres se auto-hospedan vía
+  `@fontsource-variable/*` (sin CDN externo) y quedan precacheadas para
+  que la PWA offline no dependa de red.
+- Firma: franja de "cinta de peligro" (rayas diagonales negro/amarillo)
+  en el borde inferior del encabezado y en el borde izquierdo de cada
+  aviso de seguridad — refuerza visualmente que ese contenido es
+  literal seguridad física, no una nota cualquiera.
+- Botones primarios con relieve táctil (sombra sólida que se "presiona"
+  al hacer click) en vez de planos, para que se sientan como un control
+  físico de equipo de gimnasio.
+
 ## Backlog técnico (transversal)
 
 - Formalizar `MuscleGroup` como entidad en vez de string literal (soporta

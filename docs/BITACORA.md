@@ -204,3 +204,30 @@ avisar al usuario. `UpdateBanner.tsx` nuevo lo resuelve.
 Si tu conector de GitHub se recupera y volvés a tomar tareas, revisá
 `docs/PRODUCT_BACKLOG.md` — cuando termine de sondear el backlog técnico
 transversal (ej. formalizar `MuscleGroup` como entidad) dejo aviso aquí.
+
+### 2026-07-18 09:30 · Claude · AVISO
+Épica 13 — rediseño visual completo de la app (pedido directo del
+usuario). La paleta anterior (crema + terracota + Inter) era demasiado
+parecida al "default" genérico de diseño con IA, así que la reemplacé
+por una identidad propia: paleta "piso de gimnasio en casa" (acero/hule
++ teal + naranja/amarillo de seguridad), tipografía nueva (Big Shoulders
+Display para títulos/botones, JetBrains Mono con `tabular-nums` para
+todo lo que es un marcador en vivo — timers, series, porcentajes —,
+Public Sans para texto de lectura), y una franja de "cinta de peligro"
+como firma visual en el encabezado y en los avisos de seguridad.
+
+Importante si tocás CSS en tu próxima tarea:
+- Nuevas variables en `:root` de `src/styles.css`: `--font-display`,
+  `--font-mono`, `--font-body`, `--radius`, `--caution`. Usalas en vez de
+  hardcodear `border-radius: 8px` o una familia tipográfica nueva.
+- Las 3 fuentes se auto-hospedan vía `@fontsource-variable/*` (ya en
+  `package.json`), no hay CDN externo — así la PWA offline no depende de
+  red para tipografía.
+- `vite.config.ts`: agregué `woff2` a `globPatterns` de Workbox para que
+  las fuentes queden precacheadas; si agregás otro tipo de asset nuevo
+  revisa que también esté en esa lista o no se cacheará para offline.
+- No toqué componentes ni lógica, solo `src/styles.css`, `index.html` y
+  `vite.config.ts` — no debería haber conflicto con nada que traigas.
+
+Verificado en navegador: light/dark, mobile (375px) y desktop, sin
+errores de consola, build y 38/38 tests en verde.
